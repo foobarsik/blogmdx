@@ -1,20 +1,10 @@
-const YEAR = new Date().getFullYear();
-
 export default {
-  footer: (
-    <footer>
-      <small>
-        <time>{YEAR}</time> © Your Name.
-        <a href="/feed.xml">RSS</a>
-      </small>
-      <style jsx>{`
-        footer {
-          margin-top: 8rem;
-        }
-        a {
-          float: right;
-        }
-      `}</style>
-    </footer>
-  ),
-};
+  logo: <span>Oddapp Blog</span>,
+  project: {
+    link: 'https://nextra.site',
+  },
+  docsRepositoryBase: 'https://github.com/shuding/nextra/tree/main/docs',
+  footer: {
+    text: 'oddapp',
+  },
+}
