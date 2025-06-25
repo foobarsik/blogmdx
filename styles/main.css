@@ -1,22 +1,22 @@
 @font-face {
-  font-family: "Inter var";
-  font-style: normal;
-  font-weight: 100 900;
-  font-display: block;
-  src: url(/fonts/Inter-roman.latin.var.woff2) format("woff2");
+    font-family: "Inter var";
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: block;
+    src: url(/fonts/Inter-roman.latin.var.woff2) format("woff2");
 }
+
 @font-face {
-  font-family: "Inter var";
-  font-style: italic;
-  font-weight: 100 900;
-  font-display: block;
-  src: url(/fonts/Inter-italic.latin.var.woff2) format("woff2");
-  font-named-instance: "Italic";
+    font-family: "Inter var";
+    font-style: italic;
+    font-weight: 100 900;
+    font-display: block;
+    src: url(/fonts/Inter-italic.latin.var.woff2) format("woff2");
+    font-named-instance: "Italic";
 }
 
 body {
-  font-family:
-    "Inter var",
+    font-family: "Inter var",
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
@@ -30,67 +30,111 @@ body {
     "Segoe UI Emoji",
     "Segoe UI Symbol",
     "Noto Color Emoji";
-  -webkit-font-smoothing: subpixel-antialiased;
-  font-feature-settings:
-    "case" 1,
+    -webkit-font-smoothing: subpixel-antialiased;
+    font-feature-settings: "case" 1,
     "cpsp" 1,
     "dlig" 1,
     "cv01" 1,
     "cv02",
     "cv03" 1,
     "cv04" 1;
-  font-variation-settings: "wght" 450;
-  font-variant: common-ligatures contextual;
-  letter-spacing: -0.02em;
+    font-variation-settings: "wght" 450;
+    font-variant: common-ligatures contextual;
+    letter-spacing: -0.02em;
 }
+
 b,
 strong,
+h2,
 h3,
 h4,
 h5,
 h6 {
-  font-variation-settings: "wght" 650;
-}
-h1 {
-  font-variation-settings: "wght" 850;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  background-image: linear-gradient(90deg, #7928CA, #FF0080);
-  font-weight: 800;
-}
-h2 {
-  font-variation-settings: "wght" 750;
+    font-variation-settings: "wght" 450;
 }
 
-@media screen and (min-device-pixel-ratio: 1.5),
-  screen and (min-resolution: 1.5dppx) {
-  body {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
+b,
+strong {
+    font-variation-settings: "wght" 650;
+}
+
+h1 {
+    margin-bottom: 24px;
+    font-variation-settings: "wght" 650;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    background-image: linear-gradient(90deg, #7928CA, #FF0080);
+    font-weight: 800;
+}
+
+@media screen and (min-device-pixel-ratio: 1.5), screen and (min-resolution: 1.5dppx) {
+    body {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
 }
 
 details summary {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 img.next-image {
-  margin: 0;
+    margin: 0;
 }
 
 .prose a {
-  color: #0074de;
+    color: #0074de;
 }
 
 .nav-line .nav-link {
-  color: #69778c;
+    color: #69778c;
 }
 
 .nextra-tag {
-  background-color: transparent;
-  padding: 6px 12px 6px 12px;
-  border-color: #dedcdc;
-  border-width: 1px;
-  border-radius: 50px;
+    background-color: transparent;
+    padding: 6px 12px 6px 12px;
+    border-color: #dedcdc;
+    border-width: 1px;
+    border-radius: 50px;
+    text-decoration: none;
+}
+
+.nav-link {
+    color: #64748b;
+    font-weight: 500;
+    font-size: 20px;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.nav-container {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: 40px;
+}
+
+.search-theme-bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 220px;
+    justify-content: flex-end;
+    margin-bottom: 28px;
+}
+
+.underline-link {
+    text-decoration: underline;
+    text-underline-position: from-font;
+}
+
+.footer-abbr {
+    cursor: help;
+}
+
+.footer-link {
+    float: right;
+    color: inherit;
+    font-weight: 500;
 }

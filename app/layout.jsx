@@ -1,24 +1,21 @@
-import { Footer, Layout, Navbar, ThemeSwitch } from 'nextra-theme-blog'
-import { Banner, Head, Search } from 'nextra/components'
-import { getPageMap } from 'nextra/page-map'
+import {Footer, Layout, Navbar, ThemeSwitch} from 'nextra-theme-blog'
+import {Banner, Head, Search} from 'nextra/components'
+import {getPageMap} from 'nextra/page-map'
 import 'nextra-theme-blog/style.css'
-import '../styles/main.css';
+import '../styles/main.css'
 
 export const metadata = {
     title: 'Blog'
 }
 
-export default async function RootLayout({ children }) {
+export default async function RootLayout({children}) {
     const banner = (
         <Banner storageKey="linkedin-connect">
-            Let’s connect on {' '}
+            Let’s connect on{' '}
             <a
                 href="https://www.linkedin.com/in/olga-panibratchenko-381470174/"
-                target='_blank'
-                style={{
-                    textDecoration: 'underline',
-                    textUnderlinePosition: 'from-font'
-                }}
+                target="_blank"
+                className="underline-link"
             >
                 Linkedin
             </a> 🤝
@@ -27,24 +24,35 @@ export default async function RootLayout({ children }) {
 
     return (
         <html lang="en" suppressHydrationWarning>
-        <Head backgroundColor={{ dark: '#0f172a', light: '#fff' }} />
+        <Head backgroundColor={{dark: '#0f172a', light: '#fff'}}/>
         <body>
         <Layout banner={banner}>
             <Navbar pageMap={await getPageMap()}>
-                <Search placeholder='Search'/>
-                <ThemeSwitch />
+                <nav className="nav-container">
+                    <a href="/posts" className="nav-link">Blog</a>
+                    <a href="/projects" className="nav-link">Projects</a>
+                    <a href="/" className="nav-link">About me</a>
+                </nav>
             </Navbar>
+
+            <div className="search-theme-bar">
+                <Search placeholder="Search..."/>
+                <ThemeSwitch/>
+            </div>
 
             {children}
 
             <Footer>
                 <abbr
                     title="This site and all its content are licensed under a Creative Commons Attribution-NonCommercial 4.0 International License."
-                    style={{ cursor: 'help' }}
+                    className="footer-abbr"
                 >
                 </abbr>{' '}
                 {new Date().getFullYear()} © oddapp
-                <a href="https://www.linkedin.com/in/olga-panibratchenko-381470174/" style={{ float: 'right' }}>
+                <a
+                    href="https://www.linkedin.com/in/olga-panibratchenko-381470174/"
+                    className="footer-link"
+                >
                     Linkedin
                 </a>
             </Footer>
