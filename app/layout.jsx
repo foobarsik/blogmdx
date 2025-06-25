@@ -31,7 +31,7 @@ export default async function RootLayout({ children }) {
         <body>
         <Layout banner={banner}>
             <Navbar pageMap={await getPageMap()}>
-                <Search />
+                <Search placeholder='Search'/>
                 <ThemeSwitch />
             </Navbar>
 
