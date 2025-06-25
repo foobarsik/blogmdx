@@ -44,8 +44,8 @@ export default async function RootLayout({ children }) {
                 >
                 </abbr>{' '}
                 {new Date().getFullYear()} © oddapp
-                <a href="/feed.xml" style={{ float: 'right' }}>
-                    RSS
+                <a href="https://www.linkedin.com/in/olga-panibratchenko-381470174/" style={{ float: 'right' }}>
+                    Linkedin
                 </a>
             </Footer>
         </Layout>

@@ -92,4 +92,5 @@ img.next-image {
   padding: 6px 12px 6px 12px;
   border-color: #dedcdc;
   border-width: 1px;
+  border-radius: 50px;
 }
