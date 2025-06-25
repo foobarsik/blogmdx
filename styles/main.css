@@ -53,6 +53,11 @@ h6 {
 }
 h1 {
   font-variation-settings: "wght" 850;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-image: linear-gradient(90deg, #7928CA, #FF0080);
+  font-weight: 800;
 }
 h2 {
   font-variation-settings: "wght" 750;
@@ -80,4 +85,11 @@ img.next-image {
 
 .nav-line .nav-link {
   color: #69778c;
+}
+
+.nextra-tag {
+  background-color: transparent;
+  padding: 6px 12px 6px 12px;
+  border-color: #dedcdc;
+  border-width: 1px;
 }

@@ -1,9 +1,8 @@
 ---
 title: Next.js Pages
-date: 2021/3/18
+date: 2025/06/25
 description: Learn more about Next.js pages.
 tags: [web development]
-author: You
 ---
 
 # Next.js Pages
