@@ -83,6 +83,13 @@ img.next-image {
     margin: 0;
 }
 
+.avatar-img {
+    border-radius: 50%;
+    object-fit: cover;
+    aspect-ratio: 1/1;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
 .prose a {
     color: #0074de;
 }

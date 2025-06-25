@@ -13,7 +13,7 @@ export default async function RootLayout({children}) {
         <Banner storageKey="linkedin-connect">
             Let’s connect on{' '}
             <a
-                href="https://www.linkedin.com/in/olga-panibratchenko-381470174/"
+                href="https://www.linkedin.com/in/olga-panibratchenko"
                 target="_blank"
                 className="underline-link"
             >
@@ -50,7 +50,7 @@ export default async function RootLayout({children}) {
                 </abbr>{' '}
                 {new Date().getFullYear()} © oddapp
                 <a
-                    href="https://www.linkedin.com/in/olga-panibratchenko-381470174/"
+                    href="https://www.linkedin.com/in/olga-panibratchenko"
                     className="footer-link"
                 >
                     Linkedin
