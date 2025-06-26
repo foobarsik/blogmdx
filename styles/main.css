@@ -150,7 +150,7 @@ img.next-image {
     align-items: center;
     gap: 12px;
     min-width: 220px;
-    justify-content: flex-start;
+    justify-content: space-between;
     margin-bottom: 28px;
 }
 
