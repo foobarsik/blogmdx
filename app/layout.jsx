@@ -12,11 +12,7 @@ export default async function RootLayout({children}) {
     const banner = (
         <Banner storageKey="linkedin-connect">
             Let’s connect on{' '}
-            <a
-                href="https://www.linkedin.com/in/olga-panibratchenko"
-                target="_blank"
-                className="underline-link"
-            >
+            <a href="https://www.linkedin.com/in/olga-panibratchenko" target="_blank" className="underline-link">
                 Linkedin
             </a> 🤝
         </Banner>
@@ -24,7 +20,7 @@ export default async function RootLayout({children}) {
 
     return (
         <html lang="en" suppressHydrationWarning>
-        <Head backgroundColor={{dark: '#0f172a', light: '#fff'}}/>
+        <Head/>
         <body>
         <Layout banner={banner}>
             <Navbar pageMap={await getPageMap()}>
@@ -49,11 +45,7 @@ export default async function RootLayout({children}) {
                 >
                 </abbr>{' '}
                 {new Date().getFullYear()} © oddapp
-                <a
-                    href="https://www.linkedin.com/in/olga-panibratchenko"
-                    target="_blank"
-                    className="footer-link"
-                >
+                <a href="https://www.linkedin.com/in/olga-panibratchenko" target="_blank" className="footer-link">
                     Linkedin
                 </a>
             </Footer>
