@@ -60,6 +60,7 @@ strong {
 
 h1 {
     margin-bottom: 24px;
+    padding-bottom: 1px;
     font-variation-settings: "wght" 650;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -127,7 +128,7 @@ img.next-image {
     align-items: center;
     gap: 12px;
     min-width: 220px;
-    justify-content: flex-end;
+    justify-content: flex-start;
     margin-bottom: 28px;
 }
 

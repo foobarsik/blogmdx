@@ -51,6 +51,7 @@ export default async function RootLayout({children}) {
                 {new Date().getFullYear()} © oddapp
                 <a
                     href="https://www.linkedin.com/in/olga-panibratchenko"
+                    target="_blank"
                     className="footer-link"
                 >
                     Linkedin
