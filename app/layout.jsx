@@ -1,4 +1,5 @@
 import {Footer, Layout, Navbar, ThemeSwitch} from 'nextra-theme-blog'
+import NavLinks from './components/NavLinks'
 import {Banner, Head, Search} from 'nextra/components'
 import {getPageMap} from 'nextra/page-map'
 import 'nextra-theme-blog/style.css'
@@ -24,11 +25,7 @@ export default async function RootLayout({children}) {
         <body>
         <Layout banner={banner}>
             <Navbar pageMap={await getPageMap()}>
-                <nav className="nav-container">
-                    <a href="/posts" className="nav-link">Blog</a>
-                    <a href="/projects" className="nav-link">Projects</a>
-                    <a href="/" className="nav-link">About me</a>
-                </nav>
+                <NavLinks/>
             </Navbar>
 
             <div className="search-theme-bar">

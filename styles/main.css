@@ -88,7 +88,7 @@ img.next-image {
     border-radius: 50%;
     object-fit: cover;
     aspect-ratio: 1/1;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
 .prose a {
@@ -110,10 +110,32 @@ img.next-image {
 
 .nav-link {
     color: #64748b;
-    font-weight: 500;
-    font-size: 20px;
     text-decoration: none;
-    transition: color 0.2s;
+    font-size: 1.3rem;
+    font-weight: 600;
+    position: relative;
+    padding: 10px 0;
+    transition: color 0.3s ease;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #7928CA, #FF0080);
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after, .nav-link.active-link::after {
+    width: 100%;
+}
+
+.nav-link:hover, .nav-link.active-link {
+    color: #7928CA;
 }
 
 .nav-container {
