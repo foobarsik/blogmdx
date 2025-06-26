@@ -3,7 +3,7 @@ import { PostCard } from 'nextra-theme-blog'
 import { getPosts, getTags } from './get-posts'
 
 export const metadata = {
-    title: 'Posts'
+    title: 'import signals from \'my-brain\''
 }
 
 export default async function PostsPage() {
