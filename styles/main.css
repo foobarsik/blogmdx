@@ -173,6 +173,11 @@ img.next-image {
     font-weight: 500;
 }
 
+.video-center {
+    display: flex;
+    justify-content: center;
+}
+
 figure {
     display: flex;
     flex-direction: column;
@@ -180,6 +185,7 @@ figure {
     margin: 0;
     padding: 0;
 }
+
 figcaption {
     font-size: 0.95em;
     color: #666;
