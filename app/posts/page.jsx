@@ -17,7 +17,6 @@ export default async function PostsPage() {
     }
     return (
         <div data-pagefind-ignore="all">
-            <h1>{metadata.title}</h1>
             <div
                 className="not-prose"
                 style={{ display: 'flex', flexWrap: 'wrap', gap: '.5rem' }}
