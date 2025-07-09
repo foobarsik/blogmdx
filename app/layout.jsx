@@ -41,7 +41,7 @@ export default async function RootLayout({children}) {
                     className="footer-abbr"
                 >
                 </abbr>{' '}
-                {new Date().getFullYear()} © oddapp
+                {new Date().getFullYear()} © mehwow
                 <a href="https://www.linkedin.com/in/olga-panibratchenko" target="_blank" className="footer-link">
                     Linkedin
                 </a>
