@@ -127,7 +127,7 @@ img.next-image {
     color: #64748b;
     text-decoration: none;
     font-size: 1.3rem;
-    font-weight: 600;
+    font-variation-settings: "wght" 550;
     position: relative;
     padding: 10px 0;
     transition: color 0.3s ease;
