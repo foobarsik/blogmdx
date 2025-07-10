@@ -24,7 +24,7 @@ export default async function RootLayout({children}) {
         <Head/>
         <body>
         <Layout banner={banner}>
-            <img src="/images/logo-wow-new.png" alt="mehwow logo" width={156} className="logo"/>
+            <img src="/images/mehwow-logo.png" alt="mehwow logo" width={156} className="logo"/>
 
             <Navbar pageMap={await getPageMap()}>
                 <NavLinks/>
