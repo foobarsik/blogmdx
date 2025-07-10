@@ -17,6 +17,11 @@
     font-named-instance: "Italic";
 }
 
+article {
+    padding-top: 16px;
+}
+
+
 body {
     font-family: "Inter var",
     system-ui,
