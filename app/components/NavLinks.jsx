@@ -17,7 +17,7 @@ export default function NavLinks() {
                 <Link
                     key={href}
                     href={href}
-                    className={`nav-link${pathname === href ? " active-link" : ""}`}
+                    className={`uppercase nav-link${pathname === href ? " active-link" : ""}`}
                 >
                     {label}
                 </Link>

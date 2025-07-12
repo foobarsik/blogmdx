@@ -21,11 +21,6 @@ article {
     padding-top: 16px;
 }
 
-img.logo {
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
 body {
     font-family: "Inter var",
     system-ui,
@@ -126,8 +121,8 @@ img.next-image {
 .nav-link {
     color: #64748b;
     text-decoration: none;
-    font-size: 1.3rem;
-    font-variation-settings: "wght" 550;
+    font-size: 1.1rem;
+    font-variation-settings: "wght" 500;
     position: relative;
     padding: 10px 0;
     transition: color 0.3s ease;
@@ -166,7 +161,6 @@ img.next-image {
     gap: 12px;
     min-width: 220px;
     justify-content: space-between;
-    margin-bottom: 28px;
 }
 
 .underline-link {

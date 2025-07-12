@@ -24,13 +24,13 @@ export default async function RootLayout({children}) {
         <Head/>
         <body>
         <Layout banner={banner}>
-            <img src="/images/mehwowcom-logo.png" alt="mehwow logo" width={179} className="logo"/>
+            <img src="/images/mehwowcom-logo.png" alt="mehwow logo" width={179} className="logo mt-4"/>
 
             <Navbar pageMap={await getPageMap()}>
                 <NavLinks/>
             </Navbar>
 
-            <div className="search-theme-bar">
+            <div className="search-theme-bar my-10">
                 <Search placeholder="Search..."/>
                 <ThemeSwitch/>
             </div>
