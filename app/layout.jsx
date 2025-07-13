@@ -23,15 +23,20 @@ export default async function RootLayout({children}) {
         <Head/>
         <body>
         <Layout banner={banner}>
-            <div className="header flex flex-wrap items-center justify-between gap-3 min-w-[220px] mt-2 mb-12">
-                <img src="/images/logo-meh-wow.png" alt="mehwow logo" width={160} className="logo my-2"/>
+            <div className="header flex flex-col sm:flex-row flex-wrap items-center justify-between gap-3 min-w-[220px] mt-2 mb-12">
+                <img
+                    src="/images/logo-meh-wow.png"
+                    alt="mehwow logo"
+                    width={160}
+                    className="logo my-2 mx-auto sm:mx-0"
+                />
 
                 <div className="flex items-center gap-4 w-full sm:w-auto">
-                    <div className="flex gap-6 mr-4">
-                        <NavLinks/>
+                    <div className="flex gap-6 mr-4 justify-center sm:justify-start w-full sm:w-auto">
+                        <NavLinks />
                     </div>
-                    <div className="ml-auto self-center">
-                        <ThemeSwitch/>
+                    <div className="self-center sm:ml-auto">
+                        <ThemeSwitch />
                     </div>
                 </div>
             </div>
