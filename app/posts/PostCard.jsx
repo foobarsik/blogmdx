@@ -11,7 +11,7 @@ export default function PostCard({post}) {
                     <img
                         src={cover}
                         alt={title}
-                        className="w-full h-[222px] object-cover block p-0 m-0 transition-transform group-hover:scale-[1.1]"
+                        className="w-full h-[150px] sm:h-[222px] object-cover block p-0 m-0 transition-transform group-hover:scale-[1.1]"
                     />
                     {date && (
                         <div className="absolute bottom-2 right-2 bg-white/80 text-xs text-black px-2 py-1 rounded">
