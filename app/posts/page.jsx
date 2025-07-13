@@ -1,6 +1,7 @@
 import Link from 'next/link'
-import PostCard from '../components/PostCard'
-import { getPosts, getTags } from './get-posts'
+import { getPosts } from './utils/get-posts'
+import {getTags} from "./utils/get-tags";
+import PostCard from './PostCard'
 
 export const metadata = {
     title: 'Blog MehWow - Olga Panibratchenko'
