@@ -185,6 +185,7 @@ a.x\:focus-visible\:nextra-focus {
     color: #908bf9;
     border-bottom: 1px solid #ffd4ad;
     text-decoration: none;
+    font-variation-settings: "wght" 550;
 }
 
 .underline-link {
