@@ -5,7 +5,7 @@ export default function PostCard({post}) {
     const {title, description, date, cover} = frontMatter || {};
 
     return (
-        <Link href={route} className="block overflow-hidden my-10 group no-underline ">
+        <Link href={route} className="block overflow-hidden my-11 group no-underline ">
             {cover && (
                 <div className="relative rounded-[10px] overflow-hidden">
                     <img
@@ -21,7 +21,7 @@ export default function PostCard({post}) {
                 </div>
             )}
             <div>
-                <h3 className="mt-4 mb-1">{title}</h3>
+                <h3 className="mt-4 mb-1 post-card-title">{title}</h3>
                 <p className="x:mb-2 x:dark:text-gray-400 x:text-gray-600">{description}</p>
             </div>
         </Link>

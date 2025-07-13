@@ -49,6 +49,10 @@ body {
     letter-spacing: -0.02em;
 }
 
+html.light body {
+    background-color: #f8fafb;
+}
+
 b,
 strong,
 h2,
@@ -66,13 +70,12 @@ strong {
 
 h1 {
     margin-bottom: 24px;
-    padding-bottom: 1px;
-    font-variation-settings: "wght" 600;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    background-image: linear-gradient(170deg, #625cfa, #a1a0f9);
-    font-weight: 600;
+    font-variation-settings: "wght" 500;
+    /*-webkit-background-clip: text;*/
+    /*-webkit-text-fill-color: transparent;*/
+    /*background-clip: text;*/
+    /*background-image: linear-gradient(90deg, #7C59FF, #FF9E3F);*/
+    /*text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);*/
 }
 
 @media screen and (min-device-pixel-ratio: 1.5), screen and (min-resolution: 1.5dppx) {
@@ -118,11 +121,17 @@ img.next-image {
     text-decoration: none;
 }
 
+.nextra-tag:hover {
+    background-color: inherit;
+    color: oklch(0.69 0.16 283.85);
+    border-color: rgb(255 175 104);
+}
+
 .nav-link {
-    color: #64748b;
+    color: var(--x-color-gray-600);
     text-decoration: none;
-    font-size: 1.1rem;
-    font-variation-settings: "wght" 500;
+    font-size: 1.2rem;
+    font-variation-settings: "wght" 400;
     position: relative;
     padding: 10px 0;
     transition: color 0.3s ease;
@@ -134,8 +143,8 @@ img.next-image {
     bottom: 0;
     left: 0;
     width: 0;
-    height: 3px;
-    background: linear-gradient(90deg, #7928CA, #908bfa);
+    height: 2px;
+    background: linear-gradient(110deg, #908bfa, #FFAD66);
     border-radius: 2px;
     transition: width 0.3s ease;
 }
@@ -144,8 +153,17 @@ img.next-image {
     width: 100%;
 }
 
-.nav-link:hover, .nav-link.active-link {
-    color: #908bfa;
+/*.nav-link:hover, .nav-link.active-link {*/
+/*    color: #908bfa;*/
+/*}*/
+
+.nav-link.active-link {
+    font-variation-settings: "wght" 550;
+}
+
+html.dark .nav-link,
+html.dark .nav-link {
+    color: #bab9f0;
 }
 
 .nav-container {
@@ -155,12 +173,25 @@ img.next-image {
     gap: 40px;
 }
 
-.search-theme-bar {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    min-width: 220px;
-    justify-content: space-between;
+.header button {
+    background-color: #bfbdff29;
+    border-radius: 50px;
+}
+
+img.logo {
+    margin-inline: 0;
+}
+
+.post-card-title {
+    color: #908bf9;
+    border-bottom: 1px solid #ffd4ad;
+    display: inline-block;
+}
+
+a.x\:focus-visible\:nextra-focus {
+    color: #908bf9;
+    border-bottom: 1px solid #ffd4ad;
+    text-decoration: none;
 }
 
 .underline-link {

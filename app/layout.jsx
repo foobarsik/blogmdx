@@ -1,7 +1,6 @@
 import {Footer, Layout, Navbar, ThemeSwitch} from 'nextra-theme-blog'
 import NavLinks from './components/NavLinks'
 import {Banner, Head, Search} from 'nextra/components'
-import {getPageMap} from 'nextra/page-map'
 import 'nextra-theme-blog/style.css'
 import '../styles/main.css'
 
@@ -24,15 +23,17 @@ export default async function RootLayout({children}) {
         <Head/>
         <body>
         <Layout banner={banner}>
-            <img src="/images/mehwowcom-logo.png" alt="mehwow logo" width={179} className="logo mt-4"/>
+            <div className="header flex flex-wrap items-center justify-between gap-3 min-w-[220px] mt-2 mb-12">
+                <img src="/images/logo-meh-wow.png" alt="mehwow logo" width={160} className="logo my-2"/>
 
-            <Navbar pageMap={await getPageMap()}>
-                <NavLinks/>
-            </Navbar>
-
-            <div className="search-theme-bar my-10">
-                <Search placeholder="Search..."/>
-                <ThemeSwitch/>
+                <div className="flex items-center gap-4 w-full sm:w-auto">
+                    <div className="flex gap-6 mr-4">
+                        <NavLinks/>
+                    </div>
+                    <div className="ml-auto self-center">
+                        <ThemeSwitch/>
+                    </div>
+                </div>
             </div>
 
             {children}

@@ -3,7 +3,7 @@ import PostCard from '../components/PostCard'
 import { getPosts, getTags } from './get-posts'
 
 export const metadata = {
-    title: 'import threads from \'my-brain\''
+    title: 'Blog MehWow - Olga Panibratchenko'
 }
 
 export default async function PostsPage() {
@@ -17,10 +17,7 @@ export default async function PostsPage() {
     }
     return (
         <div data-pagefind-ignore="all">
-            <div
-                className="not-prose"
-                style={{ display: 'flex', flexWrap: 'wrap', gap: '.5rem' }}
-            >
+            <div className="not-prose flex flex-wrap gap-2 mb-14">
                 {Object.entries(allTags).map(([tag, count]) => (
                     <Link key={tag} href={`/tags/${tag}`} className="nextra-tag">
                         {tag}
