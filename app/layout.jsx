@@ -25,7 +25,7 @@ export default async function RootLayout({children}) {
         <Layout banner={banner}>
             <div className="header flex flex-col sm:flex-row flex-wrap items-center justify-between gap-3 min-w-[220px] mt-2 mb-12">
                 <img
-                    src="/images/logo-meh-wow.png"
+                    src="/images/logo.png"
                     alt="mehwow logo"
                     width={160}
                     className="logo my-2 mx-auto sm:mx-0"
