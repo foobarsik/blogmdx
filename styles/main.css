@@ -178,7 +178,7 @@ img.logo {
 .post-card-title {
     color: #908bf9;
     border-bottom: 1px solid #ffd4ad;
-    display: inline-block;
+    display: inline;
 }
 
 a.x\:focus-visible\:nextra-focus {
