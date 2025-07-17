@@ -1,0 +1,113 @@
+---
+title: Start with Meh, aim for Wow, be happy with Okay.
+date: 2025/06/30
+tags: [💊 product-thinking]
+cover: /images/rawideas.png
+description: No-code tools are not just for “non-techies,” but are a discipline of speed. Don’t worry about scale. Worry about getting your first 10 users.
+---
+
+import {ImageZoom} from 'nextra/components'
+
+A few weeks ago, I watched a great talk from a Polish tech conference [Jakub Mrugalski - A gdyby tak zrobić startup w weekend?](https://www.youtube.com/watch?v=dYzfArtf7qU&t=2s]).
+I would like to share some useful tips here in English.
+
+### Quantity over quality
+
+Peter Levels built 70 projects. Only 5 are successful. **Success is a result of statistical luck, not perfect planning**.
+
+> Every two weekends — one new project.
+
+I need 6 weeks just to pick a name 🐒
+
+### Don’t Ask Friends for feedback
+>Your friends will lie to not hurt your feelings. Your enemies will lie so you fail. Your mom will just say: ‘Get a real job.’
+
+Хорошо работает создание сообщества, например, на Твиттере или Инстаграме, среди людей из твоей ниши.
+The speaker surrounds himself with devs and sysadmins — and asks them if they’d want his idea.
+
+| Шаг                   | Ошибка новичка                | Что делать правильно                         |
+|-----------------------|-------------------------------|----------------------------------------------|
+| Идея               | Сразу писать код              | Протестировать интерес через лендинг.        |
+| Лендинг            | Делать вручную                | Использовать готовые конструкторы. **Cards** ($19/год) — дешёвый инструмент для создания лендингов. **Mobirise** — имеет модуль ИИ, который генерирует лендинг по вашим требованиям. |
+| Email-форма        | Использовать невыгодные для массовых экспериментов сервисы  | Выбрать дешёвое решение. Бесплатные сервисы (например, MailerLite) ограничивают количество подписчиков (до 1000), чего не хватит на год экспериментов. Используйте **Sendy** — дешёвый инструмент для рассылок. Не программируйте ничего сами — это лишняя трата времени.                    |
+| Сбор email'ов      | Нет критерия остановки        | Поставить лимиты, напр 1 мес. и 300 подписчиков |
+| Решение по проекту | Тянуть “потому что уже начал” | Убивать без жалости, если у аудитории нет интереса        |
+
+>Сначала собираю 300 человек, а потом масштабирую через рекламу на Facebook, Twitter и других платформах.
+Но если даже среди своей аудитории я не могу набрать 300, лучше бросить проект.
+Порой это больно, но это спасает от впустую потраченного времени и жизни.
+То, что кажется нам крутым проектом, может быть отвергнуто аудиторией. Они скажут: «За это мы не заплатим, это глупо».
+Лучше узнать это сразу.
+
+### Prototyping = Input + Output + Memory + Magic
+
+Для создания прототипа нужны 4 компонента:
+- Вход (данные от пользователя).
+- Выход (результат для пользователя).
+- Память (хранение данных).
+- Чары-маары (логика и автоматизация).
+
+### Tally is a tool of choice for Input
+- Усиленная версия Google Forms
+- Неограниченные формы, кастомизация, фронтенд-логика (if-условия, расчёты).
+- Данные отправляются через webhook для дальнейшей обработки.
+
+### Airtable for Output and Memory
+- Simple REST API
+- Automation-friendly (webhooks, auto-deploy)
+- Looks like Excel, works like a database
+- Free up to 1,000 rows — or 500k with referrals
+
+Perfect choice for catalogs:
+> ..Я решил собрать всех участников на одной странице. Оригинальные создатели сделали это за неделю, я — за 30 минут.
+Моя страница была некрасивой, но их никто не хотел использовать. Важно быть первым.
+
+### Magic Glue aka Backend automation
+- **IFTTT**: Super easy, good for cheap hacks
+- **Make**: Great for business workflows
+- **n8n**: Great for devs, self-hostable, powerful
+- Not Zapier: It’s too expensive
+
+### For payments
+- **EasyCart** (for beginners)
+- **Sellix** (for pros)
+
+### Use Rapid API or RapidHub
+- 70% cheaper than official APIs
+- Unified interface = faster learning
+- Great for throwaway MVPs
+___
+
+Examples from Jakub
+
+### Dealing with Twitter API prices
+
+> We ran a small hosting service. To promote it, we gave away free access to anyone who tweeted about us. Seemed like an easy thing to automate.
+
+But Elon played with API prices, and automation via official API started to cost _a lot_.
+
+> I used a $2.92/month service with Twitter applets. Clicked ‘Create’, set up a trigger: check my account for a hashtag. If found — send webhook with tweet content. Done. One hour. No backend.
+
+### RSS → GPT → Dropbox
+
+> I follow tons of RSS feeds via Feedly. GPT-4 filters them for relevance and drops the good stuff into Dropbox. From a thousand headlines to a hundred. Much faster to read.
+
+### Reddit → Raindrop → Joy
+
+> n8n checks My favorite subreddits every few hours, filters out junk with GPT, and sends highlights to Raindrop. Total hands-off reading.
+
+### Texts with zero typos
+
+> Used to write social media copy manually — always with typos. Now Make sends my drafts to GPT-4 for grammar and style cleanup.
+
+### Auto-post to 14 platforms
+
+> Posting news updates used to take 40 minutes. Now it pulls from RSS, generates a cover with Renderform, archives in Dropbox, and posts to Facebook, Discord, Twitter, Telegram, LinkedIn, Mastodon, Hey (a Polish platform), GitHub… 14 platforms total. I don’t know how a single one of those APIs works. Took me less than an hour.
+
+**Don’t Code What You Can Buy. Coding your own solutions is a trap disguised as productivity. You're writing code, you’re “working”… but the user sees zero.**
+
+**Don’t deploy to AWS/GCP for side projects.**
+
+**Don’t worry about scale. Worry about getting your first 10 users.**
+
+**No-code tools are not just for “non-techies,” but are a discipline of speed.**
