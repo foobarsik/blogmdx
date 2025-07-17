@@ -17,7 +17,7 @@ Peter Levels built 70 projects. Only 5 are successful. **Success is a result of 
 
 I need 6 weeks just to pick a name 🐒
 
-### Don’t Ask Friends for feedback
+### Don’t ask friends for feedback
 >Your friends will lie to not hurt your feelings. Your enemies will lie so you fail. Your mom will just say: ‘Get a real job.’
 
 Building a small audience — like on Twitter or Instagram — with people from your niche works much better.
@@ -27,8 +27,8 @@ The speaker surrounds himself with devs and sysadmins, and asks *them* if his id
 |--------------------|-------------------------------------------|-------------------------------------------------------------------------------------|
 | Idea               | Start coding immediately                  | Test interest with a landing page.                                                 |
 | Landing Page       | Build it by hand                          | Use a builder. **Carrd** ($19/year) is cheap and fast. **Mobirise** has an AI module that generates a page from your prompt. |
-| Email Form         | Use expensive services not fit for volume | Pick budget-friendly tools. Free options like MailerLite limit you to 1,000 contacts — not enough for a year of experiments. Try **Sendy** instead. And don’t code it yourself — waste of time. |
-| Email Collection   | No criteria for stopping                  | Set limits — e.g., 1 month or 300 signups.                                          |
+| Email Form         | Pick tools with free limits. Free plans like MailerLite’s cap you at 1,000 contacts — not ideal when you’re testing dozens of ideas. | Pick budget-friendly tools. Try **Sendy**. And don’t code it yourself — waste of time. |
+| Email Collection   | No criteria for stopping                  | Set limits — e.g., 1 month and 300 signups.                                          |
 | Project Decision   | Keep going “because I’ve already started” | Kill it ruthlessly if the audience doesn’t care.                                    |
 
 >I first collect 300 signups. Only then do I scale with ads on Facebook, Twitter, or other platforms.
@@ -41,7 +41,7 @@ Better to find that out early.
 
 ## Prototyping = Input + Output + Memory + Magic
 
-### Tally – Tool of Choice for Input
+### Tally – tool of choice for user Input
 - A supercharged version of Google Forms
 - Unlimited forms, full customization, logic (if-conditions, calculations)
 - Submissions go to a webhook for further processing
@@ -55,7 +55,7 @@ Better to find that out early.
 Perfect choice for catalogs:
 > ..I wanted to gather all participants on a single page.
 The original creators did it in a week. I did it in 30 minutes.
-Mine was ugly — but theirs, no one wanted to use.
+Mine was ugly — but no one wanted to use theirs.
 Being first matters.
 
 ### Magic Glue aka Backend automation
@@ -75,30 +75,33 @@ Being first matters.
 
 ## No-code usage examples from Jakub
 
-### Dealing with Twitter API prices
-
-> We ran a small hosting service. To promote it, we gave away free access to anyone who tweeted about us. Seemed like an easy thing to automate.
-
-But Elon played with API prices, and automation via official API started to cost _a lot_.
-
-> I used a $2.92/month service with Twitter applets. Clicked ‘Create’, set up a trigger: check my account for a hashtag. If found — send webhook with tweet content. Done. One hour. No backend.
+### Twitter promo, no backend
+Jakub wanted to reward users who tweeted about his hosting service.
+The initial idea was to automate this via Twitter’s official API, but Elon played with API prices and it's become not a budget-friendly for such task.
+So, instead, it was done with help of no-code tool that supports Twitter applets for $2.92/month.
+Jakub created a trigger that watches for a specific hashtag on his account and sends matching tweets to a webhook.
 
 ### RSS → GPT → Dropbox
+To avoid information overload from traking hundreds of RSS feeds via Feedly, Jakub set up a flow where GPT-4 filters for relevance and saves only the most useful articles to Dropbox.
+This reduced daily reading load from ~1,000 headlines to ~100.
 
-> I follow tons of RSS feeds via Feedly. GPT-4 filters them for relevance and drops the good stuff into Dropbox. From a thousand headlines to a hundred. Much faster to read.
+### Reddit → Raindrop, filtered by AI
+For Reddit, he uses n8n to scan his favorite subreddits every few hours.
+GPT-4 helps clean up the feed, removing junk and spam.
+The relevant posts are saved straight to Raindrop.
 
-### Reddit → Raindrop → Joy
+### Typos? Outsourced.
+His draft texts are sent to GPT-4 via Make, which corrects grammar, punctuation, and tone before publishing.
 
-> n8n checks My favorite subreddits every few hours, filters out junk with GPT, and sends highlights to Raindrop. Total hands-off reading.
+### Auto-posting to 14 platforms
+The most ambitious automation was probably a pipeline for publishing news updates:
+- Pull content from RSS
+- Generate a preview image using Renderform
+- Save archive copy in Dropbox
+- Auto-post to 14 platforms: Facebook, Discord, Twitter, Telegram, LinkedIn, Mastodon, Hey (Polish alt-social), GitHub, and more
 
-### Texts with zero typos
-
-> Used to write social media copy manually — always with typos. Now Make sends my drafts to GPT-4 for grammar and style cleanup.
-
-### Auto-post to 14 platforms
-
-> Posting news updates used to take 40 minutes. Now it pulls from RSS, generates a cover with Renderform, archives in Dropbox, and posts to Facebook, Discord, Twitter, Telegram, LinkedIn, Mastodon, Hey (a Polish platform), GitHub… 14 platforms total. I don’t know how a single one of those APIs works. Took me less than an hour.
-
+The entire thing took under an hour to build.
+____
 #### 🐒 No-code tools are not just for “non-techies,” but are a discipline of speed.
 #### 🐒 Don’t deploy to AWS/GCP for side projects.
 #### 🐒 Don’t worry about scale. Worry about getting your first 10 users.
