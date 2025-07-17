@@ -7,7 +7,7 @@ description: No-code tools are not just for “non-techies,” but are a discipl
 ---
 
 A few weeks ago, I watched a great talk from a Polish tech conference [Jakub Mrugalski - A gdyby tak zrobić startup w weekend?](https://www.youtube.com/watch?v=dYzfArtf7qU&t=2s]).
-I would like to share some useful tips here in English.
+This post summarizes insights from Jakub Mrugalski’s talk. I’ve adapted, rephrased, and expanded on them here in English.
 
 ### Quantity over quality
 
@@ -35,8 +35,7 @@ The speaker surrounds himself with devs and sysadmins, and asks *them* if his id
 But if I can’t get even 300 from my own audience — better to kill the project.
 It hurts, yes — but it saves you from wasting time and life.
 
->What seems like a great idea to you might be rejected by real people.
-They’ll say, ‘We won’t pay for that — it’s stupid.’
+What seems like a great idea to you might be rejected by real people — ‘We won’t pay for that — it’s stupid.’
 Better to find that out early.
 
 ## Prototyping = Input + Output + Memory + Magic
@@ -82,7 +81,7 @@ So, instead, it was done with help of no-code tool that supports Twitter applets
 Jakub created a trigger that watches for a specific hashtag on his account and sends matching tweets to a webhook.
 
 ### RSS → GPT → Dropbox
-To avoid information overload from traking hundreds of RSS feeds via Feedly, Jakub set up a flow where GPT-4 filters for relevance and saves only the most useful articles to Dropbox.
+To avoid information overload from traking hundreds of RSS feeds via Feedly, a flow was setup where GPT-4 filters for relevance and saves only the most useful articles to Dropbox.
 This reduced daily reading load from ~1,000 headlines to ~100.
 
 ### Reddit → Raindrop, filtered by AI
@@ -90,7 +89,7 @@ For Reddit, he uses n8n to scan his favorite subreddits every few hours.
 GPT-4 helps clean up the feed, removing junk and spam.
 The relevant posts are saved straight to Raindrop.
 
-### Typos? Outsourced.
+### Typos? Outsourced
 His draft texts are sent to GPT-4 via Make, which corrects grammar, punctuation, and tone before publishing.
 
 ### Auto-posting to 14 platforms
@@ -102,6 +101,6 @@ The most ambitious automation was probably a pipeline for publishing news update
 
 The entire thing took under an hour to build.
 ____
-#### 🐒 No-code tools are not just for “non-techies,” but are a discipline of speed.
-#### 🐒 Don’t deploy to AWS/GCP for side projects.
-#### 🐒 Don’t worry about scale. Worry about getting your first 10 users.
+#### 🙉 No-code tools are not just for “non-techies,” but are a discipline of speed.
+#### 🙈 Don’t deploy to AWS/GCP for side projects.
+#### 🙊 Don’t worry about scale. Worry about getting your first 10 users.
