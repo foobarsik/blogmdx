@@ -3,10 +3,8 @@ title: Start with Meh, aim for Wow, be happy with Okay.
 date: 2025/06/30
 tags: [💊 product-thinking]
 cover: /images/rawideas.png
-description: No-code tools are not just for “non-techies,” but are a discipline of speed. Don’t worry about scale. Worry about getting your first 10 users.
+description: No-code tools are not just for “non-techies,” but are a discipline of speed. Don’t worry about scale — worry about getting your first 10 users. Don't code what you can buy. Coding your own solutions is a trap disguised as productivity. You're writing code, you’re “working”… but the user sees zero.
 ---
-
-import {ImageZoom} from 'nextra/components'
 
 A few weeks ago, I watched a great talk from a Polish tech conference [Jakub Mrugalski - A gdyby tak zrobić startup w weekend?](https://www.youtube.com/watch?v=dYzfArtf7qU&t=2s]).
 I would like to share some useful tips here in English.
@@ -22,35 +20,31 @@ I need 6 weeks just to pick a name 🐒
 ### Don’t Ask Friends for feedback
 >Your friends will lie to not hurt your feelings. Your enemies will lie so you fail. Your mom will just say: ‘Get a real job.’
 
-Хорошо работает создание сообщества, например, на Твиттере или Инстаграме, среди людей из твоей ниши.
-The speaker surrounds himself with devs and sysadmins — and asks them if they’d want his idea.
+Building a small audience — like on Twitter or Instagram — with people from your niche works much better.
+The speaker surrounds himself with devs and sysadmins, and asks *them* if his idea makes sense.
 
-| Шаг                   | Ошибка новичка                | Что делать правильно                         |
-|-----------------------|-------------------------------|----------------------------------------------|
-| Идея               | Сразу писать код              | Протестировать интерес через лендинг.        |
-| Лендинг            | Делать вручную                | Использовать готовые конструкторы. **Cards** ($19/год) — дешёвый инструмент для создания лендингов. **Mobirise** — имеет модуль ИИ, который генерирует лендинг по вашим требованиям. |
-| Email-форма        | Использовать невыгодные для массовых экспериментов сервисы  | Выбрать дешёвое решение. Бесплатные сервисы (например, MailerLite) ограничивают количество подписчиков (до 1000), чего не хватит на год экспериментов. Используйте **Sendy** — дешёвый инструмент для рассылок. Не программируйте ничего сами — это лишняя трата времени.                    |
-| Сбор email'ов      | Нет критерия остановки        | Поставить лимиты, напр 1 мес. и 300 подписчиков |
-| Решение по проекту | Тянуть “потому что уже начал” | Убивать без жалости, если у аудитории нет интереса        |
+| Step               | Beginner’s Mistake                        | What to Do Instead                                                                 |
+|--------------------|-------------------------------------------|-------------------------------------------------------------------------------------|
+| Idea               | Start coding immediately                  | Test interest with a landing page.                                                 |
+| Landing Page       | Build it by hand                          | Use a builder. **Carrd** ($19/year) is cheap and fast. **Mobirise** has an AI module that generates a page from your prompt. |
+| Email Form         | Use expensive services not fit for volume | Pick budget-friendly tools. Free options like MailerLite limit you to 1,000 contacts — not enough for a year of experiments. Try **Sendy** instead. And don’t code it yourself — waste of time. |
+| Email Collection   | No criteria for stopping                  | Set limits — e.g., 1 month or 300 signups.                                          |
+| Project Decision   | Keep going “because I’ve already started” | Kill it ruthlessly if the audience doesn’t care.                                    |
 
->Сначала собираю 300 человек, а потом масштабирую через рекламу на Facebook, Twitter и других платформах.
-Но если даже среди своей аудитории я не могу набрать 300, лучше бросить проект.
-Порой это больно, но это спасает от впустую потраченного времени и жизни.
-То, что кажется нам крутым проектом, может быть отвергнуто аудиторией. Они скажут: «За это мы не заплатим, это глупо».
-Лучше узнать это сразу.
+>I first collect 300 signups. Only then do I scale with ads on Facebook, Twitter, or other platforms.
+But if I can’t get even 300 from my own audience — better to kill the project.
+It hurts, yes — but it saves you from wasting time and life.
 
-### Prototyping = Input + Output + Memory + Magic
+>What seems like a great idea to you might be rejected by real people.
+They’ll say, ‘We won’t pay for that — it’s stupid.’
+Better to find that out early.
 
-Для создания прототипа нужны 4 компонента:
-- Вход (данные от пользователя).
-- Выход (результат для пользователя).
-- Память (хранение данных).
-- Чары-маары (логика и автоматизация).
+## Prototyping = Input + Output + Memory + Magic
 
-### Tally is a tool of choice for Input
-- Усиленная версия Google Forms
-- Неограниченные формы, кастомизация, фронтенд-логика (if-условия, расчёты).
-- Данные отправляются через webhook для дальнейшей обработки.
+### Tally – Tool of Choice for Input
+- A supercharged version of Google Forms
+- Unlimited forms, full customization, logic (if-conditions, calculations)
+- Submissions go to a webhook for further processing
 
 ### Airtable for Output and Memory
 - Simple REST API
@@ -59,8 +53,10 @@ The speaker surrounds himself with devs and sysadmins — and asks them if they�
 - Free up to 1,000 rows — or 500k with referrals
 
 Perfect choice for catalogs:
-> ..Я решил собрать всех участников на одной странице. Оригинальные создатели сделали это за неделю, я — за 30 минут.
-Моя страница была некрасивой, но их никто не хотел использовать. Важно быть первым.
+> ..I wanted to gather all participants on a single page.
+The original creators did it in a week. I did it in 30 minutes.
+Mine was ugly — but theirs, no one wanted to use.
+Being first matters.
 
 ### Magic Glue aka Backend automation
 - **IFTTT**: Super easy, good for cheap hacks
@@ -76,9 +72,8 @@ Perfect choice for catalogs:
 - 70% cheaper than official APIs
 - Unified interface = faster learning
 - Great for throwaway MVPs
-___
 
-Examples from Jakub
+## No-code usage examples from Jakub
 
 ### Dealing with Twitter API prices
 
@@ -104,10 +99,6 @@ But Elon played with API prices, and automation via official API started to cost
 
 > Posting news updates used to take 40 minutes. Now it pulls from RSS, generates a cover with Renderform, archives in Dropbox, and posts to Facebook, Discord, Twitter, Telegram, LinkedIn, Mastodon, Hey (a Polish platform), GitHub… 14 platforms total. I don’t know how a single one of those APIs works. Took me less than an hour.
 
-**Don’t Code What You Can Buy. Coding your own solutions is a trap disguised as productivity. You're writing code, you’re “working”… but the user sees zero.**
-
-**Don’t deploy to AWS/GCP for side projects.**
-
-**Don’t worry about scale. Worry about getting your first 10 users.**
-
-**No-code tools are not just for “non-techies,” but are a discipline of speed.**
+#### 🐒 No-code tools are not just for “non-techies,” but are a discipline of speed.
+#### 🐒 Don’t deploy to AWS/GCP for side projects.
+#### 🐒 Don’t worry about scale. Worry about getting your first 10 users.
