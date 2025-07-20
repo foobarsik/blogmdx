@@ -1,6 +1,13 @@
 "use client";
 import {useEffect, useRef, useState} from 'react';
 
+declare global {
+    interface Window {
+        YT: any;
+        onYouTubeIframeAPIReady: () => void;
+    }
+}
+
 export default function YouTubePlayerWithSubs({videoId, subtitles}) {
     const playerRef = useRef<any>(null);
     const [currentSub, setCurrentSub] = useState<string>('');
