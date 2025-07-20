@@ -22,6 +22,13 @@ export default function YouTubePlayerWithSubs({videoId, subtitles}) {
                 height: '200',
                 width: '380',
                 videoId: videoId,
+                playerVars: {
+                    // Set the preferred language to Polish ('pl') to influence audio track selection
+                    hl: 'pl',
+                    // Optional: Ensure captions are off by default, or set to 'pl' if you want Polish subtitles
+                    cc_lang_pref: 'pl',
+                    cc_load_policy: 0 // 0 to disable captions by default, 1 to enable
+                },
                 events: {
                     onReady: () => {
                         setInterval(() => {
