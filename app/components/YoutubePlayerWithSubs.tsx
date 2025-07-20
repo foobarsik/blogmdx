@@ -23,15 +23,7 @@ export default function YouTubePlayerWithSubs({videoId, subtitles}) {
                 width: '380',
                 videoId: videoId,
                 playerVars: {
-                    controls: 0,           // отключить кнопки управления
-                    modestbranding: 1,     // убрать логотип YouTube
-                    rel: 0,                // не показывать похожие видео в конце
-                    showinfo: 0,           // (устарело, но можно оставить)
                     fs: 0,                 // запретить полноэкран
-                    autoplay: 0,           // не запускать автоматически
-                    cc_load_policy: 0,     // включить субтитры по умолчанию
-                    iv_load_policy: 3,     // скрыть аннотации
-                    disablekb: 1           // отключить управление с клавиатуры
                 },
                 events: {
                     onReady: () => {
