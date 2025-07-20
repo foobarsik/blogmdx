@@ -22,9 +22,6 @@ export default function YouTubePlayerWithSubs({videoId, subtitles}) {
                 height: '200',
                 width: '380',
                 videoId: videoId,
-                playerVars: {
-                    fs: 0,                 // запретить полноэкран
-                },
                 events: {
                     onReady: () => {
                         setInterval(() => {
