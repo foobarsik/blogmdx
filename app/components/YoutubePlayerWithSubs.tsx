@@ -47,8 +47,10 @@ export default function YouTubePlayerWithSubs({videoId, subtitles}) {
     }, [videoId, subtitles]);
 
     return (
-        <div style={{width: '380px'}}>
-            <div id="yt-player"/>
+        <div style={{width: '380px', position: 'relative'}}>
+            <div>
+                <div id="yt-player"/>
+            </div>
             <div style={{marginTop: 16, fontSize: 18, background: '#f1f1f1', padding: 10}}>
                 {currentSub || '...'}
             </div>
