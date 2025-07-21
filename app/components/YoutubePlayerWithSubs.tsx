@@ -16,6 +16,7 @@ export default function YouTubePlayerWithSubs({videoId, subtitles}) {
         const tag = document.createElement('script');
         tag.src = 'https://www.youtube.com/iframe_api';
         document.body.appendChild(tag);
+        let lastSubId: string | null = null;
 
         window.onYouTubeIframeAPIReady = () => {
             playerRef.current = new window.YT.Player('yt-player', {
@@ -33,11 +34,25 @@ export default function YouTubePlayerWithSubs({videoId, subtitles}) {
                     onReady: () => {
                         setInterval(() => {
                             const time = playerRef.current?.getCurrentTime?.();
-                            if (time) {
-                                const sub = subtitles.find(
-                                    s => time >= s.start && time <= s.end
-                                );
-                                if (sub?.text !== currentSub) setCurrentSub(sub?.text || '');
+                            if (!time) return;
+
+                            const sub = subtitles.find(
+                                s => time >= s.start && time <= s.end
+                            );
+
+                            // Если субтитр сменился
+                            if (sub && sub.text !== currentSub) {
+                                setCurrentSub(sub.text);
+
+                                // Пауза и продолжение через 800мс
+                                if (sub.text !== lastSubId) {
+                                    lastSubId = sub.text;
+
+                                    playerRef.current?.pauseVideo?.();
+                                    setTimeout(() => {
+                                        playerRef.current?.playVideo?.();
+                                    }, 1200); // ← можешь настроить под комфортный ритм
+                                }
                             }
                         }, 300);
                     }
