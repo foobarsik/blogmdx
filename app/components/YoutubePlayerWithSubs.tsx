@@ -16,7 +16,9 @@ export default function YouTubePlayerWithSubs({videoId, subtitles}) {
         const tag = document.createElement('script');
         tag.src = 'https://www.youtube.com/iframe_api';
         document.body.appendChild(tag);
-        let lastSubId: string | null = null;
+        let lastPausedSubIndex = -1;
+        const pauseBeforeNext = 0.2;  // за сколько секунд до конца субтитра делать паузу
+        const pauseDuration = 1000;    // сколько мс держать паузу
 
         window.onYouTubeIframeAPIReady = () => {
             playerRef.current = new window.YT.Player('yt-player', {
@@ -26,6 +28,7 @@ export default function YouTubePlayerWithSubs({videoId, subtitles}) {
                 playerVars: {
                     // Set the preferred language to Polish ('pl') to influence audio track selection
                     hl: 'pl',
+                    // controls: 0,
                     // Optional: Ensure captions are off by default, or set to 'pl' if you want Polish subtitles
                     cc_lang_pref: 'pl',
                     cc_load_policy: 0 // 0 to disable captions by default, 1 to enable
@@ -36,25 +39,32 @@ export default function YouTubePlayerWithSubs({videoId, subtitles}) {
                             const time = playerRef.current?.getCurrentTime?.();
                             if (!time) return;
 
-                            const sub = subtitles.find(
+                            const currentIndex = subtitles.findIndex(
                                 s => time >= s.start && time <= s.end
                             );
 
-                            // Если субтитр сменился
-                            if (sub && sub.text !== currentSub) {
-                                setCurrentSub(sub.text);
+                            if (currentIndex !== -1) {
+                                const sub = subtitles[currentIndex];
+                                const timeToEnd = sub.end - time;
 
-                                // Пауза и продолжение через 800мс
-                                if (sub.text !== lastSubId) {
-                                    lastSubId = sub.text;
+                                if (
+                                    timeToEnd <= pauseBeforeNext &&
+                                    currentIndex !== lastPausedSubIndex
+                                ) {
+                                    lastPausedSubIndex = currentIndex;
 
+                                    // Пауза ДО окончания текущей реплики
                                     playerRef.current?.pauseVideo?.();
+
                                     setTimeout(() => {
                                         playerRef.current?.playVideo?.();
-                                    }, 1200); // ← можешь настроить под комфортный ритм
+                                    }, pauseDuration);
                                 }
+
+                                // Обновляем отображаемый текст
+                                if (sub.text !== currentSub) setCurrentSub(sub.text);
                             }
-                        }, 300);
+                        }, 200);
                     }
                 }
             });
