@@ -4,6 +4,7 @@ import {Banner, Head, Search} from 'nextra/components'
 import 'nextra-theme-blog/style.css'
 import '../styles/main.css'
 import Link from "next/link";
+import {Analytics} from "@vercel/analytics/next"
 
 export const metadata = {
     title: 'MehWow Blog'
@@ -53,6 +54,7 @@ export default async function RootLayout({children}) {
                 </a>
             </Footer>
         </Layout>
+        <Analytics/>
         </body>
         </html>
     )
