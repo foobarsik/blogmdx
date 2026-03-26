@@ -3,11 +3,12 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "prebuild": "node -e \"const fs=require('fs');fs.rmSync('.next',{recursive:true,force:true,maxRetries:10,retryDelay:100});\"",
-    "build": "next build",
-    "start": "next start",
-    "postbuild": "pagefind --site .next/server/app --output-path public/_pagefind"
+    "predev": "node -e \"const fs=require('fs');fs.rmSync('.next-dev',{recursive:true,force:true,maxRetries:10,retryDelay:100});\"",
+    "dev": "NEXT_DIST_DIR=.next-dev next dev",
+    "prebuild": "node -e \"const fs=require('fs');fs.rmSync('.next-build',{recursive:true,force:true,maxRetries:10,retryDelay:100});\"",
+    "build": "NEXT_DIST_DIR=.next-build next build",
+    "start": "NEXT_DIST_DIR=.next-build next start",
+    "postbuild": "pagefind --site .next-build/server/app --output-path public/_pagefind"
   },
   "dependencies": {
     "@tailwindcss/postcss": "^4.1.11",
