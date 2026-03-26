@@ -208,9 +208,19 @@ img.logo {
     display: inline;
 }
 
-.light .post-card-title {
+.light h3.post-card-title {
     color: #030712;
     font-variation-settings: "wght" 600;
+}
+
+[data-theme='light'] h3.post-card-title {
+    color: #030712;
+    font-variation-settings: "wght" 600;
+}
+
+.dark h3.post-card-title,
+[data-theme='dark'] h3.post-card-title {
+    color: #fff !important;
 }
 
 .post-card-description {
