@@ -208,6 +208,11 @@ img.logo {
     display: inline;
 }
 
+.light .post-card-title {
+    color: #030712;
+    font-variation-settings: "wght" 600;
+}
+
 .post-card-description {
     color: #374151;
     line-height: 1.65;
