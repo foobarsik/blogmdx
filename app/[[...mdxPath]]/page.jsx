@@ -3,35 +3,32 @@ import { useMDXComponents as getMDXComponents } from '../../mdx-components'
 import { notFound } from 'next/navigation'
 
 const generateStaticParamsBase = generateStaticParamsFor('mdxPath')
+const normalizeMdxPath = mdxPath =>
+    Array.isArray(mdxPath) ? mdxPath.filter(Boolean) : []
 
 export async function generateStaticParams() {
     const paramsList = await generateStaticParamsBase()
 
-    return paramsList.filter(({ mdxPath }) => {
-        if (!Array.isArray(mdxPath) || mdxPath.length === 0) {
-            return false
-        }
+    return paramsList
+        .map(({ mdxPath, ...rest }) => ({
+            ...rest,
+            mdxPath: normalizeMdxPath(mdxPath)
+        }))
+        .filter(({ mdxPath }) => {
+            if (mdxPath.length === 1 && mdxPath[0] === 'posts') {
+                return false
+            }
 
-        if (mdxPath.some(segment => !segment)) {
-            return false
-        }
-
-        if (mdxPath.length === 1 && mdxPath[0] === 'posts') {
-            return false
-        }
-
-        return true
-    })
+            return true
+        })
 }
 
 export async function generateMetadata(props) {
     const params = await props.params
-    if (!params?.mdxPath) {
-        return {}
-    }
+    const mdxPath = normalizeMdxPath(params?.mdxPath)
 
     try {
-        const { metadata } = await importPage(params.mdxPath)
+        const { metadata } = await importPage(mdxPath)
         return metadata
     } catch {
         return {}
@@ -42,14 +39,12 @@ const Wrapper = getMDXComponents().wrapper
 
 export default async function Page(props) {
     const params = await props.params
-    if (!params?.mdxPath) {
-        notFound()
-    }
+    const mdxPath = normalizeMdxPath(params?.mdxPath)
 
     let result
 
     try {
-        result = await importPage(params.mdxPath)
+        result = await importPage(mdxPath)
     } catch {
         notFound()
     }
@@ -57,7 +52,7 @@ export default async function Page(props) {
     const { default: MDXContent, toc, metadata } = result
     return (
         <Wrapper toc={toc} metadata={metadata}>
-            <MDXContent {...props} params={params} />
+            <MDXContent {...props} params={{ ...(params ?? {}), mdxPath }} />
         </Wrapper>
     )
 }
