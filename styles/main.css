@@ -185,6 +185,10 @@ img.logo {
     display: inline;
 }
 
+.post-card-image-muted {
+    filter: grayscale(0.97);
+}
+
 a.x\:focus-visible\:nextra-focus {
     color: inherit;
     border-bottom: 0;
