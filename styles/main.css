@@ -223,7 +223,7 @@ img.logo {
 }
 
 .post-card-image-muted {
-    filter: grayscale(0.97);
+    filter: grayscale(0.94);
 }
 
 a.x\:focus-visible\:nextra-focus {
