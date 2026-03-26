@@ -1,6 +1,6 @@
-import {Footer, Layout, Navbar, ThemeSwitch} from 'nextra-theme-blog'
+import {Footer, Layout, ThemeSwitch} from 'nextra-theme-blog'
 import NavLinks from './components/NavLinks'
-import {Banner, Head, Search} from 'nextra/components'
+import {Banner} from 'nextra/components'
 import 'nextra-theme-blog/style.css'
 import '../styles/main.css'
 import Link from "next/link";
@@ -11,7 +11,16 @@ export const metadata = {
     title: 'MehWow Blog'
 }
 
-export default async function RootLayout({children}) {
+export const viewport = {
+    themeColor: [
+        {media: '(prefers-color-scheme: light)', color: 'rgb(250,250,250)'},
+        {media: '(prefers-color-scheme: dark)', color: 'rgb(17,17,17)'}
+    ]
+}
+
+export default function RootLayout({children}) {
+    const currentYear = new Date().getFullYear()
+
     const banner = (
         <Banner storageKey="linkedin-connect">
             <span className="banner-content">
@@ -25,7 +34,7 @@ export default async function RootLayout({children}) {
 
     return (
         <html lang="en" suppressHydrationWarning>
-        <Head/>
+        <head suppressHydrationWarning/>
         <body>
         <Layout banner={banner} nextThemes={{ defaultTheme: 'dark' }}>
             <div
@@ -51,7 +60,7 @@ export default async function RootLayout({children}) {
                     className="footer-abbr"
                 >
                 </abbr>{' '}
-                {new Date().getFullYear()} © mehwow
+                {currentYear} © mehwow
                 <a href="https://www.linkedin.com/in/olga-panibratchenko" target="_blank" className="footer-link">
                     Linkedin
                 </a>
