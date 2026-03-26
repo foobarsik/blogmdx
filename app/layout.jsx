@@ -29,17 +29,17 @@ export default async function RootLayout({children}) {
         <body>
         <Layout banner={banner} nextThemes={{ defaultTheme: 'dark' }}>
             <div
-                className="header flex flex-col sm:flex-row flex-wrap items-start sm:items-center justify-start sm:justify-between gap-3 min-w-[220px] mt-2 mb-12">
-                <Link href="/">
-                    <img src="/images/logo.png" alt="mehwow logo" width={160} className="logo my-2 mx-0 sm:mx-0"/>
-                </Link>
-                <div className="flex items-start sm:items-center gap-4 w-full sm:w-auto">
-                    <div className="flex gap-6 mr-4 justify-start sm:justify-start w-full sm:w-auto">
-                        <NavLinks/>
-                    </div>
-                    <div className="self-start sm:self-center sm:ml-auto">
+                className="header flex flex-col gap-3 min-w-[220px] mt-2 mb-12">
+                <div className="flex items-center justify-between w-full">
+                    <Link href="/">
+                        <img src="/images/logo.png" alt="mehwow logo" width={160} className="logo my-2 mx-0 sm:mx-0"/>
+                    </Link>
+                    <div className="shrink-0">
                         <ThemeSwitch/>
                     </div>
+                </div>
+                <div className="flex gap-6 justify-start w-full">
+                    <NavLinks/>
                 </div>
             </div>
 
