@@ -231,3 +231,20 @@ figcaption {
 .dark figcaption {
     color: #d1d5dc;
 }
+
+.banner-content {
+    display: block;
+    width: 100%;
+    max-width: 65ch;
+    margin-inline: auto;
+    padding-inline-start: 0.5rem;
+    padding-inline-end: 0;
+    text-align: left;
+}
+
+@media (min-width: 640px) {
+    .banner-content {
+        padding-inline: 0;
+        text-align: center;
+    }
+}
