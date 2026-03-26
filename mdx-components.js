@@ -9,9 +9,22 @@ const blogComponents = getBlogMDXComponents({
         })}`
 })
 
+function WrapperWithoutTags({ children, metadata }) {
+    const Wrapper = blogComponents.wrapper
+    return Wrapper({
+        children,
+        metadata: {
+            ...metadata,
+            // Temporarily hide post hashtags in article meta.
+            tags: undefined
+        }
+    })
+}
+
 export function useMDXComponents(components) {
     return {
         ...blogComponents,
+        wrapper: WrapperWithoutTags,
         ...components
     }
 }
