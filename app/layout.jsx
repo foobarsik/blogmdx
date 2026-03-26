@@ -25,7 +25,7 @@ export default async function RootLayout({children}) {
         <html lang="en" suppressHydrationWarning>
         <Head/>
         <body>
-        <Layout banner={banner}>
+        <Layout banner={banner} nextThemes={{ defaultTheme: 'dark' }}>
             <div
                 className="header flex flex-col sm:flex-row flex-wrap items-center justify-between gap-3 min-w-[220px] mt-2 mb-12">
                 <Link href="/">
