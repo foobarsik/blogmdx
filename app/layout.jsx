@@ -20,8 +20,9 @@ export const viewport = {
 
 export default function RootLayout({children}) {
     const currentYear = new Date().getFullYear()
+    const showLinkedinBanner = false
 
-    const banner = (
+    const banner = showLinkedinBanner ? (
         <Banner storageKey="linkedin-connect">
             <span className="banner-content">
                 Let’s connect on{' '}
@@ -30,7 +31,7 @@ export default function RootLayout({children}) {
                 </a> 🤝
             </span>
         </Banner>
-    )
+    ) : null
 
     return (
         <html lang="en" suppressHydrationWarning>
