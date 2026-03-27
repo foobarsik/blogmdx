@@ -1,24 +1,30 @@
 import Link from 'next/link';
 
-export default function PostCard({post}) {
+export default function PostCard({post, featured = false, tone = 'blue'}) {
     const {route, frontMatter} = post;
-    const {title, description, date, cover} = frontMatter || {};
+    const {title, description, cover, tags} = frontMatter || {};
+    const tag = Array.isArray(tags) && tags.length > 0 ? tags[0] : 'Notes';
+    const cardClass = `posts-card ${featured ? 'posts-card-featured' : ''} posts-card-${tone}`.trim();
 
     return (
-        <Link href={route} className="post-card-link block overflow-hidden my-12 first:mt-0 last:mb-0 group no-underline">
-            {cover && (
-                <div className="relative rounded-[12px] overflow-hidden mb-4">
+        <Link href={route} className={`${cardClass} posts-card-link`}>
+            <div className="posts-card-tag">{tag}</div>
+            <h2 className="posts-card-title">
+                {title}
+            </h2>
+
+            {!featured && cover ? (
+                <div className="posts-card-strip" aria-hidden="true">
                     <img
                         src={cover}
-                        alt={title}
-                        className="post-card-image-muted w-full h-[150px] sm:h-[222px] object-cover block p-0 m-0 transition-transform group-hover:scale-[1.1]"
+                        alt=""
+                        className="posts-card-strip-image"
+                        loading="lazy"
                     />
                 </div>
-            )}
-            <div>
-                <h3 className="post-card-title">{title}</h3>
-                <p className="post-card-description mt-1 x:mb-2">{description}</p>
-            </div>
+            ) : null}
+
+            <p className="posts-card-description">{description}</p>
         </Link>
     );
 }

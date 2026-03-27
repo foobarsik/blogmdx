@@ -16,7 +16,9 @@ export default async function PostsPage() {
     // }
 
     return (
-        <div data-pagefind-ignore="all">
+        <div data-pagefind-ignore="all" className="posts-page not-prose">
+            <div className="posts-section-label">Latest posts</div>
+            <section className="posts-grid">
             {/*
             <div className="not-prose flex flex-wrap gap-2 mb-14">
                 {Object.entries(allTags).map(([tag, count]) => (
@@ -26,9 +28,15 @@ export default async function PostsPage() {
                 ))}
             </div>
             */}
-            {posts.map(post => (
-                <PostCard key={post.route} post={post} />
+            {posts.map((post, index) => (
+                <PostCard
+                    key={post.route}
+                    post={post}
+                    featured={index === 0}
+                    tone={index % 2 === 0 ? 'blue' : 'gold'}
+                />
             ))}
+            </section>
         </div>
     )
 }

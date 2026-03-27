@@ -5,14 +5,14 @@ import Link from "next/link";
 const links = [
     {href: "/posts", label: "Posts"},
     {href: "/projects", label: "Projects"},
-    {href: "/", label: "About me"},
+    {href: "/", label: "About"},
 ];
 
 export default function NavLinks() {
     const pathname = usePathname();
 
     return (
-        <nav className="nav-container justify-start">
+        <nav className="nav-container">
             {links.map(({href, label}) => (
                 <Link
                     key={href}

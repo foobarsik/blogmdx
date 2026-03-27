@@ -1,5 +1,6 @@
-import {Footer, Layout, ThemeSwitch} from 'nextra-theme-blog'
+import {Footer, Layout} from 'nextra-theme-blog'
 import NavLinks from './components/NavLinks'
+import ThemeToggleText from './components/ThemeToggleText'
 import {Banner} from 'nextra/components'
 import 'nextra-theme-blog/style.css'
 import '../styles/main.css'
@@ -38,33 +39,31 @@ export default function RootLayout({children}) {
         <head suppressHydrationWarning/>
         <body>
         <Layout banner={banner} nextThemes={{ defaultTheme: 'dark' }}>
-            <div
-                className="header flex flex-col gap-3 min-w-[220px] mt-2 mb-12">
-                <div className="flex items-center justify-between w-full">
-                    <Link href="/">
-                        <img src="/images/logo.png" alt="mehwow logo" width={160} className="logo my-2 mx-0 sm:mx-0"/>
-                    </Link>
-                    <div className="shrink-0 theme-switch-offset">
-                        <ThemeSwitch/>
-                    </div>
-                </div>
-                <div className="flex gap-6 justify-start w-full">
+            <header className="site-header">
+                <Link href="/" className="site-logo-link" aria-label="MehWow home">
+                    <img src="/images/logo.png" alt="mehwow logo" width={112} className="logo"/>
+                </Link>
+
+                <div className="site-nav-wrap">
                     <NavLinks/>
+                    <ThemeToggleText/>
                 </div>
-            </div>
+            </header>
 
             {children}
 
             <Footer>
-                <abbr
-                    title="This site and all its content are licensed under a Creative Commons Attribution-NonCommercial 4.0 International License."
-                    className="footer-abbr"
-                >
-                </abbr>{' '}
-                {currentYear} © mehwow
-                <a href="https://www.linkedin.com/in/olga-panibratchenko" target="_blank" className="footer-link">
-                    Linkedin
-                </a>
+                <div className="site-footer-inner">
+                    <abbr
+                        title="This site and all its content are licensed under a Creative Commons Attribution-NonCommercial 4.0 International License."
+                        className="footer-abbr"
+                    >
+                    </abbr>{' '}
+                    {currentYear} © mehwow
+                    <a href="https://www.linkedin.com/in/olga-panibratchenko" target="_blank" className="footer-link">
+                        Linkedin
+                    </a>
+                </div>
             </Footer>
         </Layout>
         <Analytics/>

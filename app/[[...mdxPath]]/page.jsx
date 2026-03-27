@@ -1,10 +1,13 @@
 import { generateStaticParamsFor, importPage } from 'nextra/pages'
 import { useMDXComponents as getMDXComponents } from '../../mdx-components'
 import { notFound } from 'next/navigation'
+import PostsPage, { metadata as postsMetadata } from '../posts/page'
 
 const generateStaticParamsBase = generateStaticParamsFor('mdxPath')
 const normalizeMdxPath = mdxPath =>
     Array.isArray(mdxPath) ? mdxPath.filter(Boolean) : []
+const isInternalNextAssetPath = mdxPath => mdxPath[0] === '_next'
+const isPostsIndexPath = mdxPath => mdxPath.length === 1 && mdxPath[0] === 'posts'
 
 export async function generateStaticParams() {
     const paramsList = await generateStaticParamsBase()
@@ -14,18 +17,20 @@ export async function generateStaticParams() {
             ...rest,
             mdxPath: normalizeMdxPath(mdxPath)
         }))
-        .filter(({ mdxPath }) => {
-            if (mdxPath.length === 1 && mdxPath[0] === 'posts') {
-                return false
-            }
-
-            return true
-        })
+        .filter(({ mdxPath }) => !isPostsIndexPath(mdxPath))
 }
 
 export async function generateMetadata(props) {
     const params = await props.params
     const mdxPath = normalizeMdxPath(params?.mdxPath)
+
+    if (isInternalNextAssetPath(mdxPath)) {
+        return {}
+    }
+
+    if (isPostsIndexPath(mdxPath)) {
+        return postsMetadata
+    }
 
     try {
         const { metadata } = await importPage(mdxPath)
@@ -40,6 +45,14 @@ const Wrapper = getMDXComponents().wrapper
 export default async function Page(props) {
     const params = await props.params
     const mdxPath = normalizeMdxPath(params?.mdxPath)
+
+    if (isInternalNextAssetPath(mdxPath)) {
+        notFound()
+    }
+
+    if (isPostsIndexPath(mdxPath)) {
+        return <PostsPage />
+    }
 
     let result
 
