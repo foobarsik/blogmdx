@@ -12,7 +12,7 @@ export default function NavLinks() {
     const pathname = usePathname();
 
     return (
-        <nav className="nav-container">
+        <nav className="nav-container justify-start">
             {links.map(({href, label}) => (
                 <Link
                     key={href}

@@ -165,7 +165,7 @@ img.next-image {
     transition: width 0.3s ease;
 }
 
-.nav-link:hover::after, .nav-link.active-link::after {
+.nav-link:hover::after {
     width: 100%;
 }
 
@@ -174,19 +174,26 @@ img.next-image {
 /*}*/
 
 .nav-link.active-link {
+    color: #2f3a49;
     font-variation-settings: "wght" 550;
+}
+
+.nav-link.active-link::after {
+    width: 0;
 }
 
 html.dark .nav-link {
     color: inherit;
 }
 
+html.dark .nav-link.active-link {
+    color: #f5f7fa;
+}
+
 .nav-container {
     display: flex;
-    width: 100%;
     align-items: center;
-    justify-content: space-between;
-    gap: clamp(12px, 4vw, 40px);
+    gap: 40px;
 }
 
 .header button {
@@ -234,7 +241,7 @@ img.logo {
 }
 
 .post-card-image-muted {
-    filter: grayscale(0.94);
+    filter: grayscale(0.92) brightness(0.9);
 }
 
 a.x\:focus-visible\:nextra-focus {

@@ -7,7 +7,7 @@ export default function PostCard({post}) {
     return (
         <Link href={route} className="post-card-link block overflow-hidden my-12 first:mt-0 last:mb-0 group no-underline">
             {cover && (
-                <div className="relative rounded-[10px] overflow-hidden mb-4">
+                <div className="relative rounded-[12px] overflow-hidden mb-4">
                     <img
                         src={cover}
                         alt={title}
