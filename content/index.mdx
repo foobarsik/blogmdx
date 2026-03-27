@@ -1,12 +1,27 @@
 ---
 title: Hi! My name is Olga
 ---
-import {Image, Callout} from 'nextra/components'
+import {Callout, Image} from 'nextra/components'
 
-<Image src="/images/me.jpeg" alt="Olga photo" width={250} height={250}
-       className="rounded-full object-cover aspect-square ring-1 ring-[#f6c49b]" />
+<section className="about-hero">
+  <div className="about-hero-circle">
+    <Image
+      src="/images/me.jpeg"
+      alt="Olga photo"
+      width={860}
+      height={860}
+      className="about-hero-photo"
+    />
+  </div>
+  <div className="about-hero-content">
+    <p className="about-hero-kicker">ABOUT ME</p>
+    <h2 className="about-hero-title">Hi, I&apos;m Olga</h2>
+    <p className="about-hero-tagline">Not a rockstar — I just keep chaos shippable.</p>
+    <p className="about-hero-role">Frontend / Mobile / Product-minded engineer</p>
+  </div>
+</section>
 
-### Not a rockstar, just a person who keeps the chaos shippable
+### How I work
 - I have started as a full-stack PHP developer, but later focused on **mobile and frontend development** as **UX has always been my main interest**.
 - I’m quite flexible, though I thrive best working with strongly typed languages, in cross-functional teams, and a culture of collaborative learning and respectful communication.
 - I’m not afraid to do **deep research** when context is missing or a domain feels unfamiliar.
