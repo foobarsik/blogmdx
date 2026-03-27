@@ -78,6 +78,10 @@ article.x\:container.x\:prose:has(> h1 + .x\:mb-8 .x\:print\:hidden.x\:underline
 }
 
 @media (max-width: 860px) {
+    article {
+        padding-top: 0 !important;
+    }
+
     article.x\:container.x\:prose:has(> h1 + .x\:mb-8 .x\:print\:hidden.x\:underline) > .site-header ~ *,
     article.x\:container.x\:prose:has(.about-hero) > .site-header ~ * {
         margin-inline-start: 0;
@@ -862,7 +866,8 @@ html.light body {
         left: auto;
         transform: none;
         width: calc(100vw - 16px);
-        margin-top: 8px;
+        padding-top: 0;
+        margin-top: 0;
         margin-left: auto;
         margin-right: auto;
         grid-template-columns: 1fr auto;
@@ -910,7 +915,7 @@ html.light body {
 @media (max-width: 420px) {
     .site-header {
         width: calc(100vw - 10px);
-        margin-top: 6px;
+        margin-top: 0;
     }
 
     .site-header > .nav-container {
@@ -1003,7 +1008,7 @@ html.light body {
     height: 100%;
     border-radius: 26px;
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.03);
     background:
         radial-gradient(circle at 30% 40%, rgba(86, 102, 198, 0.32), transparent 60%),
         linear-gradient(120deg, rgba(104, 114, 197, 0.24), rgba(18, 23, 41, 0.32) 56%, rgba(11, 16, 30, 0.22));
@@ -1105,7 +1110,7 @@ html.light body {
     height: 120px;
     border-radius: 30px;
     margin: 20px 0 20px;
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.02);
     overflow: hidden;
     position: relative;
 }
@@ -1153,7 +1158,7 @@ html.light .posts-card-featured {
 }
 
 html.light .posts-card-featured-media {
-    border-color: rgba(16, 24, 40, 0.12);
+    border-color: rgba(16, 24, 40, 0.05);
     background:
         radial-gradient(circle at 30% 40%, rgba(86, 102, 198, 0.2), transparent 60%),
         linear-gradient(120deg, rgba(136, 151, 234, 0.18), rgba(215, 223, 255, 0.24) 56%, rgba(227, 233, 255, 0.3));
@@ -1165,7 +1170,7 @@ html.light .landing .post-meta {
 
 html.light .landing .post-visual,
 html.light .posts-card-strip {
-    border-color: rgba(16, 24, 40, 0.08);
+    border-color: rgba(16, 24, 40, 0.04);
 }
 
 html.light .landing .post-blue .post-visual,
