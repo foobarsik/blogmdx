@@ -48,6 +48,38 @@ article.x\:container.x\:prose:has(.posts-page) {
     max-width: none !important;
 }
 
+article.x\:container.x\:prose:has(> h1 + .x\:mb-8 .x\:print\:hidden.x\:underline) {
+    text-align: left;
+}
+
+article.x\:container.x\:prose:has(> h1 + .x\:mb-8 .x\:print\:hidden.x\:underline) > .site-header ~ * {
+    margin-inline-start: -120px;
+}
+
+article.x\:container.x\:prose:has(> h1 + .x\:mb-8 .x\:print\:hidden.x\:underline) > h1 {
+    text-align: left;
+}
+
+article.x\:container.x\:prose:has(> h1 + .x\:mb-8 .x\:print\:hidden.x\:underline) > h1 + .x\:mb-8.x\:flex.x\:gap-3 {
+    justify-content: flex-start;
+}
+
+article.x\:container.x\:prose:has(> h1 + .x\:mb-8 .x\:print\:hidden.x\:underline) > h1 + .x\:mb-8.x\:flex.x\:gap-3 > .x\:grow {
+    flex-grow: 0;
+}
+
+@media (max-width: 1200px) {
+    article.x\:container.x\:prose:has(> h1 + .x\:mb-8 .x\:print\:hidden.x\:underline) > .site-header ~ * {
+        margin-inline-start: -72px;
+    }
+}
+
+@media (max-width: 860px) {
+    article.x\:container.x\:prose:has(> h1 + .x\:mb-8 .x\:print\:hidden.x\:underline) > .site-header ~ * {
+        margin-inline-start: 0;
+    }
+}
+
 body {
     font-family: "Inter var",
     system-ui,
@@ -378,9 +410,10 @@ html.light body {
     margin-bottom: 44px;
     width: min(1120px, calc(100vw - 48px));
     padding: 18px 0;
-    display: flex;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
     align-items: center;
-    justify-content: space-between;
+    column-gap: 10px;
     position: relative;
     inset-inline-start: 50%;
     transform: translateX(-50%);
@@ -394,18 +427,18 @@ html.light body {
     align-items: center;
 }
 
-.site-nav-wrap {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    background: transparent;
-    padding: 10px 12px;
-}
-
 .nav-container {
     display: flex;
     align-items: center;
     gap: 10px;
+}
+
+.site-header > .nav-container {
+    justify-self: end;
+}
+
+.site-header > .theme-toggle-text {
+    justify-self: end;
 }
 
 .site-header .nav-link,
@@ -609,10 +642,14 @@ html.light body {
 }
 
 @media (max-width: 1120px) {
-    .site-header,
     .landing {
         padding-left: 24px;
         padding-right: 24px;
+    }
+
+    .site-header {
+        padding-left: 0;
+        padding-right: 0;
     }
 }
 
@@ -661,17 +698,70 @@ html.light body {
         position: static;
         left: auto;
         transform: none;
-        width: calc(100vw - 32px);
+        width: calc(100vw - 16px);
+        margin-top: 8px;
         margin-left: auto;
         margin-right: auto;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 14px;
+        grid-template-columns: 1fr auto;
+        row-gap: 10px;
+        column-gap: 8px;
+        align-items: center;
     }
 
-    .site-nav-wrap {
+    .site-logo-link {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .site-header > .theme-toggle-text {
+        grid-column: 2;
+        grid-row: 1;
+        justify-self: end;
+        margin-right: 6px;
+    }
+
+    .site-header > .nav-container {
+        grid-column: 1 / -1;
+        grid-row: 2;
         width: 100%;
-        overflow-x: auto;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 8px;
+    }
+
+    .site-header .nav-link,
+    .theme-toggle-text {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 40px;
+        white-space: nowrap;
+    }
+
+    .theme-toggle-text {
+        width: auto;
+        padding-inline: 12px;
+    }
+}
+
+@media (max-width: 420px) {
+    .site-header {
+        width: calc(100vw - 10px);
+        margin-top: 6px;
+    }
+
+    .site-header > .nav-container {
+        gap: 6px;
+    }
+
+    .site-header .nav-link,
+    .theme-toggle-text {
+        font-size: 13px;
+        padding: 8px 10px;
+    }
+
+    .site-header > .theme-toggle-text {
+        margin-right: 4px;
     }
 }
 

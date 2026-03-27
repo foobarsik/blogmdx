@@ -43,11 +43,8 @@ export default function RootLayout({children}) {
                 <Link href="/" className="site-logo-link" aria-label="MehWow home">
                     <img src="/images/logo.png" alt="mehwow logo" width={112} className="logo"/>
                 </Link>
-
-                <div className="site-nav-wrap">
-                    <NavLinks/>
-                    <ThemeToggleText/>
-                </div>
+                <NavLinks/>
+                <ThemeToggleText/>
             </header>
 
             {children}
