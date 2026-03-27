@@ -303,3 +303,8 @@ figcaption {
         text-align: center;
     }
 }
+
+.theme-switch-offset {
+    position: relative;
+    top: 2px;
+}

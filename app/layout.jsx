@@ -44,7 +44,7 @@ export default function RootLayout({children}) {
                     <Link href="/">
                         <img src="/images/logo.png" alt="mehwow logo" width={160} className="logo my-2 mx-0 sm:mx-0"/>
                     </Link>
-                    <div className="shrink-0 mt-px">
+                    <div className="shrink-0 theme-switch-offset">
                         <ThemeSwitch/>
                     </div>
                 </div>
