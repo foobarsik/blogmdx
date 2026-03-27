@@ -82,6 +82,10 @@ article.x\:container.x\:prose:has(> h1 + .x\:mb-8 .x\:print\:hidden.x\:underline
         padding-top: 0 !important;
     }
 
+    article.x\:container.x\:prose {
+        padding-top: 0 !important;
+    }
+
     article.x\:container.x\:prose:has(> h1 + .x\:mb-8 .x\:print\:hidden.x\:underline) > .site-header ~ *,
     article.x\:container.x\:prose:has(.about-hero) > .site-header ~ * {
         margin-inline-start: 0;
@@ -866,8 +870,8 @@ html.light body {
         left: auto;
         transform: none;
         width: calc(100vw - 16px);
-        padding-top: 0;
-        margin-top: 0;
+        padding-top: 0 !important;
+        margin-top: 0 !important;
         margin-left: auto;
         margin-right: auto;
         grid-template-columns: 1fr auto;
@@ -915,7 +919,7 @@ html.light body {
 @media (max-width: 420px) {
     .site-header {
         width: calc(100vw - 10px);
-        margin-top: 0;
+        margin-top: 0 !important;
     }
 
     .site-header > .nav-container {
@@ -1008,7 +1012,7 @@ html.light body {
     height: 100%;
     border-radius: 26px;
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.03);
+    border: 0;
     background:
         radial-gradient(circle at 30% 40%, rgba(86, 102, 198, 0.32), transparent 60%),
         linear-gradient(120deg, rgba(104, 114, 197, 0.24), rgba(18, 23, 41, 0.32) 56%, rgba(11, 16, 30, 0.22));
@@ -1020,7 +1024,7 @@ html.light body {
     object-fit: cover;
     object-position: center;
     display: block;
-    opacity: 0.72;
+    opacity: 0.82;
     filter: saturate(1.04) brightness(0.66);
     transition: transform 260ms ease, filter 260ms ease, opacity 260ms ease;
 }
@@ -1110,7 +1114,7 @@ html.light body {
     height: 120px;
     border-radius: 30px;
     margin: 20px 0 20px;
-    border: 1px solid rgba(255, 255, 255, 0.02);
+    border: 0;
     overflow: hidden;
     position: relative;
 }
@@ -1121,20 +1125,20 @@ html.light body {
     object-fit: cover;
     object-position: center;
     display: block;
-    opacity: 0.62;
+    opacity: 0.78;
     filter: saturate(0.95) brightness(0.62);
 }
 
 .posts-card-blue .posts-card-strip {
     background:
-        radial-gradient(circle at 30% 40%, rgba(86, 102, 198, 0.5), transparent 60%),
-        linear-gradient(100deg, rgba(104, 114, 197, 0.28), rgba(18, 23, 41, 0.3) 56%, rgba(11, 16, 30, 0.25));
+        radial-gradient(circle at 30% 40%, rgba(86, 102, 198, 0.28), transparent 60%),
+        linear-gradient(100deg, rgba(104, 114, 197, 0.16), rgba(18, 23, 41, 0.22) 56%, rgba(11, 16, 30, 0.2));
 }
 
 .posts-card-gold .posts-card-strip {
     background:
-        radial-gradient(circle at 30% 42%, rgba(178, 138, 58, 0.62), transparent 60%),
-        linear-gradient(100deg, rgba(79, 62, 27, 0.4), rgba(161, 124, 52, 0.3) 45%, rgba(10, 14, 24, 0.36));
+        radial-gradient(circle at 30% 42%, rgba(178, 138, 58, 0.3), transparent 60%),
+        linear-gradient(100deg, rgba(79, 62, 27, 0.24), rgba(161, 124, 52, 0.16) 45%, rgba(10, 14, 24, 0.24));
 }
 
 html.light .hero-kicker,
@@ -1158,7 +1162,6 @@ html.light .posts-card-featured {
 }
 
 html.light .posts-card-featured-media {
-    border-color: rgba(16, 24, 40, 0.05);
     background:
         radial-gradient(circle at 30% 40%, rgba(86, 102, 198, 0.2), transparent 60%),
         linear-gradient(120deg, rgba(136, 151, 234, 0.18), rgba(215, 223, 255, 0.24) 56%, rgba(227, 233, 255, 0.3));
@@ -1170,7 +1173,7 @@ html.light .landing .post-meta {
 
 html.light .landing .post-visual,
 html.light .posts-card-strip {
-    border-color: rgba(16, 24, 40, 0.04);
+    border-color: transparent;
 }
 
 html.light .landing .post-blue .post-visual,
