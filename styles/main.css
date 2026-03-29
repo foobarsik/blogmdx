@@ -1266,6 +1266,37 @@ html.light body {
         filter: saturate(1.12) brightness(0.84);
         opacity: 0.88;
     }
+
+    html.light .landing .featured:hover,
+    html.light .landing .featured:focus-within,
+    html.light .posts-card-featured:hover,
+    html.light .posts-card-featured:focus-visible {
+        background:
+            radial-gradient(140% 120% at 28% -8%, rgba(90, 112, 232, 0.14) 0%, rgba(90, 112, 232, 0.09) 32%, rgba(158, 173, 244, 0.08) 62%, rgba(255, 255, 255, 0) 100%),
+            linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.8));
+    }
+
+    html.light .landing .post:hover,
+    html.light .landing .post:focus-visible,
+    html.light .posts-card:hover,
+    html.light .posts-card:focus-visible {
+        background:
+            radial-gradient(140% 120% at 28% -8%, rgba(90, 112, 232, 0.14) 0%, rgba(90, 112, 232, 0.09) 32%, rgba(158, 173, 244, 0.08) 62%, rgba(255, 255, 255, 0) 100%),
+            linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.8));
+    }
+
+    html.light .posts-card:hover::after,
+    html.light .posts-card:focus-visible::after {
+        opacity: 0;
+        transform: translateY(14px);
+    }
+
+    html.light .posts-card:hover,
+    html.light .posts-card:focus-visible {
+        box-shadow:
+            0 4px 10px rgba(0, 0, 0, 0.07),
+            0 16px 36px rgba(80, 100, 160, 0.16);
+    }
 }
 
 .posts-card-description {
@@ -1315,25 +1346,15 @@ html.light .posts-section-label {
 
 html.light .landing .post,
 html.light .posts-card {
-    background:
-        radial-gradient(140% 120% at 28% -8%, rgba(90, 112, 232, 0.14) 0%, rgba(90, 112, 232, 0.09) 32%, rgba(158, 173, 244, 0.08) 62%, rgba(255, 255, 255, 0) 100%),
-        linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.8));
+    background: #fff;
+    box-shadow:
+        0 2px 6px rgba(0, 0, 0, 0.06),
+        0 10px 30px rgba(80, 100, 160, 0.12);
 }
 
 html.light .landing .featured,
 html.light .posts-card-featured {
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0.96));
-}
-
-html.light .landing .featured::before,
-html.light .posts-card-featured::before {
-    background: linear-gradient(
-        180deg,
-        rgba(138, 160, 255, 0.24) 0%,
-        rgba(188, 205, 255, 0.16) 34%,
-        rgba(231, 238, 255, 0.1) 62%,
-        rgba(255, 255, 255, 0) 100%
-    );
+    background: #fff;
 }
 
 html.light .posts-card-featured-media {
