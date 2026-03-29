@@ -7,6 +7,7 @@ import '../styles/main.css'
 import Link from "next/link";
 import {Analytics} from "@vercel/analytics/next";
 import {SpeedInsights} from '@vercel/speed-insights/next';
+import Script from 'next/script'
 
 export const metadata = {
     title: 'MehWow Blog'
@@ -38,6 +39,12 @@ export default function RootLayout({children}) {
         <html lang="en" suppressHydrationWarning>
         <head suppressHydrationWarning/>
         <body>
+        <Script
+            defer
+            src="https://cloud.umami.is/script.js"
+            data-website-id="3bb9303e-4df5-42ae-979d-bd66d330f5e1"
+            strategy="afterInteractive"
+        />
         <Layout banner={banner} nextThemes={{ defaultTheme: 'dark' }}>
             <header className="site-header">
                 <Link href="/" className="site-logo-link" aria-label="MehWow home">

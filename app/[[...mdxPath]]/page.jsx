@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation'
 import PostsPage, { metadata as postsMetadata } from '../posts/page'
 import CommentsSection from '../components/comments/CommentsSection'
 import { isCommentsEnabled } from '../../lib/comments'
+import ArticleAnalytics from '../components/ArticleAnalytics'
 
 const generateStaticParamsBase = generateStaticParamsFor('mdxPath')
 const normalizeMdxPath = mdxPath =>
@@ -69,10 +70,25 @@ export default async function Page(props) {
     const postSlug = mdxPath.join('/')
     const showComments = isPostPath(mdxPath)
     const commentsEnabled = isCommentsEnabled()
+    const articleSlug = showComments ? mdxPath.slice(1).join('/') : postSlug
+    const articleTitle =
+        typeof metadata?.title === 'string'
+            ? metadata.title
+            : Array.isArray(metadata?.title)
+                ? metadata.title.join(' ')
+                : articleSlug
 
     return (
         <Wrapper toc={toc} metadata={metadata}>
-            <MDXContent {...props} params={{ ...(params ?? {}), mdxPath }} />
+            {showComments ? (
+                <ArticleAnalytics
+                    articleSlug={articleSlug}
+                    articleTitle={articleTitle}
+                />
+            ) : null}
+            <div data-article-content>
+                <MDXContent {...props} params={{ ...(params ?? {}), mdxPath }} />
+            </div>
             {showComments ? (
                 <CommentsSection
                     postSlug={postSlug}
