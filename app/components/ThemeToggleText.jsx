@@ -21,11 +21,9 @@ function applyThemeToDom(nextTheme) {
 
 export default function ThemeToggleText() {
     const { setTheme } = useTheme();
-    const [mounted, setMounted] = useState(false);
     const [themeName, setThemeName] = useState("dark");
 
     useEffect(() => {
-        setMounted(true);
         const current = readThemeFromDom();
         if (current) {
             setThemeName(current);
@@ -53,7 +51,7 @@ export default function ThemeToggleText() {
             aria-label="Toggle theme"
             aria-pressed={themeName === "dark"}
         >
-            {mounted ? (themeName === "dark" ? "Dark -> Light" : "Light -> Dark") : "Dark / Light"}
+            Dark/Light
         </button>
     );
 }

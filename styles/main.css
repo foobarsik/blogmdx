@@ -609,6 +609,7 @@ html.light body {
 
 .site-header > .nav-container {
     justify-self: end;
+    margin-right: 0;
 }
 
 .site-header .nav-link + .nav-link {
@@ -618,6 +619,9 @@ html.light body {
 .site-header > .theme-toggle-text {
     justify-self: end;
     margin-left: 0;
+    padding-left: 0;
+    display: inline-flex;
+    align-items: center;
 }
 
 .site-header .nav-link,
@@ -661,7 +665,17 @@ html.light body {
 
 .theme-toggle-text {
     cursor: pointer;
-    opacity: 0.68;
+    font-size: 12px;
+    opacity: 0.56;
+}
+
+.theme-toggle-text::before {
+    content: "";
+    width: 1px;
+    height: 0.92em;
+    margin-right: clamp(12px, 1.8vw, 20px);
+    background: currentColor;
+    opacity: 0.24;
 }
 
 .site-header .nav-link.active-link {
@@ -944,6 +958,7 @@ html.light body {
         display: flex;
         justify-content: flex-start;
         gap: 0;
+        margin-right: 0;
         overflow-x: auto;
         scrollbar-width: none;
         -ms-overflow-style: none;
@@ -985,9 +1000,12 @@ html.light body {
         margin-left: 18px;
     }
 
-    .site-header .nav-link,
-    .theme-toggle-text {
+    .site-header .nav-link {
         font-size: 13px;
+    }
+
+    .theme-toggle-text {
+        font-size: 12px;
     }
 
     .site-header > .theme-toggle-text {
