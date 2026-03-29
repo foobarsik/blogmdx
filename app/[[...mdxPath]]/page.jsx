@@ -2,12 +2,15 @@ import { generateStaticParamsFor, importPage } from 'nextra/pages'
 import { useMDXComponents as getMDXComponents } from '../../mdx-components'
 import { notFound } from 'next/navigation'
 import PostsPage, { metadata as postsMetadata } from '../posts/page'
+import CommentsSection from '../components/comments/CommentsSection'
+import { isCommentsEnabled } from '../../lib/comments'
 
 const generateStaticParamsBase = generateStaticParamsFor('mdxPath')
 const normalizeMdxPath = mdxPath =>
     Array.isArray(mdxPath) ? mdxPath.filter(Boolean) : []
 const isInternalNextAssetPath = mdxPath => mdxPath[0] === '_next'
 const isPostsIndexPath = mdxPath => mdxPath.length === 1 && mdxPath[0] === 'posts'
+const isPostPath = mdxPath => mdxPath[0] === 'posts' && mdxPath.length > 1
 
 export async function generateStaticParams() {
     const paramsList = await generateStaticParamsBase()
@@ -63,9 +66,19 @@ export default async function Page(props) {
     }
 
     const { default: MDXContent, toc, metadata } = result
+    const postSlug = mdxPath.join('/')
+    const showComments = isPostPath(mdxPath)
+    const commentsEnabled = isCommentsEnabled()
+
     return (
         <Wrapper toc={toc} metadata={metadata}>
             <MDXContent {...props} params={{ ...(params ?? {}), mdxPath }} />
+            {showComments ? (
+                <CommentsSection
+                    postSlug={postSlug}
+                    enabled={commentsEnabled}
+                />
+            ) : null}
         </Wrapper>
     )
 }

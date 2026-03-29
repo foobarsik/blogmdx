@@ -38,3 +38,38 @@ pnpm create next-app --example blog my-blog
 ```
 
 Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+
+## Comments (Supabase + moderation)
+
+This project includes comments for post pages (`/posts/*`) with manual moderation.
+
+- The form has 4 fields: `email`, `name`, `website (optional)`, `comment`.
+- New comments are saved with `approved = false`.
+- Only comments with `approved = true` are shown on the site.
+
+### 1) Create table and policies in Supabase
+
+Run SQL from:
+
+`supabase/comments.sql`
+
+### 2) Configure environment variables
+
+Add these variables to `.env.local`:
+
+```bash
+NEXT_PUBLIC_SUPABASE_URL=...
+NEXT_PUBLIC_SUPABASE_ANON_KEY=...
+```
+
+`NEXT_PUBLIC_SUPABASE_PUBLISHABLE_DEFAULT_KEY` is also supported as an alternative key name.
+
+### 3) Manual moderation
+
+Approve a comment manually in Supabase SQL editor:
+
+```sql
+update public.comments
+set approved = true
+where id = 'COMMENT_ID';
+```
