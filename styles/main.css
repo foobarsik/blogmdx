@@ -114,6 +114,14 @@ article.x\:container.x\:prose:has(> h1 + .x\:mb-8 .x\:print\:hidden.x\:underline
     }
 }
 
+@media (max-width: 1024px) {
+    article :where(table th, table td):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+        border-left: 0 !important;
+        border-right: 0 !important;
+        border-inline-width: 0 !important;
+    }
+}
+
 body {
     font-family: "Inter var",
     system-ui,
