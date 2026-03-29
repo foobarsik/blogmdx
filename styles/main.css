@@ -656,7 +656,7 @@ html.light body {
 .theme-toggle-text {
     text-decoration: none;
     color: var(--mw-muted);
-    font-size: 14px;
+    font-size: 16px;
     padding: 0;
     border: 0;
     background: transparent;
@@ -1033,7 +1033,7 @@ html.light body {
     }
 
     .site-header .nav-link {
-        font-size: 13px;
+        font-size: 16px;
     }
 
     .theme-toggle-text {
