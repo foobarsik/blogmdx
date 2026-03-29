@@ -43,6 +43,8 @@ export default function ThemeToggleText() {
         }
     };
 
+    const themeLabel = themeName === "dark" ? "Dark/Light" : "Light/Dark";
+
     return (
         <button
             type="button"
@@ -51,7 +53,7 @@ export default function ThemeToggleText() {
             aria-label="Toggle theme"
             aria-pressed={themeName === "dark"}
         >
-            Dark/Light
+            {themeLabel}
         </button>
     );
 }
