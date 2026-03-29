@@ -583,7 +583,7 @@ html.light body {
     max-width: none;
     padding: 14px 0 10px;
     display: grid;
-    grid-template-columns: auto 1fr auto auto;
+    grid-template-columns: auto 1fr auto;
     align-items: center;
     column-gap: 28px;
     position: relative;
@@ -948,7 +948,7 @@ html.light body {
         grid-column: 2;
         grid-row: 1;
         justify-self: end;
-        margin-right: 6px;
+        margin-right: 0;
     }
 
     .site-header > .nav-container {
@@ -984,6 +984,10 @@ html.light body {
     .theme-toggle-text {
         width: auto;
     }
+
+    .theme-toggle-text::before {
+        display: none;
+    }
 }
 
 @media (max-width: 420px) {
@@ -1009,7 +1013,7 @@ html.light body {
     }
 
     .site-header > .theme-toggle-text {
-        margin-right: 4px;
+        margin-right: 0;
     }
 }
 
