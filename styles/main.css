@@ -860,7 +860,7 @@ html.light body {
         rgba(120, 130, 255, 0.25) 0%,
         rgba(0, 0, 0, 0.9) 100%
     );
-    transition: background 260ms ease;
+    transition: none;
 }
 
 .landing .featured::before {
@@ -1108,7 +1108,7 @@ html.light body {
             rgba(6, 10, 20, 0) 100%
         );
     opacity: 0;
-    transform: translateY(14px);
+    transform: translateY(0);
     z-index: 0;
     pointer-events: none;
     transition: opacity 260ms ease, transform 260ms ease;
@@ -1122,7 +1122,7 @@ html.light body {
         rgba(120, 130, 255, 0.25) 0%,
         rgba(0, 0, 0, 0.9) 100%
     );
-    transition: background 260ms ease;
+    transition: none;
 }
 
 .posts-card-featured::before {
@@ -1287,7 +1287,7 @@ html.light body {
     html.light .posts-card:hover::after,
     html.light .posts-card:focus-visible::after {
         opacity: 0;
-        transform: translateY(14px);
+        transform: translateY(0);
     }
 
     html.light .posts-card:hover,
@@ -1354,6 +1354,7 @@ html.light .posts-card {
 html.light .landing .featured,
 html.light .posts-card-featured {
     background: #fff;
+    transition: none;
 }
 
 html.light .posts-card-featured-media {
