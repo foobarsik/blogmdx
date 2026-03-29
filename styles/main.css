@@ -53,6 +53,27 @@ article.x\:container.x\:prose:has(.about-hero) {
     text-align: left;
 }
 
+article.x\:container.x\:prose > h1 + .x\:mb-8 .x\:print\:hidden.x\:underline {
+    display: none;
+}
+
+.top-back-link {
+    margin: 0 0 12px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    text-decoration: none;
+    font: inherit;
+    line-height: 1.4;
+    cursor: pointer;
+}
+
+.top-back-link:hover,
+.top-back-link:focus-visible {
+    opacity: 0.78;
+}
+
 article.x\:container.x\:prose:has(> h1 + .x\:mb-8 .x\:print\:hidden.x\:underline) > .site-header ~ *,
 article.x\:container.x\:prose:has(.about-hero) > .site-header ~ * {
     margin-inline-start: -120px;
@@ -91,7 +112,6 @@ article.x\:container.x\:prose:has(> h1 + .x\:mb-8 .x\:print\:hidden.x\:underline
     article.x\:container.x\:prose:has(.about-hero) > .site-header ~ * {
         margin-inline-start: 0;
     }
-
 }
 
 body {
