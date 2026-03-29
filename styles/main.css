@@ -1232,7 +1232,6 @@ html.light body {
 
     .posts-card:hover,
     .posts-card:focus-visible {
-        transform: translateY(-8px);
         border-color: color-mix(in srgb, var(--mw-accent) 42%, var(--mw-line));
         box-shadow: 0 28px 56px rgba(7, 12, 22, 0.36);
     }
