@@ -17,7 +17,6 @@ export default async function PostsPage() {
 
     return (
         <div data-pagefind-ignore="all" className="posts-page not-prose">
-            <div className="posts-section-label">Latest posts</div>
             <section className="posts-grid">
             {/*
             <div className="not-prose flex flex-wrap gap-2 mb-14">

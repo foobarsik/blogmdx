@@ -11,13 +11,19 @@ const links = [
 export default function NavLinks() {
     const pathname = usePathname();
 
+    const isLinkActive = (href) => {
+        if (href === "/") return pathname === "/";
+        return pathname === href || pathname.startsWith(`${href}/`);
+    };
+
     return (
         <nav className="nav-container">
             {links.map(({href, label}) => (
                 <Link
                     key={href}
                     href={href}
-                    className={`nav-link${pathname === href ? " active-link" : ""}`}
+                    className={`nav-link${isLinkActive(href) ? " active-link" : ""}`}
+                    aria-current={isLinkActive(href) ? "page" : undefined}
                 >
                     {label}
                 </Link>
