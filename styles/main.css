@@ -813,7 +813,7 @@ html.light body {
 }
 
 .landing .post {
-    border: 1px solid rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.03);
     border-radius: 8px;
     padding: 34px 34px 30px;
     background: transparent;
@@ -869,7 +869,7 @@ html.light body {
     padding: 44px 42px 40px;
     position: relative;
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.03);
     background: transparent;
     transition: none;
 }
@@ -1102,7 +1102,7 @@ html.light body {
 }
 
 .posts-card {
-    border: 1px solid rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.03);
     border-radius: 8px;
     padding: 34px 34px 30px;
     position: relative;
@@ -1119,7 +1119,7 @@ html.light body {
 .posts-card-featured {
     grid-column: span 2;
     padding: 44px 42px 40px;
-    border: 1px solid rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.03);
     background: transparent;
     transition: none;
 }
