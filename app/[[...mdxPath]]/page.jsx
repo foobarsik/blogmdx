@@ -2,9 +2,11 @@ import { generateStaticParamsFor, importPage } from 'nextra/pages'
 import { useMDXComponents as getMDXComponents } from '../../mdx-components'
 import { notFound } from 'next/navigation'
 import PostsPage, { metadata as postsMetadata } from '../posts/page'
+import { getPosts } from '../posts/utils/get-posts'
 import CommentsSection from '../components/comments/CommentsSection'
 import { isCommentsEnabled } from '../../lib/comments'
 import ArticleAnalytics from '../components/ArticleAnalytics'
+import Link from 'next/link'
 
 const generateStaticParamsBase = generateStaticParamsFor('mdxPath')
 const normalizeMdxPath = mdxPath =>
@@ -71,6 +73,8 @@ export default async function Page(props) {
     const showComments = isPostPath(mdxPath)
     const commentsEnabled = isCommentsEnabled()
     const articleSlug = showComments ? mdxPath.slice(1).join('/') : postSlug
+    const currentPostRoute = `/${mdxPath.join('/')}`
+    const allPosts = showComments ? await getPosts() : []
     const articleTitle =
         typeof metadata?.title === 'string'
             ? metadata.title
@@ -78,8 +82,8 @@ export default async function Page(props) {
                 ? metadata.title.join(' ')
                 : articleSlug
 
-    return (
-        <Wrapper toc={toc} metadata={metadata}>
+    const postContent = (
+        <>
             {showComments ? (
                 <ArticleAnalytics
                     articleSlug={articleSlug}
@@ -95,6 +99,44 @@ export default async function Page(props) {
                     enabled={commentsEnabled}
                 />
             ) : null}
-        </Wrapper>
+        </>
+    )
+
+    if (!showComments) {
+        return (
+            <Wrapper toc={toc} metadata={metadata}>
+                {postContent}
+            </Wrapper>
+        )
+    }
+
+    return (
+        <div className="post-page-shell">
+            <aside className="post-page-sidebar not-prose" aria-label="All posts">
+                <p className="post-page-sidebar-title">All posts</p>
+                <nav className="post-page-sidebar-nav">
+                    {allPosts.map(post => {
+                        const postTitle = post.frontMatter?.title || post.title || post.name
+                        const isCurrentPost = post.route === currentPostRoute
+
+                        return (
+                            <Link
+                                key={post.route}
+                                href={post.route}
+                                className={`post-page-sidebar-link${isCurrentPost ? ' post-page-sidebar-link-active' : ''}`}
+                                aria-current={isCurrentPost ? 'page' : undefined}
+                            >
+                                {postTitle}
+                            </Link>
+                        )
+                    })}
+                </nav>
+            </aside>
+            <div className="post-page-shell-main">
+                <Wrapper toc={toc} metadata={metadata}>
+                    {postContent}
+                </Wrapper>
+            </div>
+        </div>
     )
 }

@@ -48,12 +48,20 @@ article.x\:container.x\:prose:has(.posts-page) {
     max-width: none !important;
 }
 
+article.x\:container.x\:prose:has(.post-page-shell) {
+    max-width: none !important;
+}
+
 article.x\:container.x\:prose:has(> h1 + .x\:mb-8 .x\:print\:hidden.x\:underline),
 article.x\:container.x\:prose:has(.about-hero) {
     text-align: left;
 }
 
 article.x\:container.x\:prose > h1 + .x\:mb-8 .x\:print\:hidden.x\:underline {
+    display: none;
+}
+
+.post-page-shell-main .x\:mb-8 .x\:print\:hidden.x\:underline {
     display: none;
 }
 
@@ -800,12 +808,10 @@ html.light body {
 }
 
 .landing .post {
-    border: 1px solid var(--mw-line);
+    border: 1px solid rgba(255, 255, 255, 0.06);
     border-radius: 36px;
     padding: 34px 34px 30px;
-    background:
-        radial-gradient(140% 120% at 28% -8%, rgba(90, 112, 232, 0.2) 0%, rgba(90, 112, 232, 0.12) 32%, rgba(26, 36, 70, 0.08) 60%, rgba(9, 14, 27, 0) 100%),
-        linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.012));
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.022), rgba(255, 255, 255, 0.01));
 }
 
 .landing .post-tag {
@@ -855,11 +861,7 @@ html.light body {
     padding: 44px 42px 40px;
     position: relative;
     overflow: hidden;
-    background: linear-gradient(
-        to bottom,
-        rgba(120, 130, 255, 0.25) 0%,
-        rgba(0, 0, 0, 0.9) 100%
-    );
+    background: linear-gradient(180deg, rgba(124, 140, 255, 0.1), rgba(255, 255, 255, 0.012));
     transition: none;
 }
 
@@ -1082,16 +1084,14 @@ html.light body {
 }
 
 .posts-card {
-    border: 1px solid var(--mw-line);
+    border: 1px solid rgba(255, 255, 255, 0.06);
     border-radius: 36px;
     padding: 34px 34px 30px;
     position: relative;
     overflow: hidden;
-    background:
-        radial-gradient(140% 120% at 28% -8%, rgba(90, 112, 232, 0.2) 0%, rgba(90, 112, 232, 0.12) 32%, rgba(26, 36, 70, 0.08) 60%, rgba(9, 14, 27, 0) 100%),
-        linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.012));
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.14);
-    transition: transform 260ms ease, box-shadow 260ms ease, border-color 260ms ease;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.022), rgba(255, 255, 255, 0.01));
+    box-shadow: none;
+    transition: transform 260ms ease, border-color 260ms ease, background 260ms ease;
 }
 
 .posts-card::after {
@@ -1101,10 +1101,10 @@ html.light body {
     background:
         radial-gradient(
             132% 126% at 8% 6%,
-            rgba(124, 140, 255, 0.36) 0%,
-            rgba(98, 112, 224, 0.27) 30%,
-            rgba(38, 51, 96, 0.16) 56%,
-            rgba(12, 18, 35, 0.07) 78%,
+            rgba(124, 140, 255, 0.16) 0%,
+            rgba(98, 112, 224, 0.12) 30%,
+            rgba(38, 51, 96, 0.08) 56%,
+            rgba(12, 18, 35, 0.04) 78%,
             rgba(6, 10, 20, 0) 100%
         );
     opacity: 0;
@@ -1117,11 +1117,7 @@ html.light body {
 .posts-card-featured {
     grid-column: span 2;
     padding: 44px 42px 40px;
-    background: linear-gradient(
-        to bottom,
-        rgba(120, 130, 255, 0.25) 0%,
-        rgba(0, 0, 0, 0.9) 100%
-    );
+    background: linear-gradient(180deg, rgba(124, 140, 255, 0.1), rgba(255, 255, 255, 0.012));
     transition: none;
 }
 
@@ -1133,9 +1129,9 @@ html.light body {
     background:
         radial-gradient(
             148% 124% at 12% 4%,
-            rgba(124, 140, 255, 0.34) 0%,
-            rgba(94, 109, 222, 0.24) 32%,
-            rgba(30, 40, 79, 0.14) 58%,
+            rgba(124, 140, 255, 0.14) 0%,
+            rgba(94, 109, 222, 0.1) 32%,
+            rgba(30, 40, 79, 0.06) 58%,
             rgba(9, 14, 27, 0) 100%
         );
     -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 62%, rgba(0, 0, 0, 0.42) 84%, transparent 100%);
@@ -1223,22 +1219,18 @@ html.light body {
     .landing .featured:focus-within,
     .posts-card-featured:hover,
     .posts-card-featured:focus-visible {
-        background: linear-gradient(
-            to bottom,
-            rgba(120, 130, 255, 0.4) 0%,
-            rgba(0, 0, 0, 0.85) 100%
-        );
+        background: linear-gradient(180deg, rgba(124, 140, 255, 0.12), rgba(255, 255, 255, 0.014));
     }
 
     .posts-card:hover,
     .posts-card:focus-visible {
-        border-color: color-mix(in srgb, var(--mw-accent) 42%, var(--mw-line));
-        box-shadow: 0 28px 56px rgba(7, 12, 22, 0.36);
+        border-color: color-mix(in srgb, var(--mw-accent) 20%, rgba(255, 255, 255, 0.06));
+        box-shadow: none;
     }
 
     .posts-card:hover::after,
     .posts-card:focus-visible::after {
-        opacity: 1;
+        opacity: 0.35;
         transform: translateY(0);
     }
 
@@ -1270,18 +1262,14 @@ html.light body {
     html.light .landing .featured:focus-within,
     html.light .posts-card-featured:hover,
     html.light .posts-card-featured:focus-visible {
-        background:
-            radial-gradient(140% 120% at 28% -8%, rgba(90, 112, 232, 0.14) 0%, rgba(90, 112, 232, 0.09) 32%, rgba(158, 173, 244, 0.08) 62%, rgba(255, 255, 255, 0) 100%),
-            linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.8));
+        background: #fff;
     }
 
     html.light .landing .post:hover,
     html.light .landing .post:focus-visible,
     html.light .posts-card:hover,
     html.light .posts-card:focus-visible {
-        background:
-            radial-gradient(140% 120% at 28% -8%, rgba(90, 112, 232, 0.14) 0%, rgba(90, 112, 232, 0.09) 32%, rgba(158, 173, 244, 0.08) 62%, rgba(255, 255, 255, 0) 100%),
-            linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.8));
+        background: #fff;
     }
 
     html.light .posts-card:hover::after,
@@ -1292,9 +1280,7 @@ html.light body {
 
     html.light .posts-card:hover,
     html.light .posts-card:focus-visible {
-        box-shadow:
-            0 4px 10px rgba(0, 0, 0, 0.07),
-            0 16px 36px rgba(80, 100, 160, 0.16);
+        box-shadow: none;
     }
 }
 
@@ -1346,9 +1332,8 @@ html.light .posts-section-label {
 html.light .landing .post,
 html.light .posts-card {
     background: #fff;
-    box-shadow:
-        0 2px 6px rgba(0, 0, 0, 0.06),
-        0 10px 30px rgba(80, 100, 160, 0.12);
+    border: 1px solid rgba(16, 24, 40, 0.08);
+    box-shadow: none;
 }
 
 html.light .landing .featured,
@@ -1428,6 +1413,121 @@ html.light .posts-card-gold .posts-card-strip {
     .posts-card-strip {
         height: 70px;
         border-radius: 20px;
+    }
+}
+
+.post-page-shell {
+    display: grid;
+    grid-template-columns: minmax(220px, 280px) minmax(0, 1fr);
+    gap: clamp(24px, 3.2vw, 52px);
+    align-items: start;
+    width: min(1120px, calc(100vw - 48px));
+    max-width: none;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.post-page-shell-main {
+    min-width: 0;
+}
+
+.post-page-sidebar {
+    position: sticky;
+    top: 102px;
+    max-height: calc(100vh - 128px);
+    overflow-y: auto;
+    border-radius: 18px;
+    border: 1px solid rgba(127, 143, 167, 0.24);
+    background: rgba(8, 12, 20, 0.32);
+    padding: 14px 10px;
+}
+
+.post-page-sidebar-title {
+    margin: 0 6px 10px;
+    color: rgba(154, 163, 178, 0.85);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 11px;
+    line-height: 1.1;
+}
+
+.post-page-sidebar-nav {
+    display: grid;
+    gap: 4px;
+}
+
+.post-page-sidebar-link {
+    display: block;
+    border-radius: 10px;
+    padding: 8px 10px;
+    text-decoration: none;
+    color: var(--mw-muted);
+    font-size: 14px;
+    line-height: 1.4;
+    transition: color 180ms ease, background-color 180ms ease;
+}
+
+.post-page-sidebar-link:hover {
+    color: var(--mw-text);
+    background: rgba(124, 140, 255, 0.16);
+}
+
+.post-page-sidebar-link-active {
+    color: var(--mw-text);
+    background: rgba(124, 140, 255, 0.22);
+    font-variation-settings: "wght" 520;
+}
+
+html.light .post-page-sidebar {
+    border-color: rgba(16, 24, 40, 0.1);
+    background: rgba(255, 255, 255, 0.88);
+}
+
+html.light .post-page-sidebar-title {
+    color: rgba(16, 24, 40, 0.62);
+}
+
+html.light .post-page-sidebar-link:hover {
+    background: rgba(90, 111, 232, 0.1);
+}
+
+html.light .post-page-sidebar-link-active {
+    background: rgba(90, 111, 232, 0.18);
+}
+
+@media (max-width: 1200px) {
+    .post-page-shell {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .post-page-sidebar {
+        position: static;
+        top: auto;
+        max-height: none;
+    }
+
+    .post-page-sidebar-nav {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 6px;
+    }
+}
+
+@media (max-width: 860px) {
+    .post-page-shell {
+        display: block;
+        position: static;
+        left: auto;
+        transform: none;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .post-page-sidebar {
+        display: none;
     }
 }
 
