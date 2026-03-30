@@ -584,7 +584,7 @@ html.light {
 
 html.dark {
     --mw-bg: #080a0f;
-    --mw-panel: rgba(255, 255, 255, 0.03);
+    --mw-panel: rgba(255, 255, 255, 0.06);
     --mw-text: #f3f4f6;
     --mw-muted: #9ca3af;
     --mw-line: rgba(255, 255, 255, 0.08);
@@ -766,7 +766,7 @@ html.light body {
 
 .hero-card {
     min-height: 260px;
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(120, 140, 255, 0.08);
     border-radius: 8px;
     background: #0b0f1a;
     padding: 24px;
@@ -813,7 +813,7 @@ html.light body {
 }
 
 .landing .post {
-    border: 1px solid rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(120, 140, 255, 0.08);
     border-radius: 8px;
     padding: 34px 34px 30px;
     background: transparent;
@@ -869,7 +869,7 @@ html.light body {
     padding: 44px 42px 40px;
     position: relative;
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(120, 140, 255, 0.08);
     background: transparent;
     transition: none;
 }
@@ -887,7 +887,7 @@ html.light body {
     height: 120px;
     border-radius: 8px;
     margin: 20px 0 20px;
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(120, 140, 255, 0.08);
     background: #0e1320;
     overflow: hidden;
     position: relative;
@@ -1102,7 +1102,7 @@ html.light body {
 }
 
 .posts-card {
-    border: 1px solid rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(120, 140, 255, 0.08);
     border-radius: 8px;
     padding: 34px 34px 30px;
     position: relative;
@@ -1119,7 +1119,7 @@ html.light body {
 .posts-card-featured {
     grid-column: span 2;
     padding: 44px 42px 40px;
-    border: 1px solid rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(120, 140, 255, 0.08);
     background: transparent;
     transition: none;
 }
@@ -1295,7 +1295,7 @@ html.light body {
     height: 120px;
     border-radius: 8px;
     margin: 20px 0 20px;
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(120, 140, 255, 0.08);
     background: #0e1320;
     overflow: hidden;
     position: relative;
