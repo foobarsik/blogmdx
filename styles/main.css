@@ -1214,13 +1214,11 @@ html.light body {
     .landing .featured:focus-within,
     .posts-card-featured:hover,
     .posts-card-featured:focus-visible {
-        border-color: color-mix(in srgb, var(--mw-accent) 24%, rgba(255, 255, 255, 0.04));
         background: rgba(255, 255, 255, 0.015);
     }
 
     .posts-card:hover,
     .posts-card:focus-visible {
-        border-color: color-mix(in srgb, var(--mw-accent) 24%, rgba(255, 255, 255, 0.04));
         box-shadow: none;
     }
 
@@ -1229,9 +1227,14 @@ html.light body {
         opacity: 0;
     }
 
+    .landing .post:hover .post-title,
+    .landing .post:focus-within .post-title,
     .posts-card:hover .posts-card-title,
     .posts-card:focus-visible .posts-card-title {
         transform: none;
+        text-decoration: underline;
+        text-underline-offset: 4px;
+        text-decoration-thickness: 1.25px;
     }
 
     .posts-card:hover .posts-card-description,
@@ -1241,14 +1244,14 @@ html.light body {
 
     .posts-card:hover .posts-card-strip-image,
     .posts-card:focus-visible .posts-card-strip-image {
-        transform: scale(1.03);
+        transform: scale(1.10);
         filter: saturate(1.02) brightness(0.7);
         opacity: 0.78;
     }
 
     .posts-card:hover .posts-card-featured-image,
     .posts-card:focus-visible .posts-card-featured-image {
-        transform: scale(1.03);
+        transform: scale(1.09);
         filter: saturate(1.04) brightness(0.88);
         opacity: 0.92;
     }
@@ -1258,7 +1261,6 @@ html.light body {
     html.light .posts-card-featured:hover,
     html.light .posts-card-featured:focus-visible {
         background: transparent;
-        border-color: color-mix(in srgb, var(--mw-accent) 36%, rgba(16, 24, 40, 0.06));
     }
 
     html.light .landing .post:hover,
@@ -1266,7 +1268,6 @@ html.light body {
     html.light .posts-card:hover,
     html.light .posts-card:focus-visible {
         background: transparent;
-        border-color: color-mix(in srgb, var(--mw-accent) 34%, rgba(16, 24, 40, 0.06));
     }
 
     html.light .posts-card:hover::after,
