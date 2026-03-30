@@ -816,7 +816,7 @@ html.light body {
     border: 1px solid rgba(255, 255, 255, 0.04);
     border-radius: 8px;
     padding: 34px 34px 30px;
-    background: rgba(255, 255, 255, 0.015);
+    background: transparent;
 }
 
 .landing .post-tag {
@@ -870,7 +870,7 @@ html.light body {
     position: relative;
     overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.04);
-    background: rgba(255, 255, 255, 0.015);
+    background: transparent;
     transition: none;
 }
 
@@ -1107,7 +1107,7 @@ html.light body {
     padding: 34px 34px 30px;
     position: relative;
     overflow: hidden;
-    background: rgba(255, 255, 255, 0.015);
+    background: transparent;
     box-shadow: none;
     transition: transform 260ms ease, border-color 260ms ease;
 }
@@ -1120,7 +1120,7 @@ html.light body {
     grid-column: span 2;
     padding: 44px 42px 40px;
     border: 1px solid rgba(255, 255, 255, 0.04);
-    background: rgba(255, 255, 255, 0.015);
+    background: transparent;
     transition: none;
 }
 
@@ -1214,7 +1214,7 @@ html.light body {
     .landing .featured:focus-within,
     .posts-card-featured:hover,
     .posts-card-featured:focus-visible {
-        background: rgba(255, 255, 255, 0.015);
+        background: transparent;
     }
 
     .posts-card:hover,
