@@ -6,6 +6,7 @@
     --nextra-primary-lightness: 45%;
     --nextra-bg: 250, 250, 250;
     --nextra-content-width: 90rem;
+    --mw-shell-width: min(1120px, calc(100vw - 48px));
 }
 
 .dark {
@@ -83,9 +84,9 @@ article.x\:container.x\:prose > h1 + .x\:mb-8 .x\:print\:hidden.x\:underline {
     opacity: 0.78;
 }
 
-article.x\:container.x\:prose:has(> h1 + .x\:mb-8 .x\:print\:hidden.x\:underline) > .site-header ~ *,
-article.x\:container.x\:prose:has(.about-hero) > .site-header ~ *,
-article.x\:container.x\:prose:has(.projects-page) > .site-header ~ * {
+article.x\:container.x\:prose:has(> h1 + .x\:mb-8 .x\:print\:hidden.x\:underline) > .site-header ~ :not(.site-footer),
+article.x\:container.x\:prose:has(.about-hero) > .site-header ~ :not(.site-footer),
+article.x\:container.x\:prose:has(.projects-page) > .site-header ~ :not(.site-footer) {
     margin-inline-start: -120px;
 }
 
@@ -107,9 +108,9 @@ article.x\:container.x\:prose:has(> h1 + .x\:mb-8 .x\:print\:hidden.x\:underline
 }
 
 @media (max-width: 1200px) {
-    article.x\:container.x\:prose:has(> h1 + .x\:mb-8 .x\:print\:hidden.x\:underline) > .site-header ~ *,
-    article.x\:container.x\:prose:has(.about-hero) > .site-header ~ *,
-    article.x\:container.x\:prose:has(.projects-page) > .site-header ~ * {
+    article.x\:container.x\:prose:has(> h1 + .x\:mb-8 .x\:print\:hidden.x\:underline) > .site-header ~ :not(.site-footer),
+    article.x\:container.x\:prose:has(.about-hero) > .site-header ~ :not(.site-footer),
+    article.x\:container.x\:prose:has(.projects-page) > .site-header ~ :not(.site-footer) {
         margin-inline-start: -72px;
     }
 }
@@ -123,9 +124,9 @@ article.x\:container.x\:prose:has(> h1 + .x\:mb-8 .x\:print\:hidden.x\:underline
         padding-top: 0 !important;
     }
 
-    article.x\:container.x\:prose:has(> h1 + .x\:mb-8 .x\:print\:hidden.x\:underline) > .site-header ~ *,
-    article.x\:container.x\:prose:has(.about-hero) > .site-header ~ *,
-    article.x\:container.x\:prose:has(.projects-page) > .site-header ~ * {
+    article.x\:container.x\:prose:has(> h1 + .x\:mb-8 .x\:print\:hidden.x\:underline) > .site-header ~ :not(.site-footer),
+    article.x\:container.x\:prose:has(.about-hero) > .site-header ~ :not(.site-footer),
+    article.x\:container.x\:prose:has(.projects-page) > .site-header ~ :not(.site-footer) {
         margin-inline-start: 0;
     }
 }
@@ -373,10 +374,21 @@ a.x\:focus-visible\:nextra-focus {
     font-weight: 500;
 }
 
+.site-footer {
+    display: block;
+    width: var(--mw-shell-width);
+    max-width: none;
+    margin-top: 8rem;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-left: 0;
+    margin-right: 0;
+}
+
 .site-footer-inner {
-    max-width: 1120px;
+    display: block;
     width: 100%;
-    margin-inline: auto;
 }
 
 .video-center {
@@ -623,7 +635,7 @@ html.light body {
 .site-header {
     margin-top: 4px;
     margin-bottom: 44px;
-    width: min(1120px, calc(100vw - 48px));
+    width: var(--mw-shell-width);
     max-width: none;
     padding: 8px 0 10px;
     display: grid;
@@ -1008,6 +1020,15 @@ html.light body {
         align-items: center;
     }
 
+    .site-footer {
+        position: static;
+        left: auto;
+        transform: none;
+        width: calc(100vw - 48px);
+        margin-left: auto;
+        margin-right: auto;
+    }
+
     .site-logo-link {
         grid-column: 1;
         grid-row: 1;
@@ -1063,6 +1084,10 @@ html.light body {
     .site-header {
         width: calc(100vw - 48px);
         margin-top: 0 !important;
+    }
+
+    .site-footer {
+        width: calc(100vw - 48px);
     }
 
     .site-header > .nav-container {

@@ -1,4 +1,4 @@
-import {Footer, Layout} from 'nextra-theme-blog'
+import {Layout} from 'nextra-theme-blog'
 import NavLinks from './components/NavLinks'
 import ThemeToggleText from './components/ThemeToggleText'
 import {Banner} from 'nextra/components'
@@ -83,8 +83,8 @@ export default function RootLayout({children}) {
 
             {children}
 
-            <Footer>
-                <div className="site-footer-inner">
+            <footer className="site-footer" data-pagefind-ignore="all">
+                <small className="site-footer-inner">
                     <abbr
                         title="This site and all its content are licensed under a Creative Commons Attribution-NonCommercial 4.0 International License."
                         className="footer-abbr"
@@ -94,8 +94,8 @@ export default function RootLayout({children}) {
                     <a href="https://www.linkedin.com/in/olga-panibratchenko" target="_blank" className="footer-link">
                         Linkedin
                     </a>
-                </div>
-            </Footer>
+                </small>
+            </footer>
         </Layout>
         <Analytics/>
         <SpeedInsights/>
