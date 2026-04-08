@@ -1524,6 +1524,15 @@ html.light .posts-card-gold .posts-card-strip {
 }
 
 @media (max-width: 860px) {
+    html.light .landing .post,
+    html.light .posts-card,
+    html.light .landing .featured,
+    html.light .posts-card-featured {
+        border: 0;
+        box-shadow: none;
+        background: transparent;
+    }
+
     html.light .landing .post-grid > * + *,
     html.light .posts-grid > .posts-card-link + .posts-card-link {
         border-top-color: rgba(16, 24, 40, 0.14);
@@ -1973,22 +1982,22 @@ html.light .project-card[open] {
         order: 5;
     }
 
-    .project-card:not(.project-card-1) {
-        margin-top: 26px;
-        padding-top: 26px;
-        border-top: 1px solid rgba(255, 255, 255, 0.12);
-    }
-
     .project-card-summary {
-        padding: 0 36px 0 0;
+        padding: 22px 44px 18px 0;
     }
 
     .project-card {
-        padding: 0;
+        margin: 0;
         border: 0;
         border-radius: 0;
         background: transparent;
         box-shadow: none;
+    }
+
+    .project-card:not(.project-card-1) {
+        margin-top: 26px;
+        padding-top: 26px;
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
     }
 
     .project-card-summary h3 {
@@ -2002,7 +2011,7 @@ html.light .project-card[open] {
     }
 
     .project-card-body {
-        padding: 14px 0 0;
+        padding: 0 0 22px;
     }
 
     .project-card-tag {
@@ -2011,8 +2020,8 @@ html.light .project-card[open] {
     }
 
     .project-card-summary::after {
-        right: 0;
-        top: 0;
+        right: 22px;
+        top: 22px;
     }
 
     .comment-form-grid {
