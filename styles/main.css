@@ -1862,7 +1862,7 @@ html.light .project-card[open] {
     }
 
     .project-cards > .project-card + .project-card {
-        margin-top: 4px;
+        margin-top: 26px;
         padding-top: 26px;
         border-top: 1px solid rgba(255, 255, 255, 0.12);
     }
