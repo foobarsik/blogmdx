@@ -1,12 +1,120 @@
 ---
-title: Coming soon (ish)
+title: Web and mobile products I've helped ship
 ---
-import Image from "next/image";
 
-<Image
-    src="/images/404.png"
-    alt="404"
-    width={400}
-    height={300}
-    priority
-/>
+<section className="projects-intro">
+  <p className="projects-kicker">SELECTED WORK</p>
+  <p className="projects-lead">
+    A mix of AI health, mobile video infrastructure, and enterprise software.
+    In most of these projects, I was the main contributor on the frontend or mobile side,
+    with strong product ownership and a lot of edge-case handling along the way.
+  </p>
+</section>
+
+<section className="project-cards">
+  <details className="project-card" open>
+    <summary className="project-card-summary">
+      <div className="project-card-header">
+        <div>
+          <p className="project-card-tag">AI Health • Frontend</p>
+          <h3>Doogie</h3>
+        </div>
+        <p className="project-card-subtitle">AI-powered health consultant with HIPAA compliance constraints</p>
+      </div>
+    </summary>
+    <div className="project-card-body">
+      <ul>
+        <li>Led the end-to-end consultation flow: symptoms to probable diagnoses, recommendations, and doctor discovery.</li>
+        <li>Designed AI-driven UX with structured prompting and behavioral constraints for a medical context.</li>
+        <li>Built client-side orchestration around unreliable LLM outputs: structured parsing, phase-based responses, retry and fallback logic, conversation state recovery, and safety constraints for probabilistic medical guidance.</li>
+      </ul>
+      <p className="project-card-link">
+        <a href="https://startup-house.com/case-studies/Doogie" target="_blank" rel="noreferrer">View case study</a>
+      </p>
+    </div>
+  </details>
+
+  <details className="project-card">
+    <summary className="project-card-summary">
+      <div className="project-card-header">
+        <div>
+          <p className="project-card-tag">Mobile • React Native / Android</p>
+          <h3>AiforSite</h3>
+        </div>
+        <p className="project-card-subtitle">Production mobile app for 360 capture and video processing</p>
+      </div>
+    </summary>
+    <div className="project-card-body">
+      <ul>
+        <li>Owned capture and upload pipelines for large 360° video files recorded via Insta360 under unstable mobile network conditions.</li>
+        <li>Built a resilient upload system with chunking, retry and resume support, background execution, and failure recovery.</li>
+        <li>Reduced crash rate by stabilizing app-camera interaction across device inconsistencies, sync mismatches, and mid-recording disconnects.</li>
+        <li>Improved performance by moving compute-heavy logic from React Native into native Android modules, which reduced UI lag.</li>
+      </ul>
+      <p className="project-card-link">
+        <a href="https://startup-house.com/case-studies/AiforSite" target="_blank" rel="noreferrer">View case study</a>
+      </p>
+    </div>
+  </details>
+
+  <details className="project-card">
+    <summary className="project-card-summary">
+      <div className="project-card-header">
+        <div>
+          <p className="project-card-tag">Enterprise Platform • Frontend Ownership</p>
+          <h3>Rainbow</h3>
+        </div>
+        <p className="project-card-subtitle">Internal platform for tour management, billing, and business workflows</p>
+      </div>
+    </summary>
+    <div className="project-card-body">
+      <ul>
+        <li>Joined a team of three frontend engineers and later took full ownership of the enterprise frontend.</li>
+        <li>Handled development, maintenance, and SLA-related work across the product.</li>
+        <li>Designed UI and UX for a range of internal product features used in day-to-day operations.</li>
+      </ul>
+    </div>
+  </details>
+
+  <details className="project-card">
+    <summary className="project-card-summary">
+      <div className="project-card-header">
+        <div>
+          <p className="project-card-tag">Health Tech • Mobile</p>
+          <h3>Simon</h3>
+        </div>
+        <p className="project-card-subtitle">Health app supporting people with dementia and their caregivers</p>
+      </div>
+    </summary>
+    <div className="project-card-body">
+      <ul>
+        <li>Worked on core product areas, including a background location feature.</li>
+        <li>Built a complex onboarding system for patient and caregiver roles with invites, branching flows, progress persistence, and solid edge-case handling.</li>
+        <li>Reworked permissions and consent flows to satisfy app store requirements.</li>
+      </ul>
+      <p className="project-card-link">
+        <a href="https://startup-house.com/case-studies/Simon-Care" target="_blank" rel="noreferrer">View case study</a>
+      </p>
+    </div>
+  </details>
+
+  <details className="project-card">
+    <summary className="project-card-summary">
+      <div className="project-card-header">
+        <div>
+          <p className="project-card-tag">Enterprise SaaS • Frontend</p>
+          <h3>Qnappen</h3>
+        </div>
+        <p className="project-card-subtitle">Management system for the sustainable marine agriculture industry</p>
+      </div>
+    </summary>
+    <div className="project-card-body">
+      <p>
+        Product work on a management platform built for the sustainable marine agriculture space.
+      </p>
+      <p className="project-card-link">
+        <a href="https://startup-house.com/case-studies/qnappen" target="_blank" rel="noreferrer">View case study</a>
+      </p>
+    </div>
+  </details>
+</section>
