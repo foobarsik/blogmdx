@@ -53,7 +53,8 @@ article.x\:container.x\:prose:has(.post-page-shell) {
 }
 
 article.x\:container.x\:prose:has(> h1 + .x\:mb-8 .x\:print\:hidden.x\:underline),
-article.x\:container.x\:prose:has(.about-hero) {
+article.x\:container.x\:prose:has(.about-hero),
+article.x\:container.x\:prose:has(.projects-page) {
     text-align: left;
 }
 
@@ -83,12 +84,17 @@ article.x\:container.x\:prose > h1 + .x\:mb-8 .x\:print\:hidden.x\:underline {
 }
 
 article.x\:container.x\:prose:has(> h1 + .x\:mb-8 .x\:print\:hidden.x\:underline) > .site-header ~ *,
-article.x\:container.x\:prose:has(.about-hero) > .site-header ~ * {
+article.x\:container.x\:prose:has(.about-hero) > .site-header ~ *,
+article.x\:container.x\:prose:has(.projects-page) > .site-header ~ * {
     margin-inline-start: -120px;
 }
 
 
 article.x\:container.x\:prose:has(> h1 + .x\:mb-8 .x\:print\:hidden.x\:underline) > h1 {
+    text-align: left;
+}
+
+article.x\:container.x\:prose:has(.projects-page) > h1 {
     text-align: left;
 }
 
@@ -102,7 +108,8 @@ article.x\:container.x\:prose:has(> h1 + .x\:mb-8 .x\:print\:hidden.x\:underline
 
 @media (max-width: 1200px) {
     article.x\:container.x\:prose:has(> h1 + .x\:mb-8 .x\:print\:hidden.x\:underline) > .site-header ~ *,
-    article.x\:container.x\:prose:has(.about-hero) > .site-header ~ * {
+    article.x\:container.x\:prose:has(.about-hero) > .site-header ~ *,
+    article.x\:container.x\:prose:has(.projects-page) > .site-header ~ * {
         margin-inline-start: -72px;
     }
 }
@@ -117,7 +124,8 @@ article.x\:container.x\:prose:has(> h1 + .x\:mb-8 .x\:print\:hidden.x\:underline
     }
 
     article.x\:container.x\:prose:has(> h1 + .x\:mb-8 .x\:print\:hidden.x\:underline) > .site-header ~ *,
-    article.x\:container.x\:prose:has(.about-hero) > .site-header ~ * {
+    article.x\:container.x\:prose:has(.about-hero) > .site-header ~ *,
+    article.x\:container.x\:prose:has(.projects-page) > .site-header ~ * {
         margin-inline-start: 0;
     }
 }
@@ -1711,6 +1719,10 @@ html.light .comment-field textarea {
     margin: 0 0 2.5rem;
 }
 
+.projects-page {
+    max-width: 1040px;
+}
+
 .projects-kicker {
     margin: 0 0 0.75rem;
     letter-spacing: 0.18em;
@@ -1737,30 +1749,22 @@ html.light .comment-field textarea {
 }
 
 .project-card {
-    border: 1px solid rgba(159, 171, 185, 0.32);
-    border-radius: 28px;
+    border: 1px solid rgba(120, 140, 255, 0.08);
+    border-radius: 8px;
     overflow: hidden;
-    background:
-        radial-gradient(circle at top right, rgba(255, 210, 155, 0.18), transparent 28%),
-        linear-gradient(180deg, rgba(255, 255, 255, 0.97), rgba(247, 249, 252, 0.96));
-    box-shadow: 0 18px 50px rgba(26, 39, 64, 0.08);
-    transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
-}
-
-.project-card:hover {
-    transform: translateY(-2px);
-    border-color: rgba(255, 173, 102, 0.5);
-    box-shadow: 0 24px 60px rgba(26, 39, 64, 0.12);
+    background: transparent;
+    box-shadow: none;
+    transition: none;
 }
 
 .project-card[open] {
-    border-color: rgba(255, 173, 102, 0.56);
+    border-color: rgba(120, 140, 255, 0.14);
 }
 
 .project-card-summary {
     position: relative;
     list-style: none;
-    padding: 1.35rem 4.5rem 1.35rem 1.4rem;
+    padding: 34px 54px 24px 34px;
 }
 
 .project-card-summary::-webkit-details-marker {
@@ -1772,49 +1776,46 @@ html.light .comment-field textarea {
 }
 
 .project-card-header {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 1rem;
+    display: block;
 }
 
 .project-card-tag {
-    margin: 0 0 0.45rem;
-    color: #8d5f2b;
-    font-size: 0.78rem;
-    letter-spacing: 0.12em;
+    display: inline-block;
+    margin: 0 0 10px;
+    color: var(--mw-muted);
+    font-size: 11.5px;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
+    font-weight: 500;
+    opacity: 0.68;
 }
 
 .project-card-subtitle {
     margin: 0;
-    max-width: 24rem;
-    text-align: right;
-    color: #667487;
-    font-size: 0.96rem;
-    line-height: 1.45;
+    max-width: 48ch;
+    text-align: left;
+    color: var(--mw-text);
+    opacity: 0.82;
+    font-size: 15px;
+    line-height: 1.58;
 }
 
 .project-card-summary h3 {
-    font-size: 1.45rem;
-    line-height: 1.1;
+    font-size: clamp(28px, 3vw, 44px);
+    line-height: 1.12;
+    letter-spacing: -0.01em;
+    font-weight: 640;
+    margin: 0 0 12px;
 }
 
 .project-card-summary::after {
     content: "+";
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
     position: absolute;
-    right: 1.4rem;
-    top: 1.35rem;
-    width: 2rem;
-    height: 2rem;
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.8);
-    border: 1px solid rgba(159, 171, 185, 0.35);
-    color: #445264;
-    font-size: 1.35rem;
+    right: 34px;
+    top: 34px;
+    color: var(--mw-muted);
+    opacity: 0.72;
+    font-size: 22px;
     line-height: 1;
 }
 
@@ -1823,8 +1824,11 @@ html.light .comment-field textarea {
 }
 
 .project-card-body {
-    padding: 0 1.4rem 1.4rem;
-    color: #344255;
+    padding: 0 34px 30px;
+    color: var(--mw-text);
+    opacity: 0.82;
+    font-size: 15px;
+    line-height: 1.58;
 }
 
 .project-card-body ul {
@@ -1843,18 +1847,50 @@ html.light .comment-field textarea {
     font-weight: 600;
 }
 
+html.light .project-card {
+    background: transparent;
+    border-color: rgba(16, 24, 40, 0.06);
+}
+
+html.light .project-card[open] {
+    border-color: rgba(16, 24, 40, 0.12);
+}
+
 @media (max-width: 740px) {
-    .project-card-header {
-        flex-direction: column;
-    }
-
-    .project-card-subtitle {
-        max-width: none;
-        text-align: left;
-    }
-
     .project-card-summary {
-        padding-right: 3.9rem;
+        padding: 0 36px 0 0;
+    }
+
+    .project-card {
+        padding: 0;
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+        box-shadow: none;
+    }
+
+    .project-card-summary h3 {
+        font-size: clamp(20px, 8vw, 52px);
+        line-height: 1.12;
+    }
+
+    .project-card-subtitle,
+    .project-card-body {
+        font-size: clamp(14px, 3.6vw, 23px);
+    }
+
+    .project-card-body {
+        padding: 14px 0 0;
+    }
+
+    .project-card-tag {
+        font-size: 11.5px;
+        letter-spacing: 0.1em;
+    }
+
+    .project-card-summary::after {
+        right: 0;
+        top: 0;
     }
 
     .comment-form-grid {
