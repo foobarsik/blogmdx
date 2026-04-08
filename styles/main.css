@@ -1857,6 +1857,16 @@ html.light .project-card[open] {
 }
 
 @media (max-width: 740px) {
+    .project-cards {
+        gap: 0;
+    }
+
+    .project-cards > .project-card + .project-card {
+        margin-top: 4px;
+        padding-top: 26px;
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
     .project-card-summary {
         padding: 0 36px 0 0;
     }
@@ -1899,5 +1909,11 @@ html.light .project-card[open] {
 
     .comments-section {
         margin-top: 48px;
+    }
+}
+
+@media (max-width: 740px) {
+    html.light .project-cards > .project-card + .project-card {
+        border-top-color: rgba(16, 24, 40, 0.14);
     }
 }
