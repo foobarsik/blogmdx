@@ -1104,7 +1104,7 @@ html.light body {
         width: 100%;
         display: flex;
         justify-content: flex-start;
-        gap: 10px;
+        gap: 14px;
         margin-right: 0;
         margin-left: 0;
         overflow-x: auto;
@@ -1150,7 +1150,7 @@ html.light body {
     }
 
     .site-header > .nav-container {
-        gap: 8px;
+        gap: 12px;
         margin-left: 0;
     }
 
