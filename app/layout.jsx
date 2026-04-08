@@ -45,7 +45,7 @@ export default function RootLayout({children}) {
             data-website-id="3bb9303e-4df5-42ae-979d-bd66d330f5e1"
             strategy="afterInteractive"
         />
-        <Layout banner={banner} nextThemes={{ defaultTheme: 'dark' }}>
+        <Layout banner={banner} nextThemes={{ defaultTheme: 'dark', enableSystem: false, disableTransitionOnChange: true }}>
             <header className="site-header">
                 <Link href="/" className="site-logo-link" aria-label="MehWow home">
                     <img src="/images/logo.png" alt="mehwow logo" width={112} className="logo"/>

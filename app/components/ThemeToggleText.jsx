@@ -5,14 +5,18 @@ import { useTheme } from "next-themes";
 
 function readThemeFromDom() {
     if (typeof document === "undefined") return null;
+
     const root = document.documentElement;
+
     if (root.classList.contains("light")) return "light";
     if (root.classList.contains("dark")) return "dark";
+
     return null;
 }
 
 function applyThemeToDom(nextTheme) {
     if (typeof document === "undefined") return;
+
     const root = document.documentElement;
     root.classList.remove("light", "dark");
     root.classList.add(nextTheme);
@@ -20,38 +24,36 @@ function applyThemeToDom(nextTheme) {
 }
 
 export default function ThemeToggleText() {
-    const { setTheme } = useTheme();
+    const { resolvedTheme, setTheme } = useTheme();
     const [themeName, setThemeName] = useState("dark");
 
     useEffect(() => {
-        const current = readThemeFromDom();
-        if (current) {
-            setThemeName(current);
+        const currentTheme = resolvedTheme || readThemeFromDom();
+
+        if (currentTheme === "light" || currentTheme === "dark") {
+            setThemeName(currentTheme);
         }
-    }, []);
+    }, [resolvedTheme]);
 
     const toggleTheme = () => {
         const nextTheme = themeName === "dark" ? "light" : "dark";
+
         setThemeName(nextTheme);
         applyThemeToDom(nextTheme);
         setTheme(nextTheme);
-
-        try {
-            localStorage.setItem("theme", nextTheme);
-        } catch {
-            // Ignore localStorage restrictions and keep DOM/class toggle working.
-        }
     };
 
-    const themeLabel = themeName === "dark" ? "Dark/Light" : "Light/Dark";
+    const isDark = themeName === "dark";
+    const nextThemeLabel = isDark ? "light" : "dark";
+    const themeLabel = isDark ? "Dark/Light" : "Light/Dark";
 
     return (
         <button
             type="button"
             onClick={toggleTheme}
             className="theme-toggle-text"
-            aria-label="Toggle theme"
-            aria-pressed={themeName === "dark"}
+            aria-label={`Switch to ${nextThemeLabel} theme`}
+            aria-pressed={isDark}
         >
             {themeLabel}
         </button>
