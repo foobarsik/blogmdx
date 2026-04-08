@@ -1,63 +1,77 @@
 ---
-title: Hi! My name is Olga
+title: About
 ---
-import {Callout, Image} from 'nextra/components'
+import {Image} from 'nextra/components'
 
-<section className="about-hero">
-  <div className="about-hero-circle">
-    <Image
-      src="/images/me.jpeg"
-      alt="Olga photo"
-      width={860}
-      height={860}
-      className="about-hero-photo"
-    />
-  </div>
-  <div className="about-hero-content">
-    <p className="about-hero-kicker">ABOUT ME</p>
-    <h2 className="about-hero-title">Hi, I&apos;m Olga</h2>
-    <p className="about-hero-tagline">Not a rockstar - I just keep chaos shippable.</p>
-    <p className="about-hero-role">Frontend / Mobile / Product-minded engineer</p>
-  </div>
-</section>
+<div className="about-page not-prose">
+  <section className="about-page-hero">
+    <div className="about-page-photo-frame">
+      <Image
+        src="/images/me.jpeg"
+        alt="Olga photo"
+        width={860}
+        height={860}
+        className="about-page-photo"
+      />
+    </div>
 
-### How I work
-- I have started as a full-stack PHP developer, but later focused on **mobile and frontend development** as **UX has always been my main interest**.
-- I’m quite flexible, though I thrive best working with strongly typed languages, in cross-functional teams, and a culture of collaborative learning and respectful communication.
-- I’m not afraid to do **deep research** when context is missing or a domain feels unfamiliar.
-- Sometimes I lead, sometimes I follow - as long as a thing ships, I’m happy.
-- I know when to ask **“why” before** touching **“how”**.
-- My main strength is **product ownership**.
+    <div className="about-page-intro">
+      <p className="about-page-kicker">ABOUT ME</p>
+      <h2 className="about-page-title">Hi, I&apos;m Olga</h2>
+      <p className="about-page-lead">I turn unclear ideas into working software.</p>
+      <p className="about-page-muted">Frontend / Mobile / Product-minded engineer</p>
+    </div>
+  </section>
 
-### 10 years of hands-on experience in tech
-- I’ve owned entire products solo - from client communication and backend logic to frontend and design decisions.
-Did I burn out? Oh, yeah. Did I learn more than any course could teach me? Also yes.
-- I’ve worked on enterprise monorepos with clearly split backend/frontend roles - and learned how to collaborate without silos.
-- I’ve had the luck of working with a great tech lead who showed me how to survive in cross-platform mobile projects.
-- I’ve mentored others.
+  <section className="about-page-section">
+    <p className="about-page-section-meta">10 years in tech</p>
+    <ul className="about-page-list">
+      <li>From full-stack to frontend & mobile</li>
+      <li>Worked solo in startups and in enterprise monorepos</li>
+      <li>Owned products end-to-end</li>
+    </ul>
+  </section>
 
-### What made me start coding?
-I kept running into apps and websites that were missing the features I needed.
-So I started building my own - Chrome extensions and tools to fill those gaps.
-For example, [this extension](https://youtu.be/4_J4AvmPMNo?si=Z-PdDIQauuuIsZDP) that translates subtitles helped me a lot in learning English.
+  <section className="about-page-section">
+    <h2 className="about-page-section-title">How I work</h2>
+    <ul className="about-page-list">
+      <li>Deep research when context is missing</li>
+      <li>Thrive best working with strongly typed languages, in cross-functional teams, and a culture of collaborative learning and respectful communication.</li>
+        <li>Ask "why" before touching "how"</li>
+    </ul>
+  </section>
 
-### These days, I mostly work with
-- Typescript, React Native, Vue, React, Expo
-- Cursor/Windsurf
+  <section className="about-page-section">
+    <h2 className="about-page-section-title">Why I started coding</h2>
+    <p className="about-page-copy">
+        I kept running into apps and websites that were missing the features I needed.
+        So I started building my own - Chrome extensions and tools to fill those gaps.
+        For example, [this extension](https://youtu.be/4_J4AvmPMNo?si=Z-PdDIQauuuIsZDP) that translates subtitles helped me a lot in learning English.
+    </p>
+  </section>
 
-### Got something you're building or growing?
-I’m all ears - I love hearing how people turn ideas into real things.
-I’m deeply interested in every stage of product/business development - from scrappy ideas to delivery, growth, pivots, and even the post-mortems.
+  <section className="about-page-section">
+    <h2 className="about-page-section-title">These days</h2>
+    <p className="about-page-copy">TypeScript, React, Vue, React Native, Expo</p>
+    <p className="about-page-section-meta">Codex / Windsurf / Cursor</p>
+  </section>
 
-### Outside work
-- Hanging out with my dog
-- Reading – mostly non-fiction, for example, health/biology, urbanism
-- Writing – mostly thoughts and observations that don't fit into a tweet
-- Traveling – these days I’m less into “beautiful landmarks” and more into places that hit me with cultural contrast, though visiting the ocean at least once a year is a must-have
-- Meeting new people – especially from different cultures or backgrounds
-- Hunting for the next pair of funny socks – a small guilty pleasure I allow myself to have
-- Open to go to conferences (anything tech or product-related), networking events, meetups, and places where animals are treated well.
+  <section className="about-page-section">
+    <h2 className="about-page-section-title">If you&apos;re building something</h2>
+    <p className="about-page-copy">
+      I can help with the technical side - from messy idea to working product.
+    </p>
+    <p className="about-page-section-meta">Contract or partnership - both work.</p>
+  </section>
 
-An expat and I speak English, Polish, Ukrainian, Russian.
+  <section className="about-page-section">
+    <h2 className="about-page-section-title">Outside work</h2>
+    <p className="about-page-copy">Dog, reading, writing, travel (less about landmarks - more about contrast), urban spaces, conferences (anything tech or product-related), meetups, and places where animals are treated well.</p>
+  </section>
 
-When I’m not chasing deadlines or my dog – **happy to collaborate** or just chat over coffee.
+  <section className="about-page-signoff">
+    <p>Expat</p>
+    <p>EN / PL / UA / RU</p>
+    <p>When I’m not chasing deadlines or my dog – happy to collaborate or just chat over coffee.</p>
+  </section>
+</div>

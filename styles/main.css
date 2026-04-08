@@ -46,9 +46,13 @@ article {
 }
 
 article.x\:container.x\:prose:has(> h1 + .x\:mb-8 .x\:print\:hidden.x\:underline),
-article.x\:container.x\:prose:has(.about-hero),
+article.x\:container.x\:prose:has(.about-page),
 article.x\:container.x\:prose:has(.projects-page) {
     text-align: left;
+}
+
+article.x\:container.x\:prose:has(.about-page) {
+    max-width: none !important;
 }
 
 article.x\:container.x\:prose > h1 + .x\:mb-8 .x\:print\:hidden.x\:underline {
@@ -80,10 +84,6 @@ article.x\:container.x\:prose:has(> h1 + .x\:mb-8 .x\:print\:hidden.x\:underline
     text-align: left;
 }
 
-article.x\:container.x\:prose:has(.about-hero) > .site-header ~ :not(.site-footer) {
-    margin-inline-start: -120px;
-}
-
 article.x\:container.x\:prose:has(.projects-page) > h1 {
     text-align: left;
     width: var(--mw-shell-width);
@@ -112,10 +112,6 @@ article.x\:container.x\:prose:has(> h1 + .x\:mb-8 .x\:print\:hidden.x\:underline
         padding-top: 0 !important;
     }
 
-    article.x\:container.x\:prose:has(.about-hero) > .site-header ~ :not(.site-footer) {
-        margin-inline-start: 0;
-    }
-
     article.x\:container.x\:prose:has(.projects-page) > h1 {
         position: static;
         left: auto;
@@ -123,12 +119,6 @@ article.x\:container.x\:prose:has(> h1 + .x\:mb-8 .x\:print\:hidden.x\:underline
         width: calc(100vw - 48px);
         margin-left: auto;
         margin-right: auto;
-    }
-}
-
-@media (min-width: 861px) and (max-width: 1200px) {
-    article.x\:container.x\:prose:has(.about-hero) > .site-header ~ :not(.site-footer) {
-        margin-inline-start: -72px;
     }
 }
 
@@ -423,8 +413,8 @@ figcaption {
     top: 2px;
 }
 
-/* ---- About Page Hero ---- */
-article.x\:container.x\:prose:has(.about-hero) > h1 {
+/* ---- About Page ---- */
+article.x\:container.x\:prose:has(.about-page) > h1 {
     position: absolute;
     inline-size: 1px;
     block-size: 1px;
@@ -437,17 +427,22 @@ article.x\:container.x\:prose:has(.about-hero) > h1 {
     white-space: nowrap;
 }
 
-.about-hero {
-    margin: 2px auto 42px;
-    max-width: 1040px;
-    display: grid;
-    grid-template-columns: minmax(230px, 38%) minmax(0, 1fr);
-    align-items: center;
-    gap: clamp(20px, 3.2vw, 44px);
+.about-page {
+    width: var(--mw-shell-width);
+    max-width: none;
+    margin: 0 auto;
 }
 
-.about-hero-circle {
-    inline-size: min(100%, 430px);
+.about-page-hero {
+    margin: 4px 0 64px;
+    display: grid;
+    grid-template-columns: minmax(240px, 250px) minmax(0, 1fr);
+    align-items: center;
+    gap: clamp(28px, 5vw, 72px);
+}
+
+.about-page-photo-frame {
+    inline-size: min(100%, 300px);
     aspect-ratio: 1 / 1;
     border-radius: 999px;
     border: 1px solid color-mix(in srgb, var(--mw-text) 15%, transparent);
@@ -462,7 +457,7 @@ article.x\:container.x\:prose:has(.about-hero) > h1 {
     justify-self: start;
 }
 
-.about-hero-photo {
+.about-page-photo {
     inline-size: 100% !important;
     block-size: 100% !important;
     width: 100%;
@@ -474,14 +469,14 @@ article.x\:container.x\:prose:has(.about-hero) > h1 {
     filter: saturate(0.92) contrast(1.04) brightness(0.84);
 }
 
-.about-hero-content {
+.about-page-intro {
     min-width: 0;
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 14px;
 }
 
-.about-hero-kicker {
+.about-page-kicker {
     margin: 0 !important;
     text-transform: uppercase;
     letter-spacing: 0.22em;
@@ -489,34 +484,33 @@ article.x\:container.x\:prose:has(.about-hero) > h1 {
     color: color-mix(in srgb, var(--mw-muted) 92%, var(--mw-text) 8%);
 }
 
-.about-hero-title {
+.about-page-title {
     margin: 0 !important;
     text-align: left;
-    font-size: clamp(42px, 5.2vw, 92px);
-    line-height: 0.92;
+    font-size: clamp(42px, 5vw, 88px);
+    line-height: 0.94;
     letter-spacing: -0.04em;
     font-variation-settings: "wght" 760;
     color: var(--mw-text);
-    max-width: 10ch;
 }
 
-.about-hero-tagline {
+.about-page-lead {
     margin: 0 !important;
-    font-size: clamp(16px, 2.25vw, 52px);
-    line-height: 1.24;
+    font-size: clamp(22px, 3vw, 34px);
+    line-height: 1.18;
     letter-spacing: -0.03em;
     color: color-mix(in srgb, var(--mw-text) 85%, var(--mw-muted) 15%);
-    max-width: 24ch;
+    max-width: 18ch;
 }
 
-.about-hero-role {
+.about-page-muted {
     margin: 0 !important;
-    font-size: clamp(14px, 1.3vw, 26px);
-    line-height: 1.35;
+    font-size: clamp(16px, 1.6vw, 24px);
+    line-height: 1.45;
     color: color-mix(in srgb, var(--mw-muted) 94%, var(--mw-text) 6%);
 }
 
-html.light .about-hero-circle {
+html.light .about-page-photo-frame {
     border-color: rgba(16, 24, 40, 0.14);
     background:
         radial-gradient(circle at 58% 30%, rgba(124, 140, 255, 0.12), transparent 60%),
@@ -526,58 +520,128 @@ html.light .about-hero-circle {
         0 24px 60px rgba(47, 61, 82, 0.08);
 }
 
-html.light .about-hero-photo {
+html.light .about-page-photo {
     filter: saturate(0.95) contrast(1.03) brightness(0.9);
 }
 
+.about-page-section {
+    margin-bottom: 64px;
+    max-width: 48rem;
+}
+
+.about-page-section-bullets {
+    max-width: 42rem;
+}
+
+.about-page-section-title {
+    margin: 0 0 12px;
+    font-size: 20px;
+    line-height: 1.3;
+}
+
+.about-page-section-meta {
+    margin: 8px 0 0;
+    color: var(--mw-muted);
+    line-height: 1.7;
+}
+
+.about-page-copy {
+    margin: 0;
+    line-height: 1.7;
+}
+
+.about-page-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 8px;
+}
+
+.about-page-list li {
+    position: relative;
+    padding-left: 1.1rem;
+    line-height: 1.8;
+}
+
+.about-page-list li::before {
+    content: "\2022";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--mw-muted);
+}
+
+.about-page-list-large {
+    font-size: 20px;
+    gap: 10px;
+}
+
+.about-page-signoff {
+    color: color-mix(in srgb, var(--mw-muted) 92%, var(--mw-text) 8%);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.about-page-signoff p {
+    margin: 0;
+}
+
+.about-page-signoff p + p {
+    margin-top: 6px;
+}
+
 @media (max-width: 1080px) {
-    .about-hero {
-        grid-template-columns: minmax(220px, 36%) minmax(0, 1fr);
+    .about-page-hero {
+        grid-template-columns: minmax(220px, 280px) minmax(0, 1fr);
         gap: 24px;
     }
 
-    .about-hero-title {
-        font-size: clamp(38px, 5.5vw, 74px);
-    }
-
-    .about-hero-tagline {
-        font-size: clamp(16px, 2.5vw, 30px);
+    .about-page-title {
+        font-size: clamp(38px, 5vw, 72px);
     }
 }
 
 @media (max-width: 860px) {
-    .about-hero {
-        grid-template-columns: 1fr;
-        gap: 16px;
-        margin-bottom: 28px;
+    .about-page {
+        width: calc(100vw - 48px);
     }
 
-    .about-hero-circle {
+    .about-page-hero {
+        grid-template-columns: 1fr;
+        gap: 18px;
+        margin-bottom: 48px;
+    }
+
+    .about-page-photo-frame {
         inline-size: min(100%, 300px);
         justify-self: center;
     }
 
-    .about-hero-content {
-        gap: 14px;
-    }
-
-    .about-hero-title {
+    .about-page-title {
         font-size: clamp(34px, 12vw, 54px);
-        line-height: 0.92;
     }
 
-    .about-hero-tagline {
-        font-size: clamp(22px, 8vw, 30px);
-        line-height: 1.18;
+    .about-page-lead {
+        font-size: clamp(20px, 7vw, 28px);
+        max-width: none;
     }
 
-    .about-hero-role {
+    .about-page-muted {
         font-size: clamp(14px, 4.6vw, 19px);
+    }
+
+    .about-page-section {
+        margin-bottom: 48px;
+    }
+
+    .about-page-list-large {
+        font-size: 18px;
     }
 }
 
 @media (max-width: 480px) {
-    .about-hero-circle {
+    .about-page-photo-frame {
         inline-size: min(86vw, 260px);
     }
 }
