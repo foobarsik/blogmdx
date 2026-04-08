@@ -1104,15 +1104,16 @@ html.light body {
         width: 100%;
         display: flex;
         justify-content: flex-start;
-        gap: 0;
+        gap: 10px;
         margin-right: 0;
+        margin-left: 0;
         overflow-x: auto;
         scrollbar-width: none;
         -ms-overflow-style: none;
     }
 
     .site-header .nav-link + .nav-link {
-        margin-left: 22px;
+        margin-left: 0;
     }
 
     .site-header > .nav-container::-webkit-scrollbar {
@@ -1124,8 +1125,14 @@ html.light body {
         display: inline-flex;
         justify-content: flex-start;
         align-items: center;
-        min-height: auto;
+        min-height: 44px;
+        padding: 10px 12px;
+        border-radius: 12px;
         white-space: nowrap;
+    }
+
+    .site-header > .nav-container > .nav-link:first-child {
+        padding-left: 0;
     }
 
     .theme-toggle-text {
@@ -1143,19 +1150,22 @@ html.light body {
     }
 
     .site-header > .nav-container {
-        gap: 0;
+        gap: 8px;
+        margin-left: 0;
     }
 
     .site-header .nav-link + .nav-link {
-        margin-left: 18px;
+        margin-left: 0;
     }
 
     .site-header .nav-link {
         font-size: 14px;
+        padding-inline: 11px;
     }
 
     .theme-toggle-text {
         font-size: 12px;
+        padding-inline: 11px;
     }
 
     .site-header > .theme-toggle-text {
