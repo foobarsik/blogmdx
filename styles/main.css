@@ -91,6 +91,10 @@ article.x\:container.x\:prose:has(.projects-page) > h1 {
     text-align: left;
     width: var(--mw-shell-width);
     max-width: none;
+    font-size: clamp(2.8rem, 4.2vw, 4.4rem);
+    line-height: 1;
+    letter-spacing: -0.035em;
+    font-weight: 700;
     position: relative;
     left: 50%;
     transform: translateX(-50%);
@@ -1904,8 +1908,8 @@ html.light .comment-field textarea {
 }
 
 .project-card-summary h3 {
-    font-size: clamp(28px, 3vw, 44px);
-    line-height: 1.12;
+    font-size: clamp(26px, 2.5vw, 38px);
+    line-height: 1.08;
     letter-spacing: -0.01em;
     font-weight: 640;
     margin: 0 0 12px;
