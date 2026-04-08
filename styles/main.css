@@ -7,6 +7,9 @@
     --nextra-bg: 250, 250, 250;
     --nextra-content-width: 90rem;
     --mw-shell-width: min(1120px, calc(100vw - 48px));
+    --mw-mobile-gutter: 24px;
+    --mw-mobile-stack-gap: 40px;
+    --mw-mobile-divider-gap: 28px;
 }
 
 .dark {
@@ -110,13 +113,15 @@ article.x\:container.x\:prose:has(> h1 + .x\:mb-8 .x\:print\:hidden.x\:underline
 
     article.x\:container.x\:prose {
         padding-top: 0 !important;
+        padding-left: var(--mw-mobile-gutter) !important;
+        padding-right: var(--mw-mobile-gutter) !important;
     }
 
     article.x\:container.x\:prose:has(.projects-page) > h1 {
         position: static;
         left: auto;
         transform: none;
-        width: calc(100vw - 48px);
+        width: calc(100vw - var(--mw-mobile-gutter) - var(--mw-mobile-gutter));
         margin-left: auto;
         margin-right: auto;
     }
@@ -604,13 +609,13 @@ html.light .about-page-photo {
 
 @media (max-width: 860px) {
     .about-page {
-        width: calc(100vw - 48px);
+        width: calc(100vw - var(--mw-mobile-gutter) - var(--mw-mobile-gutter));
     }
 
     .about-page-hero {
         grid-template-columns: 1fr;
         gap: 18px;
-        margin-bottom: 48px;
+        margin-bottom: var(--mw-mobile-stack-gap);
     }
 
     .about-page-photo-frame {
@@ -632,7 +637,7 @@ html.light .about-page-photo {
     }
 
     .about-page-section {
-        margin-bottom: 48px;
+        margin-bottom: var(--mw-mobile-stack-gap);
     }
 
     .about-page-list-large {
@@ -641,6 +646,12 @@ html.light .about-page-photo {
 }
 
 @media (max-width: 480px) {
+    :root {
+        --mw-mobile-gutter: 20px;
+        --mw-mobile-stack-gap: 36px;
+        --mw-mobile-divider-gap: 24px;
+    }
+
     .about-page-photo-frame {
         inline-size: min(86vw, 260px);
     }
@@ -705,7 +716,7 @@ html.light body {
         position: static;
         left: auto;
         transform: none;
-        width: calc(100vw - 48px);
+        width: calc(100vw - var(--mw-mobile-gutter) - var(--mw-mobile-gutter));
         margin-left: auto;
         margin-right: auto;
     }
@@ -1016,23 +1027,25 @@ html.light body {
 }
 
 @media (max-width: 860px) {
-    article.x\:container.x\:prose {
-        padding-left: 24px !important;
-        padding-right: 24px !important;
-    }
-
     .posts-page {
         padding-left: 0;
         padding-right: 0;
+        padding-bottom: 56px;
+    }
+
+    .landing {
+        padding-bottom: 56px;
     }
 
     .hero {
         grid-template-columns: 1fr;
+        gap: 22px;
+        margin-bottom: var(--mw-mobile-stack-gap);
     }
 
     .landing .post-grid {
         grid-template-columns: 1fr;
-        row-gap: 30px;
+        row-gap: var(--mw-mobile-divider-gap);
     }
 
 
@@ -1081,9 +1094,10 @@ html.light body {
         padding-top: 0 !important;
         margin-top: 0 !important;
         grid-template-columns: 1fr auto;
-        row-gap: 8px;
+        row-gap: 10px;
         column-gap: 12px;
         align-items: center;
+        margin-bottom: 36px;
     }
 
     .site-logo-link {
@@ -1464,7 +1478,7 @@ html.light .posts-card-gold .posts-card-strip {
 @media (max-width: 860px) {
     .posts-grid {
         grid-template-columns: 1fr;
-        row-gap: 30px;
+        row-gap: var(--mw-mobile-divider-gap);
     }
 
     .posts-card-featured {
@@ -1517,8 +1531,8 @@ html.light .posts-card-gold .posts-card-strip {
 
     .landing .post-grid > * + *,
     .posts-grid > .posts-card-link + .posts-card-link {
-        margin-top: 4px;
-        padding-top: 26px;
+        margin-top: 0;
+        padding-top: var(--mw-mobile-divider-gap);
         border-top: 1px solid rgba(255, 255, 255, 0.12);
     }
 }
@@ -1983,7 +1997,7 @@ html.light .project-card[open] {
     }
 
     .project-card-summary {
-        padding: 22px 44px 18px 0;
+        padding: 0 44px 18px 0;
     }
 
     .project-card {
@@ -1995,8 +2009,8 @@ html.light .project-card[open] {
     }
 
     .project-card:not(.project-card-1) {
-        margin-top: 26px;
-        padding-top: 26px;
+        margin-top: 0;
+        padding-top: var(--mw-mobile-divider-gap);
         border-top: 1px solid rgba(255, 255, 255, 0.12);
     }
 
@@ -2021,7 +2035,7 @@ html.light .project-card[open] {
 
     .project-card-summary::after {
         right: 22px;
-        top: 22px;
+        top: 0;
     }
 
     .comment-form-grid {
@@ -2029,7 +2043,8 @@ html.light .project-card[open] {
     }
 
     .comments-section {
-        margin-top: 48px;
+        margin-top: var(--mw-mobile-stack-gap);
+        padding-top: 24px;
     }
 }
 
