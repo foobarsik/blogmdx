@@ -1,9 +1,12 @@
+import { buildSeoMetadata } from '../../lib/seo'
 import { getPosts } from './utils/get-posts'
 import PostCard from './PostCard'
 
-export const metadata = {
-    title: 'Blog MehWow - Olga Panibratchenko'
-}
+export const metadata = buildSeoMetadata({
+    title: 'Posts',
+    description: 'Notes on product thinking, engineering, UX, and travel field notes.',
+    pathname: '/posts'
+})
 
 export default async function PostsPage() {
     // const tags = await getTags()

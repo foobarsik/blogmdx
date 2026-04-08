@@ -8,9 +8,36 @@ import Link from "next/link";
 import {Analytics} from "@vercel/analytics/next";
 import {SpeedInsights} from '@vercel/speed-insights/next';
 import Script from 'next/script'
+import {
+    AUTHOR_NAME,
+    SITE_DESCRIPTION,
+    SITE_NAME,
+    SITE_TITLE,
+    buildSeoMetadata,
+    getMetadataBase
+} from '../lib/seo'
 
 export const metadata = {
-    title: 'MehWow Blog'
+    metadataBase: getMetadataBase(),
+    title: {
+        default: SITE_TITLE,
+        template: `%s | ${SITE_NAME}`
+    },
+    applicationName: SITE_NAME,
+    description: SITE_DESCRIPTION,
+    authors: [{ name: AUTHOR_NAME }],
+    creator: AUTHOR_NAME,
+    publisher: AUTHOR_NAME,
+    category: 'Technology',
+    robots: {
+        index: true,
+        follow: true
+    },
+    ...buildSeoMetadata({
+        title: SITE_TITLE,
+        description: SITE_DESCRIPTION,
+        pathname: '/'
+    })
 }
 
 export const viewport = {

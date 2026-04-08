@@ -1,12 +1,17 @@
+import { buildSeoMetadata } from '../../../lib/seo'
 import {getPosts} from '../../posts/utils/get-posts'
 import {getTags} from "../../posts/utils/get-tags";
 import PostCard from "../../posts/PostCard";
 
 export async function generateMetadata(props) {
     const params = await props.params
-    return {
-        title: `# ${decodeURIComponent(params.tag)}`
-    }
+    const decodedTag = decodeURIComponent(params.tag)
+
+    return buildSeoMetadata({
+        title: `Tag: ${decodedTag}`,
+        description: `Posts tagged with ${decodedTag}.`,
+        pathname: `/tags/${encodeURIComponent(decodedTag)}`
+    })
 }
 
 export async function generateStaticParams() {
@@ -16,13 +21,14 @@ export async function generateStaticParams() {
 
 export default async function TagPage(props) {
     const params = await props.params
-    const {title} = await generateMetadata({params})
+    const decodedTag = decodeURIComponent(params.tag)
     const posts = await getPosts()
+
     return (
         <>
-            <h1>{title}</h1>
+            <h1># {decodedTag}</h1>
             {posts
-                .filter(post => (post.frontMatter.tags ?? []).includes(decodeURIComponent(params.tag)))
+                .filter(post => (post.frontMatter.tags ?? []).includes(decodedTag))
                 .map(post => (<PostCard key={post.route} post={post}/>))}
         </>
     )

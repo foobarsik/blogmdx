@@ -7,6 +7,7 @@ import CommentsSection from '../components/comments/CommentsSection'
 import { isCommentsEnabled } from '../../lib/comments'
 import ArticleAnalytics from '../components/ArticleAnalytics'
 import Link from 'next/link'
+import { SITE_DESCRIPTION, buildSeoMetadata } from '../../lib/seo'
 
 const generateStaticParamsBase = generateStaticParamsFor('mdxPath')
 const normalizeMdxPath = mdxPath =>
@@ -40,7 +41,26 @@ export async function generateMetadata(props) {
 
     try {
         const { metadata } = await importPage(mdxPath)
-        return metadata
+        const pathname = mdxPath.length > 0 ? `/${mdxPath.join('/')}` : '/'
+        const title =
+            typeof metadata?.title === 'string'
+                ? metadata.title
+                : Array.isArray(metadata?.title)
+                    ? metadata.title.join(' ')
+                    : undefined
+
+        return {
+            ...metadata,
+            ...buildSeoMetadata({
+                title,
+                description: metadata?.description || SITE_DESCRIPTION,
+                pathname,
+                image: metadata?.cover,
+                type: isPostPath(mdxPath) ? 'article' : 'website',
+                publishedTime: metadata?.date,
+                tags: metadata?.tags
+            })
+        }
     } catch {
         return {}
     }
