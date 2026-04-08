@@ -615,7 +615,7 @@ html.light .about-page-photo {
 
     .about-page-photo-frame {
         inline-size: min(100%, 300px);
-        justify-self: center;
+        justify-self: start;
     }
 
     .about-page-title {
