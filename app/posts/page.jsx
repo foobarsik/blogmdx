@@ -19,7 +19,7 @@ export default async function PostsPage() {
     // }
 
     return (
-        <div data-pagefind-ignore="all" className="posts-page not-prose">
+        <div data-pagefind-ignore="all" className="posts-page site-shell not-prose">
             <section className="posts-grid">
             {/*
             <div className="not-prose flex flex-wrap gap-2 mb-14">

@@ -131,7 +131,7 @@ export default async function Page(props) {
     }
 
     return (
-        <div className="post-page-shell">
+        <div className="post-page-shell site-shell">
             <aside className="post-page-sidebar not-prose" aria-label="All posts">
                 <p className="post-page-sidebar-title">All posts</p>
                 <nav className="post-page-sidebar-nav">

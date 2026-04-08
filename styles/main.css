@@ -45,14 +45,6 @@ article {
     padding-top: 16px;
 }
 
-article.x\:container.x\:prose:has(.posts-page) {
-    max-width: none !important;
-}
-
-article.x\:container.x\:prose:has(.post-page-shell) {
-    max-width: none !important;
-}
-
 article.x\:container.x\:prose:has(> h1 + .x\:mb-8 .x\:print\:hidden.x\:underline),
 article.x\:container.x\:prose:has(.about-hero),
 article.x\:container.x\:prose:has(.projects-page) {
@@ -84,19 +76,23 @@ article.x\:container.x\:prose > h1 + .x\:mb-8 .x\:print\:hidden.x\:underline {
     opacity: 0.78;
 }
 
-article.x\:container.x\:prose:has(> h1 + .x\:mb-8 .x\:print\:hidden.x\:underline) > .site-header ~ :not(.site-footer),
-article.x\:container.x\:prose:has(.about-hero) > .site-header ~ :not(.site-footer),
-article.x\:container.x\:prose:has(.projects-page) > .site-header ~ :not(.site-footer) {
-    margin-inline-start: -120px;
-}
-
-
 article.x\:container.x\:prose:has(> h1 + .x\:mb-8 .x\:print\:hidden.x\:underline) > h1 {
     text-align: left;
 }
 
+article.x\:container.x\:prose:has(.about-hero) > .site-header ~ :not(.site-footer) {
+    margin-inline-start: -120px;
+}
+
 article.x\:container.x\:prose:has(.projects-page) > h1 {
     text-align: left;
+    width: var(--mw-shell-width);
+    max-width: none;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-left: 0;
+    margin-right: 0;
 }
 
 article.x\:container.x\:prose:has(> h1 + .x\:mb-8 .x\:print\:hidden.x\:underline) > h1 + .x\:mb-8.x\:flex.x\:gap-3 {
@@ -105,14 +101,6 @@ article.x\:container.x\:prose:has(> h1 + .x\:mb-8 .x\:print\:hidden.x\:underline
 
 article.x\:container.x\:prose:has(> h1 + .x\:mb-8 .x\:print\:hidden.x\:underline) > h1 + .x\:mb-8.x\:flex.x\:gap-3 > .x\:grow {
     flex-grow: 0;
-}
-
-@media (max-width: 1200px) {
-    article.x\:container.x\:prose:has(> h1 + .x\:mb-8 .x\:print\:hidden.x\:underline) > .site-header ~ :not(.site-footer),
-    article.x\:container.x\:prose:has(.about-hero) > .site-header ~ :not(.site-footer),
-    article.x\:container.x\:prose:has(.projects-page) > .site-header ~ :not(.site-footer) {
-        margin-inline-start: -72px;
-    }
 }
 
 @media (max-width: 860px) {
@@ -124,10 +112,23 @@ article.x\:container.x\:prose:has(> h1 + .x\:mb-8 .x\:print\:hidden.x\:underline
         padding-top: 0 !important;
     }
 
-    article.x\:container.x\:prose:has(> h1 + .x\:mb-8 .x\:print\:hidden.x\:underline) > .site-header ~ :not(.site-footer),
-    article.x\:container.x\:prose:has(.about-hero) > .site-header ~ :not(.site-footer),
-    article.x\:container.x\:prose:has(.projects-page) > .site-header ~ :not(.site-footer) {
+    article.x\:container.x\:prose:has(.about-hero) > .site-header ~ :not(.site-footer) {
         margin-inline-start: 0;
+    }
+
+    article.x\:container.x\:prose:has(.projects-page) > h1 {
+        position: static;
+        left: auto;
+        transform: none;
+        width: calc(100vw - 48px);
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media (min-width: 861px) and (max-width: 1200px) {
+    article.x\:container.x\:prose:has(.about-hero) > .site-header ~ :not(.site-footer) {
+        margin-inline-start: -72px;
     }
 }
 
@@ -376,14 +377,7 @@ a.x\:focus-visible\:nextra-focus {
 
 .site-footer {
     display: block;
-    width: var(--mw-shell-width);
-    max-width: none;
     margin-top: 8rem;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    margin-left: 0;
-    margin-right: 0;
 }
 
 .site-footer-inner {
@@ -632,21 +626,35 @@ html.light body {
     margin-right: auto;
 }
 
-.site-header {
-    margin-top: 4px;
-    margin-bottom: 44px;
+.site-shell {
     width: var(--mw-shell-width);
     max-width: none;
-    padding: 8px 0 10px;
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    align-items: center;
-    column-gap: 28px;
     position: relative;
     left: 50%;
     transform: translateX(-50%);
     margin-left: 0;
     margin-right: 0;
+}
+
+@media (max-width: 860px) {
+    .site-shell {
+        position: static;
+        left: auto;
+        transform: none;
+        width: calc(100vw - 48px);
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.site-header {
+    margin-top: 4px;
+    margin-bottom: 44px;
+    padding: 8px 0 10px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    column-gap: 28px;
     z-index: 30;
     backdrop-filter: none;
     background: transparent;
@@ -1006,27 +1014,12 @@ html.light body {
     }
 
     .site-header {
-        position: static;
-        left: auto;
-        transform: none;
-        width: calc(100vw - 48px);
         padding-top: 0 !important;
         margin-top: 0 !important;
-        margin-left: auto;
-        margin-right: auto;
         grid-template-columns: 1fr auto;
         row-gap: 8px;
         column-gap: 12px;
         align-items: center;
-    }
-
-    .site-footer {
-        position: static;
-        left: auto;
-        transform: none;
-        width: calc(100vw - 48px);
-        margin-left: auto;
-        margin-right: auto;
     }
 
     .site-logo-link {
@@ -1082,12 +1075,7 @@ html.light body {
 
 @media (max-width: 420px) {
     .site-header {
-        width: calc(100vw - 48px);
         margin-top: 0 !important;
-    }
-
-    .site-footer {
-        width: calc(100vw - 48px);
     }
 
     .site-header > .nav-container {
@@ -1113,9 +1101,6 @@ html.light body {
 
 /* ---- Posts Page Card Redesign ---- */
 .posts-page {
-    max-width: 1120px;
-    width: 100%;
-    margin-inline: auto;
     padding-bottom: 72px;
 }
 
@@ -1476,13 +1461,6 @@ html.light .posts-card-gold .posts-card-strip {
     grid-template-columns: minmax(220px, 280px) minmax(0, 1fr);
     gap: clamp(24px, 3.2vw, 52px);
     align-items: start;
-    width: min(1120px, calc(100vw - 48px));
-    max-width: none;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    margin-left: 0;
-    margin-right: 0;
 }
 
 .post-page-shell-main {
@@ -1589,11 +1567,6 @@ html.light .post-page-sidebar-link-active {
 @media (max-width: 860px) {
     .post-page-shell {
         display: block;
-        position: static;
-        left: auto;
-        transform: none;
-        margin-left: auto;
-        margin-right: auto;
     }
 
     .post-page-sidebar {
@@ -1745,7 +1718,7 @@ html.light .comment-field textarea {
 }
 
 .projects-page {
-    max-width: 1040px;
+    max-width: none;
 }
 
 .projects-kicker {
@@ -1769,8 +1742,16 @@ html.light .comment-field textarea {
 
 .project-cards {
     display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
     gap: 1rem;
     margin-top: 2rem;
+}
+
+.project-column {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 
 .project-card {
@@ -1881,12 +1862,44 @@ html.light .project-card[open] {
     border-color: rgba(16, 24, 40, 0.12);
 }
 
+@media (max-width: 980px) {
+    .project-cards {
+        grid-template-columns: 1fr;
+    }
+}
+
 @media (max-width: 740px) {
     .project-cards {
+        display: flex;
+        flex-direction: column;
         gap: 0;
     }
 
-    .project-cards > .project-card + .project-card {
+    .project-column {
+        display: contents;
+    }
+
+    .project-card-1 {
+        order: 1;
+    }
+
+    .project-card-2 {
+        order: 2;
+    }
+
+    .project-card-3 {
+        order: 3;
+    }
+
+    .project-card-4 {
+        order: 4;
+    }
+
+    .project-card-5 {
+        order: 5;
+    }
+
+    .project-card:not(.project-card-1) {
         margin-top: 26px;
         padding-top: 26px;
         border-top: 1px solid rgba(255, 255, 255, 0.12);
@@ -1938,7 +1951,7 @@ html.light .project-card[open] {
 }
 
 @media (max-width: 740px) {
-    html.light .project-cards > .project-card + .project-card {
+    html.light .project-card:not(.project-card-1) {
         border-top-color: rgba(16, 24, 40, 0.14);
     }
 }

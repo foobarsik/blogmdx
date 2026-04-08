@@ -73,7 +73,7 @@ export default function RootLayout({children}) {
             strategy="afterInteractive"
         />
         <Layout banner={banner} nextThemes={{ defaultTheme: 'dark', enableSystem: false, disableTransitionOnChange: true }}>
-            <header className="site-header">
+            <header className="site-header site-shell">
                 <Link href="/" className="site-logo-link" aria-label="MehWow home">
                     <img src="/images/logo.png" alt="mehwow logo" width={112} className="logo"/>
                 </Link>
@@ -83,7 +83,7 @@ export default function RootLayout({children}) {
 
             {children}
 
-            <footer className="site-footer" data-pagefind-ignore="all">
+            <footer className="site-footer site-shell" data-pagefind-ignore="all">
                 <small className="site-footer-inner">
                     <abbr
                         title="This site and all its content are licensed under a Creative Commons Attribution-NonCommercial 4.0 International License."
