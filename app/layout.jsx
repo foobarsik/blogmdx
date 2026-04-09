@@ -47,6 +47,18 @@ export const viewport = {
     ]
 }
 
+const themeInitScript = `
+try {
+  const storedTheme = localStorage.getItem('theme');
+  const theme = storedTheme === 'light' || storedTheme === 'dark' ? storedTheme : 'dark';
+  const root = document.documentElement;
+  root.classList.remove('light', 'dark');
+  root.classList.add(theme);
+  root.style.colorScheme = theme;
+  root.setAttribute('data-theme', theme);
+} catch (error) {}
+`
+
 export default function RootLayout({children}) {
     const currentYear = new Date().getFullYear()
     const showLinkedinBanner = false
@@ -64,7 +76,11 @@ export default function RootLayout({children}) {
 
     return (
         <html lang="en" suppressHydrationWarning>
-        <head suppressHydrationWarning/>
+        <head suppressHydrationWarning>
+            <Script id="theme-init" strategy="beforeInteractive">
+                {themeInitScript}
+            </Script>
+        </head>
         <body>
         <Script
             defer
