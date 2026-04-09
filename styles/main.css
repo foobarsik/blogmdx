@@ -91,7 +91,7 @@ article.x\:container.x\:prose:has(.projects-page) > h1 {
     text-align: left;
     width: var(--mw-shell-width);
     max-width: none;
-    font-size: clamp(2.8rem, 4.2vw, 4.4rem);
+    font-size: clamp(2.8rem, 3.6vw, 4.0rem);
     line-height: 1;
     letter-spacing: -0.035em;
     font-weight: 700;
