@@ -1249,8 +1249,8 @@ html.light body {
 
 .posts-card-featured-layout {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(260px, 360px);
-    gap: 28px;
+    grid-template-columns: minmax(0, 1fr) minmax(320px, 420px);
+    gap: 18px;
     align-items: stretch;
 }
 
@@ -1265,6 +1265,7 @@ html.light body {
 .posts-card-featured-media {
     min-height: 224px;
     height: 100%;
+    max-height: 230px;
     border-radius: 8px;
     overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.08);
