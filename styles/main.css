@@ -125,7 +125,8 @@ article.x\:container.x\:prose:has(> h1 + .x\:mb-8 .x\:print\:hidden.x\:underline
         position: static;
         left: auto;
         transform: none;
-        width: calc(100vw - var(--mw-mobile-gutter) - var(--mw-mobile-gutter));
+        width: 100%;
+        max-width: 100%;
         margin-left: auto;
         margin-right: auto;
     }
@@ -613,7 +614,8 @@ html.light .about-page-photo {
 
 @media (max-width: 860px) {
     .about-page {
-        width: calc(100vw - var(--mw-mobile-gutter) - var(--mw-mobile-gutter));
+        width: 100%;
+        max-width: 100%;
     }
 
     .about-page-hero {
@@ -720,7 +722,8 @@ html.light body {
         position: static;
         left: auto;
         transform: none;
-        width: calc(100vw - var(--mw-mobile-gutter) - var(--mw-mobile-gutter));
+        width: 100%;
+        max-width: 100%;
         margin-left: auto;
         margin-right: auto;
     }
