@@ -1,10 +1,9 @@
 'use client'
 
 import { usePathname } from 'next/navigation'
-import { useTransitionRouter } from 'next-view-transitions'
+import Link from 'next/link'
 
 export default function TopBackLink() {
-    const router = useTransitionRouter()
     const pathname = usePathname()
     const isNestedPage = pathname.split('/').length > 2
 
@@ -13,8 +12,8 @@ export default function TopBackLink() {
     }
 
     return (
-        <button type="button" onClick={() => router.back()} className="top-back-link x:print:hidden">
-            ← Back
-        </button>
+        <Link href="/posts" className="top-back-link x:print:hidden">
+            Back to posts
+        </Link>
     )
 }

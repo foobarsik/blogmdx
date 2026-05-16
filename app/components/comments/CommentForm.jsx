@@ -139,7 +139,13 @@ export default function CommentForm({ postSlug, enabled, onSubmitted }) {
             </button>
 
             {status.type !== 'idle' ? (
-                <p className={`comment-status comment-status-${status.type}`}>{status.message}</p>
+                <p
+                    className={`comment-status comment-status-${status.type}`}
+                    role={status.type === 'error' ? 'alert' : 'status'}
+                    aria-live={status.type === 'error' ? 'assertive' : 'polite'}
+                >
+                    {status.message}
+                </p>
             ) : null}
         </form>
     )

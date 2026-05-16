@@ -54,18 +54,21 @@ export default function CommentsSection({ postSlug, enabled }) {
 
     return (
         <section className="comments-section not-prose" aria-labelledby="comments-title">
-            <h2 id="comments-title" className="comments-title">Comments</h2>
+            <div className="comments-header">
+                <p className="comments-kicker">Discussion</p>
+                <h2 id="comments-title" className="comments-title">Comments</h2>
+            </div>
 
             {!enabled ? (
-                <p className="comments-note">
+                <p className="comments-state" role="status" aria-live="polite">
                     Comments are disabled. Add Supabase environment variables to enable them.
                 </p>
             ) : null}
 
             {isLoading ? (
-                <p className="comments-note">Loading comments...</p>
+                <p className="comments-state" role="status" aria-live="polite">Loading comments...</p>
             ) : loadError ? (
-                <p className="comment-status comment-status-error">{loadError}</p>
+                <p className="comment-status comment-status-error" role="alert">{loadError}</p>
             ) : comments.length > 0 ? (
                 <ul className="comments-list">
                     {comments.map(comment => (
@@ -92,7 +95,7 @@ export default function CommentsSection({ postSlug, enabled }) {
                     ))}
                 </ul>
             ) : (
-                <p className="comments-note">No published comments yet.</p>
+                <p className="comments-state" role="status" aria-live="polite">No published comments yet.</p>
             )}
 
             <h3 className="comments-subtitle">Leave a comment</h3>
