@@ -228,10 +228,6 @@ img.next-image {
     color: #0074de;
 }
 
-.nav-line .nav-link {
-    color: #69778c;
-}
-
 .nextra-tag {
     background-color: transparent;
     padding: 6px 12px 6px 12px;
@@ -309,51 +305,6 @@ img.logo {
     margin-inline: 0;
     width: clamp(90px, 11vw, 112px);
     height: auto;
-}
-
-.post-card-link {
-    color: inherit;
-    text-decoration: none;
-}
-
-.post-card-title {
-    color: inherit;
-    border-bottom: 0;
-    display: inline;
-}
-
-.light h3.post-card-title {
-    color: #030712;
-    font-variation-settings: "wght" 600;
-}
-
-[data-theme='light'] h3.post-card-title {
-    color: #030712;
-    font-variation-settings: "wght" 600;
-}
-
-.dark h3.post-card-title,
-[data-theme='dark'] h3.post-card-title {
-    color: #fff !important;
-}
-
-.post-card-description {
-    color: #374151;
-    line-height: 1.65;
-}
-
-.dark .post-card-description {
-    color: #d1d5db;
-}
-
-.post-card-image-muted {
-    filter: grayscale(0.92) brightness(0.9);
-    transition: transform 0.3s ease, filter 0.3s ease;
-}
-
-.post-card-link:hover .post-card-image-muted,
-.post-card-link:focus-visible .post-card-image-muted {
-    filter: grayscale(0.6) brightness(0.9);
 }
 
 a.x\:focus-visible\:nextra-focus {
@@ -695,8 +646,7 @@ html.light .about-page-photo {
     }
 }
 
-
-/* ---- Landing Design (reference match) ---- */
+/* ---- Landing layout ---- */
 :root,
 html.light {
     --mw-bg: #f8fafb;
@@ -731,12 +681,6 @@ html.dark body {
 html.light body {
     background: #f8fafb;
     color: #101828;
-}
-
-.landing {
-    max-width: 1120px;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 .site-shell {
@@ -888,187 +832,7 @@ html.light body {
     outline-offset: 4px;
 }
 
-.landing {
-    padding-bottom: 72px;
-}
-
-.hero {
-    display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
-    gap: 28px;
-    align-items: end;
-    margin-bottom: clamp(76px, 8.5vw, 84px);
-}
-
-.hero-copy h1 {
-    margin: 0 0 12px;
-    font-size: clamp(38px, 6vw, 96px);
-    line-height: 0.95;
-    letter-spacing: -0.045em;
-    font-weight: 800;
-    max-width: 9ch;
-}
-
-.hero-copy p {
-    margin: 0;
-    color: var(--mw-muted);
-    font-size: 18px;
-    max-width: 52ch;
-}
-
-.hero-card {
-    min-height: 260px;
-    border: 1px solid rgba(120, 140, 255, 0.08);
-    border-radius: 8px;
-    background: #0b0f1a;
-    padding: 24px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    overflow: hidden;
-    box-shadow: none;
-}
-
-.hero-kicker {
-    font-size: 12px;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.72);
-}
-
-.hero-metric {
-    font-size: clamp(44px, 6vw, 88px);
-    line-height: 1;
-    font-weight: 800;
-    letter-spacing: -0.05em;
-}
-
-.hero-note {
-    color: var(--mw-muted);
-    font-size: 14px;
-    max-width: 22ch;
-}
-
-.section-label {
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 0.18em;
-    color: rgba(255, 255, 255, 0.52);
-    margin-bottom: 14px;
-}
-
-.landing .post-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    column-gap: 20px;
-    row-gap: 38px;
-}
-
-.landing .post {
-    border: 1px solid rgba(120, 140, 255, 0.08);
-    border-radius: 8px;
-    padding: 34px 34px 30px;
-    background: transparent;
-}
-
-.landing .post-tag {
-    display: inline-block;
-    font-size: 11.5px;
-    color: var(--mw-muted);
-    margin-bottom: 10px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    font-weight: 500;
-    opacity: 0.68;
-}
-
-.landing .post-title {
-    font-size: clamp(42px, 3.5vw, 64px);
-    line-height: 1.12;
-    letter-spacing: -0.01em;
-    font-weight: 640;
-    margin: 0 0 12px;
-    font-family: inherit;
-}
-
-.landing .featured .post-title {
-    font-size: clamp(40px, 3.2vw, 60px);
-    line-height: 1.1;
-}
-
-.landing-post-link {
-    color: inherit;
-    text-decoration: none;
-}
-
-.landing .post-preview {
-    margin: 0;
-    color: var(--mw-text);
-    opacity: 0.82;
-    font-size: 15px;
-    line-height: 1.58;
-    max-width: 48ch;
-}
-
-.landing .post-meta {
-    margin-top: 16px;
-    font-size: 13px;
-    color: rgba(255, 255, 255, 0.4);
-}
-
-.landing .featured {
-    grid-column: span 2;
-    padding: 44px 42px 40px;
-    position: relative;
-    overflow: hidden;
-    border: 1px solid rgba(120, 140, 255, 0.08);
-    background: transparent;
-    transition: none;
-}
-
-.landing .featured::before {
-    content: none;
-}
-
-.landing .featured > * {
-    position: relative;
-    z-index: 1;
-}
-
-.landing .post-visual {
-    height: 120px;
-    border-radius: 8px;
-    margin: 20px 0 20px;
-    border: 1px solid rgba(120, 140, 255, 0.08);
-    background: #0e1320;
-    overflow: hidden;
-    position: relative;
-}
-
-.landing .post-visual-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    display: block;
-    opacity: 0.62;
-    filter: saturate(0.95) brightness(0.62);
-}
-
-.landing .post-blue .post-visual {
-    border-color: rgba(124, 140, 255, 0.34);
-}
-
-.landing .post-gold .post-visual {
-    border-color: rgba(246, 197, 106, 0.34);
-}
-
 @media (max-width: 1120px) {
-    .landing {
-        padding-left: 24px;
-        padding-right: 24px;
-    }
-
     .site-header {
         padding-left: 0;
         padding-right: 0;
@@ -1080,63 +844,6 @@ html.light body {
         padding-left: 0;
         padding-right: 0;
         padding-bottom: 56px;
-    }
-
-    .landing {
-        padding-bottom: 56px;
-    }
-
-    .hero {
-        grid-template-columns: 1fr;
-        gap: 22px;
-        margin-bottom: var(--mw-mobile-stack-gap);
-    }
-
-    .landing .post-grid {
-        grid-template-columns: 1fr;
-        row-gap: var(--mw-mobile-divider-gap);
-    }
-
-
-    .landing .featured {
-        grid-column: span 1;
-        padding: 0;
-        border: 0;
-        border-radius: 0;
-        background: transparent;
-        box-shadow: none;
-    }
-
-    .landing .post {
-        padding: 0;
-        border: 0;
-        border-radius: 0;
-        background: transparent;
-        box-shadow: none;
-    }
-
-    .landing .post-title,
-    .landing .featured .post-title {
-        font-size: clamp(20px, 8vw, 52px);
-        line-height: 1.12;
-    }
-
-    .landing .post-preview {
-        font-size: clamp(14px, 3.6vw, 23px);
-    }
-
-    .landing .post-tag {
-        font-size: 11.5px;
-        letter-spacing: 0.1em;
-    }
-
-    .landing .post-meta {
-        font-size: clamp(13px, 3vw, 21px);
-    }
-
-    .landing .post-visual {
-        height: 70px;
-        border-radius: 8px;
     }
 
     .site-header {
@@ -1313,14 +1020,6 @@ html.light body {
     text-transform: uppercase;
 }
 
-.posts-section-label {
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 0.18em;
-    color: rgba(255, 255, 255, 0.52);
-    margin-bottom: 14px;
-}
-
 .posts-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1443,8 +1142,6 @@ html.light body {
 }
 
 @media (hover: hover) and (pointer: fine) {
-    .landing .featured:hover,
-    .landing .featured:focus-within,
     .posts-card-featured:hover,
     .posts-card-featured:focus-visible {
         background: transparent;
@@ -1462,8 +1159,6 @@ html.light body {
         opacity: 0;
     }
 
-    .landing .post:hover .post-title,
-    .landing .post:focus-within .post-title,
     .posts-card:hover .posts-card-title,
     .posts-card:focus-visible .posts-card-title {
         transform: none;
@@ -1491,15 +1186,11 @@ html.light body {
         opacity: 0.92;
     }
 
-    html.light .landing .featured:hover,
-    html.light .landing .featured:focus-within,
     html.light .posts-card-featured:hover,
     html.light .posts-card-featured:focus-visible {
         background: transparent;
     }
 
-    html.light .landing .post:hover,
-    html.light .landing .post:focus-visible,
     html.light .posts-card:hover,
     html.light .posts-card:focus-visible {
         background: rgba(255, 255, 255, 0.78);
@@ -1554,25 +1245,12 @@ html.light body {
     border-color: rgba(246, 197, 106, 0.34);
 }
 
-html.light .hero-kicker,
-html.light .section-label,
-html.light .posts-section-label {
-    color: rgba(16, 24, 40, 0.55);
-}
-
-html.light .landing .post,
 html.light .posts-card {
     background: rgba(255, 255, 255, 0.62);
     border: 1px solid rgba(16, 24, 40, 0.09);
     box-shadow: none;
 }
 
-html.light .hero-card {
-    background: #fff;
-    border-color: rgba(16, 24, 40, 0.08);
-}
-
-html.light .landing .featured,
 html.light .posts-card-featured {
     background: linear-gradient(135deg, rgba(90, 111, 232, 0.07), rgba(255, 255, 255, 0.58) 60%);
     border: 1px solid rgba(16, 24, 40, 0.09);
@@ -1584,22 +1262,15 @@ html.light .posts-card-featured-media {
     border-color: rgba(16, 24, 40, 0.1);
 }
 
-html.light .landing .post-meta {
-    color: rgba(16, 24, 40, 0.5);
-}
-
-html.light .landing .post-visual,
 html.light .posts-card-strip {
     border-color: rgba(16, 24, 40, 0.1);
     background: #f6f8fc;
 }
 
-html.light .landing .post-blue .post-visual,
 html.light .posts-card-blue .posts-card-strip {
     border-color: rgba(90, 111, 232, 0.34);
 }
 
-html.light .landing .post-gold .post-visual,
 html.light .posts-card-gold .posts-card-strip {
     border-color: rgba(201, 139, 53, 0.34);
 }
@@ -1673,7 +1344,6 @@ html.light .posts-card-gold .posts-card-strip {
         border-radius: 8px;
     }
 
-    .landing .post-grid > * + *,
     .posts-grid > .posts-card-link + .posts-card-link {
         margin-top: 0;
         padding-top: var(--mw-mobile-divider-gap);
@@ -1682,16 +1352,13 @@ html.light .posts-card-gold .posts-card-strip {
 }
 
 @media (max-width: 860px) {
-    html.light .landing .post,
     html.light .posts-card,
-    html.light .landing .featured,
     html.light .posts-card-featured {
         border: 0;
         box-shadow: none;
         background: transparent;
     }
 
-    html.light .landing .post-grid > * + *,
     html.light .posts-grid > .posts-card-link + .posts-card-link {
         border-top-color: rgba(16, 24, 40, 0.14);
     }
