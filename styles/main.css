@@ -20,7 +20,7 @@
     --fs-200: 0.875rem;                                   /* 14px  small, caption */
     --fs-300: 1rem;                                       /* 16px  body          */
     --fs-400: 1.25rem;                                    /* 20px  section title  */
-    --fs-500: clamp(1.625rem, 1.15rem + 2vw, 2.5rem);     /* 26–40 card title    */
+    --fs-500: clamp(1.8125rem, 2.5vw, 2.875rem);          /* 29–46 card title (matches featured) */
     --fs-600: clamp(1.75rem, 1.25rem + 2.2vw, 2.75rem);   /* 28–44 page title    */
     --fs-700: clamp(2.375rem, 1.7rem + 2.9vw, 3.625rem);  /* 38–58 article h1    */
     --fs-800: clamp(2.625rem, 1.2rem + 5.4vw, 5.5rem);    /* 42–88 hero display  */
@@ -141,7 +141,7 @@ article.x\:container.x\:prose:has(.projects-page) > h1 {
     text-align: left;
     width: var(--mw-shell-width);
     max-width: none;
-    font-size: var(--fs-700);
+    font-size: var(--fs-600);
     line-height: 1;
     letter-spacing: -0.035em;
     font-variation-settings: "wght" var(--fw-bold);
@@ -219,7 +219,7 @@ body {
 }
 
 html.light body {
-    background-color: #f8fafb;
+    background-color: var(--mw-bg);
 }
 
 b,
@@ -273,7 +273,7 @@ img.next-image {
 .nextra-tag {
     background-color: transparent;
     padding: 6px 12px 6px 12px;
-    border-color: #dedcdc;
+    border-color: var(--mw-line);
     border-width: 1px;
     border-radius: 50px;
     text-decoration: none;
@@ -400,13 +400,9 @@ a.x\:focus-visible\:nextra-focus {
 
 figcaption {
     font-size: 0.95em;
-    color: #555;
+    color: var(--mw-muted);
     margin-top: -1em;
     text-align: center;
-}
-
-.dark figcaption {
-    color: #d1d5dc;
 }
 
 .banner-content {
@@ -699,6 +695,9 @@ html.light {
     --mw-accent: #5a6fe8;
     --mw-accent-2: #c98b35;
     --mw-nav-underline: rgba(16, 24, 40, 0.45);
+    --mw-media-bg: #f6f8fc;
+    --mw-success: #1f9958;
+    --mw-danger: #d25353;
 }
 
 html.dark {
@@ -710,6 +709,9 @@ html.dark {
     --mw-accent: #7c8cff;
     --mw-accent-2: #f6c56a;
     --mw-nav-underline: rgba(255, 255, 255, 0.58);
+    --mw-media-bg: #0e1320;
+    --mw-success: #3fbf77;
+    --mw-danger: #e06b6b;
 }
 
 html.dark body {
@@ -721,8 +723,8 @@ html.dark body {
 }
 
 html.light body {
-    background: #f8fafb;
-    color: #101828;
+    background: var(--mw-bg);
+    color: var(--mw-text);
 }
 
 .site-shell {
@@ -1127,7 +1129,7 @@ html.light body {
     border-radius: 8px;
     overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.08);
-    background: #0e1320;
+    background: var(--mw-media-bg);
 }
 
 .posts-card-featured-image {
@@ -1164,11 +1166,6 @@ html.light body {
     letter-spacing: -0.025em;
     font-variation-settings: "wght" var(--fw-semibold);
     font-family: inherit;
-}
-
-.posts-card-featured .posts-card-title {
-    font-size: clamp(29px, 2.5vw, 46px);
-    line-height: 1.1;
 }
 
 .posts-card-link {
@@ -1264,7 +1261,7 @@ html.light body {
     border-radius: 8px;
     margin: 20px 0 20px;
     border: 1px solid rgba(120, 140, 255, 0.08);
-    background: #0e1320;
+    background: var(--mw-media-bg);
     overflow: hidden;
     position: relative;
 }
@@ -1300,13 +1297,11 @@ html.light .posts-card-featured {
 }
 
 html.light .posts-card-featured-media {
-    background: #f6f8fc;
     border-color: rgba(16, 24, 40, 0.1);
 }
 
 html.light .posts-card-strip {
     border-color: rgba(16, 24, 40, 0.1);
-    background: #f6f8fc;
 }
 
 html.light .posts-card-blue .posts-card-strip {
@@ -1424,9 +1419,9 @@ html.light .posts-card-gold .posts-card-strip {
 .post-page-shell-main article.x\:container.x\:prose > h1 {
     margin-bottom: 18px;
     color: var(--mw-text);
-    font-size: var(--fs-700);
+    font-size: var(--fs-600);
     font-variation-settings: "wght" var(--fw-bold);
-    letter-spacing: -0.04em;
+    letter-spacing: -0.035em;
     line-height: 1.04;
 }
 
@@ -1603,9 +1598,9 @@ html.light .post-page-sidebar-link-active {
 }
 
 .comments-section {
-    margin-top: 64px;
+    margin-top: var(--space-16);
     border-top: 1px solid rgba(127, 143, 167, 0.26);
-    padding-top: 32px;
+    padding-top: var(--space-8);
 }
 
 .comments-title {
@@ -1728,11 +1723,11 @@ html.light .post-page-sidebar-link-active {
 }
 
 .comment-status-success {
-    color: #1f9958;
+    color: var(--mw-success);
 }
 
 .comment-status-error {
-    color: #d25353;
+    color: var(--mw-danger);
 }
 
 html.light .comment-item,
@@ -1775,14 +1770,14 @@ html.light .comment-field textarea {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     align-items: start;
-    gap: 1rem;
-    margin-top: 2rem;
+    gap: var(--space-4);
+    margin-top: var(--space-8);
 }
 
 .project-column {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: var(--space-4);
 }
 
 .project-card {
