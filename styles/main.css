@@ -10,8 +10,48 @@
     --mw-mobile-gutter: 24px;
     --mw-mobile-stack-gap: 40px;
     --mw-mobile-divider-gap: 28px;
-    --mw-radius-button-pill: 999px;
-    --mw-radius-button-soft: 12px;
+
+    /* ── Design tokens ─────────────────────────────────────────────
+       Single source of truth. Define scales here; consume via var()
+       everywhere else. Never hardcode a raw size/weight in a rule. */
+
+    /* Type scale — fluid: clamp(min, preferred-vw, max) */
+    --fs-100: 0.75rem;                                    /* 12px  kicker, meta  */
+    --fs-200: 0.875rem;                                   /* 14px  small, caption */
+    --fs-300: 1rem;                                       /* 16px  body          */
+    --fs-400: 1.25rem;                                    /* 20px  section title  */
+    --fs-500: clamp(1.625rem, 1.15rem + 2vw, 2.5rem);     /* 26–40 card title    */
+    --fs-600: clamp(1.75rem, 1.25rem + 2.2vw, 2.75rem);   /* 28–44 page title    */
+    --fs-700: clamp(2.375rem, 1.7rem + 2.9vw, 3.625rem);  /* 38–58 article h1    */
+    --fs-800: clamp(2.625rem, 1.2rem + 5.4vw, 5.5rem);    /* 42–88 hero display  */
+
+    /* Weight scale — variable-font "wght" axis (raw numbers) */
+    --fw-regular: 450;
+    --fw-medium: 550;
+    --fw-semibold: 650;
+    --fw-bold: 720;
+
+    /* Spacing scale — 4px base */
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-5: 1.25rem;
+    --space-6: 1.5rem;
+    --space-8: 2rem;
+    --space-10: 2.5rem;
+    --space-12: 3rem;
+    --space-16: 4rem;
+    --space-18: 4.5rem;
+
+    /* Radius scale (primitives) */
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-pill: 999px;
+
+    /* Semantic aliases: role → primitive (layer 2) */
+    --mw-radius-button-pill: var(--radius-pill);
+    --mw-radius-button-soft: var(--radius-md);
 }
 
 .dark {
@@ -101,10 +141,10 @@ article.x\:container.x\:prose:has(.projects-page) > h1 {
     text-align: left;
     width: var(--mw-shell-width);
     max-width: none;
-    font-size: clamp(2.8rem, 3.6vw, 4.0rem);
+    font-size: var(--fs-700);
     line-height: 1;
     letter-spacing: -0.035em;
-    font-weight: 700;
+    font-variation-settings: "wght" var(--fw-bold);
     position: relative;
     left: 50%;
     transform: translateX(-50%);
@@ -998,8 +1038,8 @@ html.light body {
     flex: 1;
     margin: 0;
     color: var(--mw-text);
-    font-size: clamp(28px, 3.4vw, 44px);
-    font-variation-settings: "wght" 720;
+    font-size: var(--fs-600);
+    font-variation-settings: "wght" var(--fw-bold);
     letter-spacing: -0.03em;
     line-height: 1.08;
 }
@@ -1119,10 +1159,10 @@ html.light body {
 .posts-card-title {
     color: var(--mw-text);
     margin: 0 0 12px;
-    font-size: clamp(27px, 2.3vw, 44px);
+    font-size: var(--fs-500);
     line-height: 1.12;
     letter-spacing: -0.025em;
-    font-weight: 640;
+    font-variation-settings: "wght" var(--fw-semibold);
     font-family: inherit;
 }
 
@@ -1384,8 +1424,8 @@ html.light .posts-card-gold .posts-card-strip {
 .post-page-shell-main article.x\:container.x\:prose > h1 {
     margin-bottom: 18px;
     color: var(--mw-text);
-    font-size: clamp(38px, 4.2vw, 58px);
-    font-variation-settings: "wght" 720;
+    font-size: var(--fs-700);
+    font-variation-settings: "wght" var(--fw-bold);
     letter-spacing: -0.04em;
     line-height: 1.04;
 }
@@ -1801,10 +1841,10 @@ html.light .comment-field textarea {
 
 .project-card-summary h3 {
     color: var(--mw-text);
-    font-size: clamp(26px, 2.5vw, 38px);
+    font-size: var(--fs-500);
     line-height: 1.08;
     letter-spacing: -0.025em;
-    font-weight: 640;
+    font-variation-settings: "wght" var(--fw-semibold);
     margin: 0 0 12px;
 }
 
