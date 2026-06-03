@@ -802,11 +802,11 @@ html.light body {
 }
 
 .site-logo-meh {
-    color: var(--mw-accent);
+    color: color-mix(in srgb, var(--mw-text) 55%, transparent);
 }
 
 .site-logo-wow {
-    color: var(--mw-accent-2);
+    color: var(--mw-text);
 }
 
 .nav-container {
