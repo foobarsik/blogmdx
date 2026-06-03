@@ -940,7 +940,7 @@ html.light body {
         padding-top: 18px !important;
         margin-top: 0 !important;
         grid-template-columns: 1fr auto;
-        row-gap: 10px;
+        row-gap: 18px;
         column-gap: 12px;
         align-items: center;
         margin-bottom: 36px;
