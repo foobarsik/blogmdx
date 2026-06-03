@@ -102,6 +102,31 @@ export default async function Page(props) {
                 ? metadata.title.join(' ')
                 : articleSlug
 
+    const mobilePostsNav = showComments ? (
+        <nav className="post-page-mobile-nav not-prose" aria-label="More posts">
+            <Link href="/posts" className="post-page-mobile-back">
+                All posts
+            </Link>
+            <div className="post-page-mobile-links">
+                {allPosts.slice(0, 4).map(post => {
+                    const postTitle = post.frontMatter?.title || post.title || post.name
+                    const isCurrentPost = post.route === currentPostRoute
+
+                    return (
+                        <Link
+                            key={post.route}
+                            href={post.route}
+                            className={`post-page-mobile-link${isCurrentPost ? ' post-page-mobile-link-active' : ''}`}
+                            aria-current={isCurrentPost ? 'page' : undefined}
+                        >
+                            {postTitle}
+                        </Link>
+                    )
+                })}
+            </div>
+        </nav>
+    ) : null
+
     const postContent = (
         <>
             {showComments ? (
@@ -113,6 +138,7 @@ export default async function Page(props) {
             <div data-article-content>
                 <MDXContent {...props} params={{ ...(params ?? {}), mdxPath }} />
             </div>
+            {mobilePostsNav}
             {showComments ? (
                 <CommentsSection
                     postSlug={postSlug}
@@ -153,28 +179,6 @@ export default async function Page(props) {
                 </nav>
             </aside>
             <div className="post-page-shell-main">
-                <nav className="post-page-mobile-nav not-prose" aria-label="More posts">
-                    <Link href="/posts" className="post-page-mobile-back">
-                        All posts
-                    </Link>
-                    <div className="post-page-mobile-links">
-                        {allPosts.slice(0, 4).map(post => {
-                            const postTitle = post.frontMatter?.title || post.title || post.name
-                            const isCurrentPost = post.route === currentPostRoute
-
-                            return (
-                                <Link
-                                    key={post.route}
-                                    href={post.route}
-                                    className={`post-page-mobile-link${isCurrentPost ? ' post-page-mobile-link-active' : ''}`}
-                                    aria-current={isCurrentPost ? 'page' : undefined}
-                                >
-                                    {postTitle}
-                                </Link>
-                            )
-                        })}
-                    </div>
-                </nav>
                 <Wrapper toc={toc} metadata={metadata}>
                     {postContent}
                 </Wrapper>

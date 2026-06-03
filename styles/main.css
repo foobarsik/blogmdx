@@ -1602,15 +1602,21 @@ html.light .post-page-sidebar-link-active {
     .post-page-mobile-nav {
         display: grid;
         gap: 10px;
-        margin-bottom: 26px;
+        margin-top: var(--space-12);
+        margin-bottom: 0;
+        border-top: 1px solid rgba(127, 143, 167, 0.26);
+        padding-top: var(--space-8);
     }
 
     .post-page-mobile-back {
         width: fit-content;
-        color: var(--mw-text);
-        font-size: 14px;
+        color: color-mix(in srgb, var(--mw-muted) 88%, var(--mw-text) 12%);
+        font-size: 12px;
         font-weight: 650;
+        letter-spacing: 0.18em;
+        line-height: 1.2;
         text-decoration: none;
+        text-transform: uppercase;
     }
 
     .post-page-mobile-links {
