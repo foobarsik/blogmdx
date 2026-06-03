@@ -802,7 +802,7 @@ html.light body {
 }
 
 .site-logo-meh {
-    color: color-mix(in srgb, var(--mw-text) 55%, transparent);
+    color: color-mix(in srgb, var(--mw-text) 85%, transparent);
 }
 
 .site-logo-wow {
