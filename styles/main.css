@@ -221,6 +221,24 @@ body {
     letter-spacing: -0.02em;
 }
 
+/* Mono role: labels · meta · tags · code — engineer accent across the site */
+.posts-card-meta,
+.posts-card-tag,
+.about-page-kicker,
+.projects-kicker,
+.tag-page-kicker,
+.comments-kicker,
+.project-card-tag,
+.post-page-sidebar-title,
+.nextra-tag,
+.site-footer-inner,
+code,
+kbd,
+samp,
+pre {
+    font-family: var(--mw-font-mono);
+}
+
 html.light body {
     background-color: var(--mw-bg);
 }
