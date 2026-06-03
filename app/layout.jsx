@@ -8,6 +8,7 @@ import Link from "next/link";
 import {Analytics} from "@vercel/analytics/next";
 import {SpeedInsights} from '@vercel/speed-insights/next';
 import Script from 'next/script'
+import {JetBrains_Mono} from 'next/font/google'
 import {
     AUTHOR_NAME,
     SITE_DESCRIPTION,
@@ -16,6 +17,12 @@ import {
     buildSeoMetadata,
     getMetadataBase
 } from '../lib/seo'
+
+const jetbrainsMono = JetBrains_Mono({
+    subsets: ['latin'],
+    display: 'swap',
+    variable: '--font-jetbrains-mono'
+})
 
 export const metadata = {
     metadataBase: getMetadataBase(),
@@ -75,7 +82,7 @@ export default function RootLayout({children}) {
     ) : null
 
     return (
-        <html lang="en" suppressHydrationWarning>
+        <html lang="en" className={jetbrainsMono.variable} suppressHydrationWarning>
         <head suppressHydrationWarning>
             <Script id="theme-init" strategy="beforeInteractive">
                 {themeInitScript}
