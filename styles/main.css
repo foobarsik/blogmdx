@@ -787,6 +787,26 @@ html.light body {
     display: inline-flex;
     align-items: center;
     border-radius: 8px;
+    text-decoration: none;
+}
+
+.site-logo-word {
+    font-family: var(--font-space-grotesk), system-ui, sans-serif;
+    font-weight: 700;
+    font-variation-settings: "wght" 700;
+    font-size: clamp(21px, 2.2vw, 28px);
+    letter-spacing: -0.02em;
+    line-height: 1;
+    text-transform: lowercase;
+    white-space: nowrap;
+}
+
+.site-logo-meh {
+    color: var(--mw-accent);
+}
+
+.site-logo-wow {
+    color: var(--mw-accent-2);
 }
 
 .nav-container {

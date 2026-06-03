@@ -8,7 +8,7 @@ import Link from "next/link";
 import {Analytics} from "@vercel/analytics/next";
 import {SpeedInsights} from '@vercel/speed-insights/next';
 import Script from 'next/script'
-import {JetBrains_Mono} from 'next/font/google'
+import {JetBrains_Mono, Space_Grotesk} from 'next/font/google'
 import {
     AUTHOR_NAME,
     SITE_DESCRIPTION,
@@ -22,6 +22,12 @@ const jetbrainsMono = JetBrains_Mono({
     subsets: ['latin'],
     display: 'swap',
     variable: '--font-jetbrains-mono'
+})
+
+const spaceGrotesk = Space_Grotesk({
+    subsets: ['latin'],
+    display: 'swap',
+    variable: '--font-space-grotesk'
 })
 
 export const metadata = {
@@ -82,7 +88,7 @@ export default function RootLayout({children}) {
     ) : null
 
     return (
-        <html lang="en" className={jetbrainsMono.variable} suppressHydrationWarning>
+        <html lang="en" className={`${jetbrainsMono.variable} ${spaceGrotesk.variable}`} suppressHydrationWarning>
         <head suppressHydrationWarning>
             <Script id="theme-init" strategy="beforeInteractive">
                 {themeInitScript}
@@ -98,7 +104,9 @@ export default function RootLayout({children}) {
         <Layout banner={banner} nextThemes={{ defaultTheme: 'dark', enableSystem: false, disableTransitionOnChange: true }}>
             <header className="site-header site-shell">
                 <Link href="/" className="site-logo-link" aria-label="MehWow home">
-                    <img src="/images/logo.png" alt="mehwow logo" width={112} className="logo"/>
+                    <span className="site-logo-word">
+                        <span className="site-logo-meh">meh</span><span className="site-logo-wow">wow</span>
+                    </span>
                 </Link>
                 <NavLinks/>
                 <ThemeToggleText/>
