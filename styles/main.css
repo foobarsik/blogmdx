@@ -937,7 +937,7 @@ html.light body {
     }
 
     .site-header {
-        padding-top: 0 !important;
+        padding-top: 18px !important;
         margin-top: 0 !important;
         grid-template-columns: 1fr auto;
         row-gap: 10px;
@@ -997,8 +997,11 @@ html.light body {
 
     .theme-toggle-text {
         width: auto;
-        border: 1px solid color-mix(in srgb, var(--mw-line) 84%, transparent);
-        background: color-mix(in srgb, var(--mw-panel) 46%, transparent);
+        min-height: auto;
+        padding: 0;
+        border: 0;
+        border-radius: 0;
+        background: transparent;
     }
 
     .theme-toggle-text::before {
@@ -1008,6 +1011,7 @@ html.light body {
 
 @media (max-width: 420px) {
     .site-header {
+        padding-top: 16px !important;
         margin-top: 0 !important;
     }
 
@@ -1027,7 +1031,7 @@ html.light body {
 
     .theme-toggle-text {
         font-size: 12px;
-        padding-inline: 11px;
+        padding-inline: 0;
     }
 
     .site-header > .theme-toggle-text {
