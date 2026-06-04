@@ -1,10 +1,10 @@
 @import "tailwindcss";
 
 :root {
-    --nextra-primary-hue: 212deg;
-    --nextra-primary-saturation: 100%;
-    --nextra-primary-lightness: 45%;
-    --nextra-bg: 250, 250, 250;
+    --nextra-primary-hue: 92deg;
+    --nextra-primary-saturation: 45%;
+    --nextra-primary-lightness: 38%;
+    --nextra-bg: 243, 245, 237;
     --nextra-content-width: 90rem;
     --mw-shell-width: min(1120px, calc(100vw - 48px));
     --mw-mobile-gutter: 24px;
@@ -58,10 +58,10 @@
 }
 
 .dark {
-    --nextra-primary-hue: 204deg;
-    --nextra-primary-saturation: 100%;
-    --nextra-primary-lightness: 55%;
-    --nextra-bg: 17, 17, 17;
+    --nextra-primary-hue: 88deg;
+    --nextra-primary-saturation: 65%;
+    --nextra-primary-lightness: 60%;
+    --nextra-bg: 13, 18, 15;
 }
 
 ::selection {
@@ -484,7 +484,7 @@ article.x\:container.x\:prose:has(.about-page) > h1 {
     position: relative;
     overflow: hidden;
     background:
-        radial-gradient(circle at 58% 30%, rgba(124, 140, 255, 0.1), transparent 58%),
+        radial-gradient(circle at 58% 30%, rgba(174, 224, 106, 0.1), transparent 58%),
         radial-gradient(circle at 38% 64%, rgba(6, 12, 28, 0.45), rgba(4, 7, 18, 0.85));
     box-shadow:
         inset 0 0 0 1px rgba(255, 255, 255, 0.04),
@@ -547,9 +547,9 @@ article.x\:container.x\:prose:has(.about-page) > h1 {
 }
 
 html.light .about-page-photo-frame {
-    border-color: rgba(16, 24, 40, 0.14);
+    border-color: rgba(22, 32, 26, 0.14);
     background:
-        radial-gradient(circle at 58% 30%, rgba(124, 140, 255, 0.12), transparent 60%),
+        radial-gradient(circle at 58% 30%, rgba(174, 224, 106, 0.12), transparent 60%),
         radial-gradient(circle at 38% 64%, rgba(227, 233, 249, 0.64), rgba(241, 245, 255, 0.9));
     box-shadow:
         inset 0 0 0 1px rgba(255, 255, 255, 0.32),
@@ -708,37 +708,37 @@ html.light .about-page-photo {
 /* ---- Landing layout ---- */
 :root,
 html.light {
-    --mw-bg: #f8fafb;
-    --mw-panel: rgba(255, 255, 255, 0.72);
-    --mw-text: #101828;
-    --mw-muted: #53627a;
-    --mw-line: rgba(16, 24, 40, 0.12);
-    --mw-accent: #5a6fe8;
-    --mw-accent-2: #c98b35;
-    --mw-nav-underline: rgba(16, 24, 40, 0.45);
-    --mw-media-bg: #f6f8fc;
-    --mw-success: #1f9958;
-    --mw-danger: #d25353;
+    --mw-bg: #f3f5ed;
+    --mw-panel: rgba(255, 255, 255, 0.7);
+    --mw-text: #16201a;
+    --mw-muted: #5c685a;
+    --mw-line: rgba(22, 32, 26, 0.12);
+    --mw-accent: #4a7a2b;
+    --mw-accent-2: #b5742a;
+    --mw-nav-underline: rgba(22, 32, 26, 0.45);
+    --mw-media-bg: #eef2e6;
+    --mw-success: #2e7d46;
+    --mw-danger: #c0413f;
 }
 
 html.dark {
-    --mw-bg: #080a0f;
-    --mw-panel: rgba(255, 255, 255, 0.06);
-    --mw-text: #f3f4f6;
-    --mw-muted: #9ca3af;
-    --mw-line: rgba(255, 255, 255, 0.08);
-    --mw-accent: #7c8cff;
-    --mw-accent-2: #f6c56a;
-    --mw-nav-underline: rgba(255, 255, 255, 0.58);
-    --mw-media-bg: #0e1320;
-    --mw-success: #3fbf77;
+    --mw-bg: #0d120f;
+    --mw-panel: rgba(174, 224, 106, 0.05);
+    --mw-text: #e8ece7;
+    --mw-muted: #8b968c;
+    --mw-line: rgba(174, 224, 106, 0.12);
+    --mw-accent: #aee06a;
+    --mw-accent-2: #e0a45c;
+    --mw-nav-underline: rgba(232, 236, 231, 0.5);
+    --mw-media-bg: #131a14;
+    --mw-success: #aee06a;
     --mw-danger: #e06b6b;
 }
 
 html.dark body {
     background:
-        radial-gradient(circle at top right, rgba(124, 140, 255, 0.16), transparent 28%),
-        radial-gradient(circle at 15% 20%, rgba(246, 197, 106, 0.08), transparent 24%),
+        radial-gradient(circle at top right, rgba(174, 224, 106, 0.12), transparent 28%),
+        radial-gradient(circle at 15% 20%, rgba(224, 164, 92, 0.06), transparent 24%),
         var(--mw-bg);
     color: var(--mw-text);
 }
@@ -1310,7 +1310,7 @@ html.light body {
     height: 230px;
     border-radius: 8px;
     margin: 20px 0 20px;
-    border: 1px solid rgba(120, 140, 255, 0.08);
+    border: 1px solid rgba(174, 224, 106, 0.08);
     background: var(--mw-media-bg);
     overflow: hidden;
     position: relative;
@@ -1327,7 +1327,7 @@ html.light body {
 }
 
 .posts-card-blue .posts-card-strip {
-    border-color: rgba(124, 140, 255, 0.34);
+    border-color: rgba(174, 224, 106, 0.34);
 }
 
 .posts-card-gold .posts-card-strip {
@@ -1336,26 +1336,26 @@ html.light body {
 
 html.light .posts-card {
     background: rgba(255, 255, 255, 0.62);
-    border: 1px solid rgba(16, 24, 40, 0.09);
+    border: 1px solid rgba(22, 32, 26, 0.09);
     box-shadow: none;
 }
 
 html.light .posts-card-featured {
-    background: linear-gradient(135deg, rgba(90, 111, 232, 0.07), rgba(255, 255, 255, 0.58) 60%);
-    border: 1px solid rgba(16, 24, 40, 0.09);
+    background: linear-gradient(135deg, rgba(74, 122, 43, 0.07), rgba(255, 255, 255, 0.58) 60%);
+    border: 1px solid rgba(22, 32, 26, 0.09);
     transition: none;
 }
 
 html.light .posts-card-featured-media {
-    border-color: rgba(16, 24, 40, 0.1);
+    border-color: rgba(22, 32, 26, 0.1);
 }
 
 html.light .posts-card-strip {
-    border-color: rgba(16, 24, 40, 0.1);
+    border-color: rgba(22, 32, 26, 0.1);
 }
 
 html.light .posts-card-blue .posts-card-strip {
-    border-color: rgba(90, 111, 232, 0.34);
+    border-color: rgba(74, 122, 43, 0.34);
 }
 
 html.light .posts-card-gold .posts-card-strip {
@@ -1447,7 +1447,7 @@ html.light .posts-card-gold .posts-card-strip {
     }
 
     html.light .posts-grid > .posts-card-link + .posts-card-link {
-        border-top-color: rgba(16, 24, 40, 0.14);
+        border-top-color: rgba(22, 32, 26, 0.14);
     }
 }
 
@@ -1552,15 +1552,15 @@ html.light .post-page-sidebar {
 }
 
 html.light .post-page-sidebar-title {
-    color: rgba(16, 24, 40, 0.58);
+    color: rgba(22, 32, 26, 0.58);
 }
 
 html.light .post-page-sidebar-nav {
-    border-top-color: rgba(16, 24, 40, 0.14);
+    border-top-color: rgba(22, 32, 26, 0.14);
 }
 
 html.light .post-page-sidebar-link {
-    border-top-color: rgba(16, 24, 40, 0.14);
+    border-top-color: rgba(22, 32, 26, 0.14);
 }
 
 html.light .post-page-sidebar-link:hover {
@@ -1853,7 +1853,7 @@ html.light .comment-field textarea {
 .project-card-summary {
     position: relative;
     list-style: none;
-    padding: 34px 54px 24px 34px;
+    padding: 24px 54px 24px 34px;
     cursor: pointer;
 }
 
@@ -1903,7 +1903,7 @@ html.light .comment-field textarea {
     content: "+";
     position: absolute;
     right: 28px;
-    top: 30px;
+    top: 20px;
     display: grid;
     place-items: center;
     width: 28px;
@@ -1964,17 +1964,17 @@ html.light .comment-field textarea {
 
 html.light .project-card {
     background: rgba(255, 255, 255, 0.58);
-    border-color: rgba(16, 24, 40, 0.09);
+    border-color: rgba(22, 32, 26, 0.09);
 }
 
 html.light .project-card[open] {
     background: rgba(255, 255, 255, 0.78);
-    border-color: rgba(90, 111, 232, 0.24);
+    border-color: rgba(74, 122, 43, 0.24);
 }
 
 html.light .project-card-summary::after {
     background: rgba(248, 250, 251, 0.9);
-    border-color: rgba(16, 24, 40, 0.14);
+    border-color: rgba(22, 32, 26, 0.14);
 }
 
 @media (max-width: 980px) {
@@ -2069,6 +2069,6 @@ html.light .project-card-summary::after {
 
 @media (max-width: 740px) {
     html.light .project-card:not(.project-card-1) {
-        border-top-color: rgba(16, 24, 40, 0.14);
+        border-top-color: rgba(22, 32, 26, 0.14);
     }
 }
