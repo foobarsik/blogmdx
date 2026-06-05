@@ -4,7 +4,7 @@ date: 2026/06/04
 tags: [writing, ai, product-thinking]
 category: work
 cover: /images/writing-dataset/cover.png
-description: The model outputs what it was trained on, and my own brain training data for professional English posts over the last few years contains too much AI-generated content.
+description: The model outputs what it was trained on, and my own training data for professional English posts over the last few years contains too much AI-generated content.
 ---
 
 I can’t post anything on LinkedIn because everything I start writing ends up sounding like AI slop.
@@ -35,6 +35,6 @@ So right now I’m testing this pipeline:
 1. Write in my native language, keeping it close to how I actually speak.
 2. Get a <b>constrained</b> translation — close to the source, no polishing, no added confidence. This is my English baseline.
 3. Fix only the parts that sound too literal or unnatural in English, using local edits instead of rewriting the whole thing.
-4. Then diff my edited version against the baseline (English-to-English, source just as context) and flag only where I drifted: more formal, confident, corporate, amplified, optimistic, or smoother than I was.
+4. Then diff the edited version from step 3 against the baseline from step 2 and flag only where text drifted: more formal, confident, corporate, amplified, optimistic, or smoother than it was.
 5. I make the final calls.
 
