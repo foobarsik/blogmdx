@@ -2053,3 +2053,45 @@ html.light .project-card-summary::after {
         border-top-color: rgba(22, 32, 26, 0.14);
     }
 }
+
+/* ───────────── Blockquote — accent-bar card ───────────── */
+.x\:prose blockquote {
+    position: relative;
+    margin: 2rem 0;
+    padding: clamp(22px, 3vw, 30px) clamp(22px, 3vw, 32px);
+    padding-left: clamp(42px, 5vw, 56px);
+    border: 1px solid var(--mw-line);
+    border-radius: 12px;
+    background: color-mix(in srgb, var(--mw-accent) 7%, var(--mw-bg));
+    color: var(--mw-text);
+    font-style: normal;
+    font-weight: inherit;
+    line-height: 1.75;
+    quotes: none;
+}
+
+.x\:prose blockquote::before {
+    content: "";
+    position: absolute;
+    left: clamp(22px, 3vw, 30px);
+    top: clamp(22px, 3vw, 30px);
+    bottom: clamp(22px, 3vw, 30px);
+    width: 3px;
+    border-radius: 2px;
+    background: var(--mw-accent);
+}
+
+.x\:prose blockquote p {
+    margin: 0;
+    font-style: normal;
+    font-weight: inherit;
+}
+
+.x\:prose blockquote p + p {
+    margin-top: 0.6em;
+}
+
+.x\:prose blockquote p::before,
+.x\:prose blockquote p::after {
+    content: none;
+}
