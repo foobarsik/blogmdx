@@ -116,14 +116,17 @@ export default function RootLayout({children}) {
 
             <footer className="site-footer site-shell" data-pagefind-ignore="all">
                 <small className="site-footer-inner">
-                    <abbr
-                        title="This site and all its content are licensed under a Creative Commons Attribution-NonCommercial 4.0 International License."
-                        className="footer-abbr"
-                    >
-                    </abbr>{' '}
-                    {currentYear} © mehwow
+                    <span>
+                        © {currentYear} mehwow ·{' '}
+                        <abbr
+                            title="This site and all its content are licensed under a Creative Commons Attribution-NonCommercial 4.0 International License."
+                            className="footer-abbr"
+                        >
+                            CC BY-NC 4.0
+                        </abbr>
+                    </span>
                     <a href="https://www.linkedin.com/in/olga-panibratchenko" target="_blank" className="footer-link">
-                        Linkedin
+                        LinkedIn
                     </a>
                 </small>
             </footer>
