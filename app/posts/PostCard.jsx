@@ -1,4 +1,18 @@
-import Link from 'next/link';
+'use client';
+
+import {Link} from 'next-view-transitions';
+
+// Tag the clicked card's title so the view transition can morph it into the
+// article <h1>. Only one element per page may carry the name, hence the reset.
+function markTitleForTransition(event) {
+    document.querySelectorAll('.posts-card-title').forEach(el => {
+        el.style.viewTransitionName = '';
+    });
+    const title = event.currentTarget.querySelector('.posts-card-title');
+    if (title) {
+        title.style.viewTransitionName = 'post-title';
+    }
+}
 
 export default function PostCard({post, featured = false, tone = 'blue'}) {
     const {route, frontMatter} = post;
@@ -16,7 +30,7 @@ export default function PostCard({post, featured = false, tone = 'blue'}) {
 
     if (featured) {
         return (
-            <Link href={route} className={`${cardClass} posts-card-link`} aria-label={cardLabel}>
+            <Link href={route} className={`${cardClass} posts-card-link`} aria-label={cardLabel} onClick={markTitleForTransition}>
                 <div className={`posts-card-featured-layout${cover ? '' : ' posts-card-featured-layout-no-media'}`}>
                     <div className="posts-card-featured-copy">
                         <p className="posts-card-meta">
@@ -45,7 +59,7 @@ export default function PostCard({post, featured = false, tone = 'blue'}) {
     }
 
     return (
-        <Link href={route} className={`${cardClass} posts-card-link`} aria-label={cardLabel}>
+        <Link href={route} className={`${cardClass} posts-card-link`} aria-label={cardLabel} onClick={markTitleForTransition}>
             <p className="posts-card-meta">
                 <span>{tag}</span>
                 {formattedDate ? <span>{formattedDate}</span> : null}

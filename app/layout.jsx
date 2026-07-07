@@ -2,9 +2,10 @@ import {Layout} from 'nextra-theme-blog'
 import NavLinks from './components/NavLinks'
 import ThemeToggleText from './components/ThemeToggleText'
 import {Banner} from 'nextra/components'
+import {ViewTransitions} from 'next-view-transitions'
 import 'nextra-theme-blog/style.css'
 import '../styles/main.css'
-import Link from "next/link";
+import {Link} from "next-view-transitions";
 import {Analytics} from "@vercel/analytics/next";
 import {SpeedInsights} from '@vercel/speed-insights/next';
 import Script from 'next/script'
@@ -88,6 +89,7 @@ export default function RootLayout({children}) {
     ) : null
 
     return (
+        <ViewTransitions>
         <html lang="en" className={`${jetbrainsMono.variable} ${spaceGrotesk.variable}`} suppressHydrationWarning>
         <head suppressHydrationWarning>
             <Script id="theme-init" strategy="beforeInteractive">
@@ -127,5 +129,6 @@ export default function RootLayout({children}) {
         <SpeedInsights/>
         </body>
         </html>
+        </ViewTransitions>
     )
 }

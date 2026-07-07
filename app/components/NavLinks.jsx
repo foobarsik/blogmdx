@@ -1,6 +1,6 @@
 "use client";
 import {usePathname} from "next/navigation";
-import Link from "next/link";
+import {Link} from "next-view-transitions";
 
 const links = [
     {href: "/posts", label: "Posts"},

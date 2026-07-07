@@ -2084,3 +2084,56 @@ html.light .project-card-summary::after {
 .x\:prose blockquote p::after {
     content: none;
 }
+
+/* ── View transitions ──────────────────────────────────────────
+   Cross-page morph: the clicked card title (tagged at click time
+   in PostCard.jsx) shares `post-title` with the article h1, so the
+   browser animates one into the other. Everything else cross-fades. */
+
+.post-page-shell-main > h1:first-of-type,
+.post-page-shell-main article > h1:first-of-type {
+    view-transition-name: post-title;
+}
+
+@keyframes mw-vt-fade-out {
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes mw-vt-fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    ::view-transition-old(root) {
+        animation: mw-vt-fade-out 200ms ease both;
+    }
+
+    ::view-transition-new(root) {
+        animation: mw-vt-fade-in 320ms cubic-bezier(0.22, 0.61, 0.36, 1) both;
+    }
+
+    ::view-transition-group(post-title) {
+        animation-duration: 340ms;
+        animation-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1);
+    }
+
+    /* Scale title snapshots proportionally so text doesn't smear
+       while the group resizes between card and article sizes. */
+    ::view-transition-old(post-title),
+    ::view-transition-new(post-title) {
+        height: 100%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    ::view-transition-group(*),
+    ::view-transition-old(*),
+    ::view-transition-new(*) {
+        animation: none !important;
+    }
+}

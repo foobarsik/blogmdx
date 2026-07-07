@@ -6,7 +6,7 @@ import { getPosts } from '../posts/utils/get-posts'
 import CommentsSection from '../components/comments/CommentsSection'
 import { isCommentsEnabled } from '../../lib/comments'
 import ArticleAnalytics from '../components/ArticleAnalytics'
-import Link from 'next/link'
+import { Link } from 'next-view-transitions'
 import { SITE_DESCRIPTION, buildSeoMetadata } from '../../lib/seo'
 
 const generateStaticParamsBase = generateStaticParamsFor('mdxPath')
