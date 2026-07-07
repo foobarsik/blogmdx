@@ -14,6 +14,14 @@ function markTitleForTransition(event) {
     }
 }
 
+// Feed cursor position to the CSS spotlight gradient (see .posts-card::after).
+function trackSpotlight(event) {
+    const card = event.currentTarget;
+    const rect = card.getBoundingClientRect();
+    card.style.setProperty('--mw-spot-x', `${event.clientX - rect.left}px`);
+    card.style.setProperty('--mw-spot-y', `${event.clientY - rect.top}px`);
+}
+
 export default function PostCard({post, featured = false, tone = 'blue'}) {
     const {route, frontMatter} = post;
     const {title, description, cover, tags, date} = frontMatter || {};
@@ -30,7 +38,7 @@ export default function PostCard({post, featured = false, tone = 'blue'}) {
 
     if (featured) {
         return (
-            <Link href={route} className={`${cardClass} posts-card-link`} aria-label={cardLabel} onClick={markTitleForTransition}>
+            <Link href={route} className={`${cardClass} posts-card-link`} aria-label={cardLabel} onClick={markTitleForTransition} onMouseMove={trackSpotlight}>
                 <div className={`posts-card-featured-layout${cover ? '' : ' posts-card-featured-layout-no-media'}`}>
                     <div className="posts-card-featured-copy">
                         <p className="posts-card-meta">
@@ -59,7 +67,7 @@ export default function PostCard({post, featured = false, tone = 'blue'}) {
     }
 
     return (
-        <Link href={route} className={`${cardClass} posts-card-link`} aria-label={cardLabel} onClick={markTitleForTransition}>
+        <Link href={route} className={`${cardClass} posts-card-link`} aria-label={cardLabel} onClick={markTitleForTransition} onMouseMove={trackSpotlight}>
             <p className="posts-card-meta">
                 <span>{tag}</span>
                 {formattedDate ? <span>{formattedDate}</span> : null}

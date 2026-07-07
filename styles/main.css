@@ -2137,3 +2137,30 @@ html.light .project-card-summary::after {
         animation: none !important;
     }
 }
+
+/* ── Card spotlight ────────────────────────────────────────────
+   Warm brass glow that follows the cursor across a card. Position
+   comes from --mw-spot-x/y, set per-card in PostCard.jsx. Sits
+   above the card background but under content (.posts-card > *
+   carries z-index: 1). Pointer-only devices; touch is untouched. */
+
+@media (hover: hover) and (pointer: fine) {
+    .posts-card::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 260ms ease;
+        background: radial-gradient(
+            380px circle at var(--mw-spot-x, 50%) var(--mw-spot-y, 50%),
+            color-mix(in srgb, var(--mw-accent) 12%, transparent),
+            transparent 70%
+        );
+    }
+
+    .posts-card:hover::after {
+        opacity: 1;
+    }
+}
