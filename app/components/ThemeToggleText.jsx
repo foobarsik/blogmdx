@@ -50,12 +50,61 @@ export default function ThemeToggleText() {
         applyTheme(currentTheme);
     }, [resolvedTheme]);
 
-    const toggleTheme = () => {
+    const toggleTheme = (event) => {
         const nextTheme = themeName === "dark" ? "light" : "dark";
 
-        setThemeName(nextTheme);
-        applyTheme(nextTheme);
-        setTheme(nextTheme);
+        const apply = () => {
+            setThemeName(nextTheme);
+            applyTheme(nextTheme);
+            setTheme(nextTheme);
+        };
+
+        const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+        if (!document.startViewTransition || reduceMotion) {
+            apply();
+            return;
+        }
+
+        // Circular wipe: the new theme expands from the click point.
+        // data-theme-wipe suppresses the page-navigation fade so the
+        // clip-path animation below is the only thing running.
+        const { clientX: x, clientY: y } = event;
+        const maxRadius = Math.hypot(
+            Math.max(x, window.innerWidth - x),
+            Math.max(y, window.innerHeight - y)
+        );
+
+        const root = document.documentElement;
+        root.setAttribute("data-theme-wipe", "");
+
+        const transition = document.startViewTransition(apply);
+
+        transition.ready
+            .then(() => {
+                root.animate(
+                    {
+                        clipPath: [
+                            `circle(0px at ${x}px ${y}px)`,
+                            `circle(${maxRadius}px at ${x}px ${y}px)`
+                        ]
+                    },
+                    {
+                        duration: 450,
+                        easing: "ease-in-out",
+                        pseudoElement: "::view-transition-new(root)"
+                    }
+                );
+            })
+            // The browser skips the transition in hidden tabs; the theme
+            // has still been applied, so just swallow the rejection.
+            .catch(() => {});
+
+        transition.finished
+            .finally(() => {
+                root.removeAttribute("data-theme-wipe");
+            })
+            .catch(() => {});
     };
 
     const isDark = themeName === "dark";

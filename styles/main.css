@@ -2164,3 +2164,23 @@ html.light .project-card-summary::after {
         opacity: 1;
     }
 }
+
+/* ── Theme wipe ────────────────────────────────────────────────
+   While the theme toggle runs its circular view transition
+   (data-theme-wipe set in ThemeToggleText.jsx), keep both root
+   snapshots static and stacked so the clip-path circle on the new
+   snapshot is the only motion. */
+
+[data-theme-wipe]::view-transition-old(root),
+[data-theme-wipe]::view-transition-new(root) {
+    animation: none;
+    mix-blend-mode: normal;
+}
+
+[data-theme-wipe]::view-transition-old(root) {
+    z-index: 1;
+}
+
+[data-theme-wipe]::view-transition-new(root) {
+    z-index: 2;
+}
