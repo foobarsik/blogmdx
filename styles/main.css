@@ -789,6 +789,24 @@ html.light body {
     color: var(--mw-text);
 }
 
+/* Brand microinteraction: hovering the wordmark dims "meh" and
+   lights "wow" up in brass. */
+.site-logo-meh,
+.site-logo-wow {
+    transition: color 260ms ease, opacity 260ms ease, text-shadow 260ms ease;
+}
+
+.site-logo-link:hover .site-logo-meh,
+.site-logo-link:focus-visible .site-logo-meh {
+    opacity: 0.35;
+}
+
+.site-logo-link:hover .site-logo-wow,
+.site-logo-link:focus-visible .site-logo-wow {
+    color: var(--mw-accent);
+    text-shadow: 0 0 16px color-mix(in srgb, var(--mw-accent) 45%, transparent);
+}
+
 .nav-container {
     display: flex;
     align-items: center;
