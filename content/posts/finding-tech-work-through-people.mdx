@@ -19,10 +19,44 @@ Use the through-people approach when:
 - **You want the right role**, not the first one — especially early-career or niche.
 - **You're improving your current position** — mass-applying is acceptable only when you already have a job and are testing the market or practicing interviews. It's slow.
 
+| Your situation | Best channel | Why |
+|---|---|---|
+| Need work fast | Through people | Contacts skip the queue |
+| Want the right role, not the first | Through people | Especially early-career or niche |
+| Improving from a stable job | Mass-applying is OK | Only to test the market or practice interviews — it's slow |
+
 Why mass-applying fails:
 
 - The candidate pool is large and uneven; AI-generated resumes have made it worse.
 - Companies filter with ATS parsers, spam filters, and outsourced screeners. These make mistakes — a strong candidate can be filtered out roughly half the time, and a recruiter may never see the resume at all.
+
+<figure className="not-prose" style={{textAlign:'center'}}>
+<svg viewBox="0 0 360 292" width="360" height="292" style={{maxWidth:'100%',height:'auto'}} role="img" aria-label="Funnel: a mass-applied resume shrinks at each filter — ATS parsing, spam filters, screeners, ~50% cut — before a recruiter ever reads it and reaches an interview">
+  <g fill="none" stroke="currentColor" strokeWidth="1.5">
+    <rect x="30" y="8" width="300" height="32" rx="8"/>
+    <rect x="50" y="52" width="260" height="32" rx="8"/>
+    <rect x="70" y="96" width="220" height="32" rx="8"/>
+    <rect x="90" y="140" width="180" height="32" rx="8"/>
+    <rect x="105" y="184" width="150" height="32" rx="8"/>
+    <rect x="125" y="228" width="110" height="32" rx="8"/>
+  </g>
+  <g stroke="currentColor" strokeWidth="1.5">
+    <line x1="180" y1="40" x2="180" y2="52"/>
+    <line x1="180" y1="84" x2="180" y2="96"/>
+    <line x1="180" y1="128" x2="180" y2="140"/>
+    <line x1="180" y1="172" x2="180" y2="184"/>
+    <line x1="180" y1="216" x2="180" y2="228"/>
+  </g>
+  <g fill="currentColor" fontSize="12.5" textAnchor="middle" fontFamily="inherit">
+    <text x="180" y="28">Resumes mass-applied</text>
+    <text x="180" y="72">ATS parses ~80%</text>
+    <text x="180" y="116">Spam + screeners</text>
+    <text x="180" y="160">~50% filtered out</text>
+    <text x="180" y="204">Recruiter reads it</text>
+    <text x="180" y="248">Interview</text>
+  </g>
+</svg>
+</figure>
 
 ### When to look
 
@@ -76,11 +110,50 @@ Location drives hiring through taxes and jurisdiction, not just time zones.
 - **Low-tax jurisdictions can be an automatic barrier** — companies hiring from them face extra tax and legal load, which makes hiring harder.
 - **"Remote" is often geographically bounded** — frequently US-only or Europe-only for tax and labor reasons, and you may not learn the boundary until you're rejected. LinkedIn is weak for remote search; niche channels that post remote roles work better. Companies with a legal entity or an employer-of-record (e.g. Deel) in your location can hire you there.
 
+A rough priority order for European relocation targets, by market activity:
+
+<figure className="not-prose" style={{textAlign:'center'}}>
+<svg viewBox="0 0 520 150" width="520" height="150" style={{maxWidth:'100%',height:'auto'}} role="img" aria-label="Priority order of European relocation targets by market activity: London, then Germany, then the Netherlands, then the rest of the EU. Separately, the US pays more but the H-1B visa is a lottery.">
+  <g fill="none" stroke="currentColor" strokeWidth="1.5">
+    <rect x="22" y="18" width="104" height="36" rx="8"/>
+    <rect x="146" y="18" width="104" height="36" rx="8"/>
+    <rect x="270" y="18" width="104" height="36" rx="8"/>
+    <rect x="394" y="18" width="104" height="36" rx="8"/>
+  </g>
+  <g stroke="currentColor" strokeWidth="1.5" markerEnd="url(#arrow)">
+    <line x1="126" y1="36" x2="146" y2="36"/>
+    <line x1="250" y1="36" x2="270" y2="36"/>
+    <line x1="374" y1="36" x2="394" y2="36"/>
+  </g>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="currentColor"/>
+    </marker>
+  </defs>
+  <g fill="currentColor" fontSize="11.5" textAnchor="middle" fontFamily="inherit">
+    <text x="74" y="40">1 · London</text>
+    <text x="198" y="40">2 · Germany</text>
+    <text x="322" y="40">3 · Netherlands</text>
+    <text x="446" y="40">4 · Rest of EU</text>
+  </g>
+  <line x1="22" y1="82" x2="498" y2="82" stroke="currentColor" strokeWidth="1" strokeDasharray="4 4" opacity="0.4"/>
+  <text x="22" y="104" fill="currentColor" fontSize="10.5" fontStyle="italic" opacity="0.7" fontFamily="inherit">Separate track</text>
+  <rect x="22" y="112" width="330" height="30" rx="8" fill="none" stroke="currentColor" strokeWidth="1.5" strokeDasharray="5 4"/>
+  <text x="187" y="131" fill="currentColor" fontSize="11.5" textAnchor="middle" fontFamily="inherit">US · pays more, but the H-1B visa is a lottery</text>
+</svg>
+</figure>
+
 ### Describing achievements
 
 Achievements should be concrete, with numbers, tied to a metric — not a money amount.
 
-- "Increased year-over-year revenue ~5%" or "Raised DAU ~30%, measured via the observability stack."
+| ❌ Vague | ✅ Concrete — action + metric + how measured |
+|---|---|
+| "Wrote code and shipped features" | "Shipped a feature that raised sales ~10% via UX, measured in analytics" |
+| "Increased sales" | "Increased year-over-year revenue ~5%" |
+| "Improved engagement" | "Raised DAU ~30%, measured via the observability stack" |
+| Exact figure under NDA | "Grew users by tens of thousands" — a range, no trade secret |
+
 - If you lack exact data, use orders of magnitude or percentages ("increased the metric by tens of percent").
 - For senior/manager work, add scale and timeline: "Launched from scratch, hired a team of 5, grew to 20 in six months, built delivery processes, which moved metric X by Y%."
 
@@ -91,6 +164,38 @@ Achievements should be concrete, with numbers, tied to a metric — not a money 
 Industry is rarely a red flag on its own — the barrier is usually location and its tax implications, not the sector. Some sectors are even a plus: adult and gaming companies (Pornhub, for example) run serious engineering for content delivery, retention, and scale, and that experience is valued when recruiters understand the domain.
 
 ### Reaching people
+
+<figure className="not-prose" style={{textAlign:'center'}}>
+<svg viewBox="0 0 520 250" width="520" height="250" style={{maxWidth:'100%',height:'auto'}} role="img" aria-label="Decision tree: if you can attend meetups or conferences, ask for a referral or an intro to the hiring manager, then meet over coffee or Zoom. If not, do cold outreach on LinkedIn and message team developers, not recruiters.">
+  <g fill="none" stroke="currentColor" strokeWidth="1.5">
+    <rect x="140" y="10" width="240" height="44" rx="8"/>
+    <rect x="30" y="104" width="200" height="40" rx="8"/>
+    <rect x="290" y="104" width="200" height="40" rx="8"/>
+    <rect x="30" y="182" width="200" height="48" rx="8"/>
+    <rect x="290" y="182" width="200" height="48" rx="8"/>
+  </g>
+  <g stroke="currentColor" strokeWidth="1.5" fill="none">
+    <path d="M240 54 L130 104"/>
+    <path d="M280 54 L390 104"/>
+    <line x1="130" y1="144" x2="130" y2="182"/>
+    <line x1="390" y1="144" x2="390" y2="182"/>
+  </g>
+  <g fill="currentColor" fontSize="12.5" textAnchor="middle" fontFamily="inherit">
+    <text x="260" y="30">Can you attend</text>
+    <text x="260" y="46">meetups / conferences?</text>
+    <text x="130" y="128">Referral or intro</text>
+    <text x="390" y="128">Cold outreach on LinkedIn</text>
+    <text x="130" y="202">Meet the hiring</text>
+    <text x="130" y="218">manager (coffee / Zoom)</text>
+    <text x="390" y="202">Message team devs —</text>
+    <text x="390" y="218">not recruiters</text>
+  </g>
+  <g fill="currentColor" fontSize="11" fontStyle="italic" textAnchor="middle" opacity="0.75">
+    <text x="170" y="84">yes</text>
+    <text x="350" y="84">no</text>
+  </g>
+</svg>
+</figure>
 
 **Referrals** are the primary channel. Many companies run referral programs that pay employees a bonus (commonly ~$1,000–1,500 for a mid-level hire retained past six months), so employees are motivated to refer. Some companies route referrals through intermediary staffing firms to cut hiring costs — the more people employed through such a firm, the lower the company's overhead.
 
@@ -109,6 +214,12 @@ The flip side of high volume is fraud. Interview proxying — where one person s
 - Independent agency recruiters handle less prestigious roles but are a good source for interview practice and company introductions. Good agency recruiters know the stacks (e.g. that TypeScript candidates can apply to JavaScript roles). A recruiter contact often means a technical interview or a light screen next.
 - Headhunters source narrow specialists against specific requirements, earn large fees, and only forward candidates they rate — so being put forward means high odds, short of failing the interview.
 - Get to know independent recruiters, stay on their radar; they're a steady source of live contacts.
+
+| | Agency / independent recruiter | Headhunter |
+|---|---|---|
+| Sources for | Any fitting candidate, broad roles | Narrow specialists vs strict criteria |
+| Fees | Standard | Large |
+| Best for you | Interview practice, company intros | High odds — they only forward who they rate |
 
 Work the relationship: recruiters' KPIs are often tied to a hire staying six months to two years, so they want you to pass. After a screen, ask for feedback and what to prepare next. After an interview, follow up with your strengths ("showed experience with high-performance React components") — at high candidate volume, this reminds them what to relay to the manager.
 
@@ -154,6 +265,11 @@ Planning a career:
 - **Plan two steps ahead**, not one. Optimizing only for the next salary risks a local maximum with no deep expertise, which stalls when the market shifts. If the end goal (e.g. big-tech) is out of reach now, find an intermediate product company for 2–3 years. This also gives a real answer to "where do you see yourself in five years." On interviews, probe the growth path directly ("Could I become the Go expert here?") and read the interviewers' reaction — it tells you whether that future is realistic.
 
 **Specialization vs generalization:** over 5–10 years, specialization grows career and pay faster. Long term, generalists transfer better across contexts — seven years of only one language makes switching hard. Broaden responsibility over time.
+
+| Horizon | Winner | Why |
+|---|---|---|
+| Short (5–10 years) | Specialist | Faster career and pay growth; easier to get hired |
+| Long term | Generalist | Skills transfer across contexts; less lock-in when tech ages out |
 
 At senior+ a fork appears: technical depth (DB tuning, sharding, large data) or business problems (cloud choice, analytics). They're hard to combine — you can't credibly position as an expert in both. Technical specialists are sold through conferences and reputation; business solvers through consultants, headhunters, and business events. Avoid betting the whole brand on a single framework that can age out; bet on engineering or business depth instead.
 
