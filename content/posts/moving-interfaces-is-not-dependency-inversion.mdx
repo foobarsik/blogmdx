@@ -1,0 +1,273 @@
+---
+title: I mistook moving interfaces for dependency inversion
+date: 2026/08/04
+tags: [architecture, typescript]
+category: work
+description: >-
+  Dependency inversion isn't scored by how many interfaces a repo contains. YAGNI isn't
+  permission to pile every responsibility into one module either. The question that settles
+  it for me is narrower: what change or test gets cheaper because this boundary exists?
+cover: /images/ports/cover.jpg
+---
+
+I was refactoring the backend of a public transport app. One Edge Function had to merge scheduled departures with a realtime feed from an external transport API.
+
+The flow is short: serve the cache if it's fresh, call the transport API if it isn't, and fall back to the published schedule when there's no key or the call fails.
+
+<figure className="not-prose" style={{textAlign:'center'}}>
+<svg viewBox="0 0 510 268" width="510" height="268" style={{maxWidth:'100%',height:'auto'}} role="img" aria-label="Request flow: a departures request checks the cache; a hit serves the cached feed; a miss checks whether the API key is configured; if not, schedule-only data is returned; if it is, the transport API is called, and an error also falls back to schedule-only data, while success updates the cache and returns live departures.">
+  <g fill="none" stroke="currentColor" strokeWidth="1.5">
+    <rect x="30" y="8" width="220" height="32" rx="8"/>
+    <rect x="30" y="60" width="220" height="32" rx="8"/>
+    <rect x="30" y="112" width="220" height="32" rx="8"/>
+    <rect x="30" y="164" width="220" height="32" rx="8"/>
+    <rect x="30" y="216" width="220" height="32" rx="8"/>
+    <rect x="320" y="60" width="170" height="32" rx="8"/>
+    <rect x="320" y="112" width="170" height="32" rx="8"/>
+    <rect x="320" y="216" width="170" height="32" rx="8"/>
+  </g>
+  <g stroke="currentColor" strokeWidth="1.5">
+    <line x1="140" y1="40" x2="140" y2="60"/>
+    <line x1="140" y1="92" x2="140" y2="112"/>
+    <line x1="140" y1="144" x2="140" y2="164"/>
+    <line x1="140" y1="196" x2="140" y2="216"/>
+    <line x1="250" y1="76" x2="320" y2="76"/>
+    <line x1="250" y1="128" x2="320" y2="128"/>
+    <line x1="250" y1="232" x2="320" y2="232"/>
+    <polyline fill="none" points="250,180 360,180 360,144"/>
+  </g>
+  <g fill="currentColor" fontSize="12.5" textAnchor="middle" fontFamily="inherit">
+    <text x="140" y="28">Departures request</text>
+    <text x="140" y="80">Fresh cache entry?</text>
+    <text x="140" y="132">API key configured?</text>
+    <text x="140" y="184">Fetch transport API</text>
+    <text x="140" y="236">Update cache</text>
+    <text x="405" y="80">Serve cached feed</text>
+    <text x="405" y="132">Schedule-only data</text>
+    <text x="405" y="236">Live departures</text>
+  </g>
+  <g fill="currentColor" fontSize="11" fontFamily="inherit" opacity="0.75">
+    <text x="285" y="71" textAnchor="middle">hit</text>
+    <text x="285" y="123" textAnchor="middle">no key</text>
+    <text x="146" y="106">miss</text>
+    <text x="146" y="158">yes</text>
+    <text x="146" y="210">ok</text>
+    <text x="258" y="174">error</text>
+  </g>
+</svg>
+</figure>
+
+The code worked. What I actually spent time on was a different question: which module gets to own the contracts this flow depends on?
+
+### The dependency pointed the wrong way
+
+The policy imported its types straight from the concrete infrastructure modules:
+
+```ts
+import type { NtaRealtimeClient } from './ntaRealtimeClient';
+import type { RealtimeCacheRepository } from './realtimeCacheRepository';
+
+export const loadRealtimeFeed = async (
+    cache: RealtimeCacheRepository,
+    provider: NtaRealtimeClient,
+    apiKey: string | undefined
+) => {
+    // cache -> upstream -> schedule-only fallback
+};
+```
+
+Nothing breaks at runtime here. Both are type-only imports and they vanish from the compiled JavaScript. The problem is who owns what: the adapters own the contract, and the policy borrows it.
+
+It shows up when you replace something. Say I swap the Supabase cache for Redis. The Redis implementation still has to import its interface from a file named after the Supabase repository. Delete or reorganise that old adapter and the policy breaks, even though what the policy needs hasn't changed at all.
+
+<figure className="not-prose" style={{textAlign:'center'}}>
+<svg viewBox="0 0 520 210" width="520" height="210" style={{maxWidth:'100%',height:'auto'}} role="img" aria-label="Before: the application policy depends on the Supabase cache adapter and the NTA HTTP client. After: both adapters and the policy depend on the RealtimeCache and RealtimeProvider contracts instead.">
+  <g fill="none" stroke="currentColor" strokeWidth="1.5">
+    <rect x="14" y="40" width="200" height="34" rx="8"/>
+    <rect x="14" y="140" width="94" height="34" rx="8"/>
+    <rect x="120" y="140" width="94" height="34" rx="8"/>
+    <rect x="306" y="32" width="200" height="46" rx="8"/>
+    <rect x="306" y="140" width="94" height="34" rx="8"/>
+    <rect x="412" y="140" width="94" height="34" rx="8"/>
+  </g>
+  <g stroke="currentColor" strokeWidth="1.5">
+    <line x1="80" y1="74" x2="61" y2="140"/>
+    <line x1="150" y1="74" x2="167" y2="140"/>
+    <line x1="353" y1="140" x2="380" y2="78"/>
+    <line x1="459" y1="140" x2="432" y2="78"/>
+  </g>
+  <g fill="currentColor" fontSize="12.5" textAnchor="middle" fontFamily="inherit">
+    <text x="114" y="24">Before</text>
+    <text x="114" y="62">loadRealtimeFeed</text>
+    <text x="61" y="161">Supabase</text>
+    <text x="167" y="161">NTA client</text>
+    <text x="406" y="24">After</text>
+    <text x="406" y="52">RealtimeCache</text>
+    <text x="406" y="69">RealtimeProvider</text>
+    <text x="353" y="161">Supabase</text>
+    <text x="459" y="161">NTA client</text>
+  </g>
+  <g fill="currentColor" fontSize="11.5" textAnchor="middle" fontFamily="inherit" opacity="0.75">
+    <text x="114" y="196">policy depends on details</text>
+    <text x="406" y="196">details depend on the contract</text>
+  </g>
+</svg>
+</figure>
+
+### What the port looks like
+
+A port says what the application needs, not how it's done:
+
+```ts
+export type RealtimeCache = {
+    read: () => Promise<CachedRealtimeFeed | null>;
+    write: (payload: RealtimePayload) => Promise<void>;
+};
+
+export type RealtimeProvider = {
+    fetch: (apiKey: string) => Promise<RealtimeFetchResult>;
+};
+```
+
+The Supabase repository and the HTTP client become adapters. Their job is translation — a database row into `CachedRealtimeFeed`, an HTTP response into `RealtimeFetchResult`:
+
+```ts
+export const createSupabaseRealtimeCache = (database: DatabaseClient): RealtimeCache => ({
+    read: async () => { /* row -> CachedRealtimeFeed */ },
+    write: async (payload) => { /* payload -> database write */ },
+});
+
+export const createNtaRealtimeClient = (request: typeof fetch = fetch): RealtimeProvider => ({
+    fetch: async (apiKey) => { /* HTTP response -> RealtimeFetchResult */ },
+});
+```
+
+The composition root is then the only place that knows about both sides. It builds the adapters and hands them to the policy.
+
+No inheritance needed. A class can write `implements`, but a plain object out of a factory satisfies the type just as well, because TypeScript checks structure rather than declarations.
+
+### Testability came from injection, not the port file
+
+"We might move to Redis someday" is a weak reason to add an abstraction. Someday may not come, and if it does, the interface I designed today probably won't fit what I need then.
+
+The policy was already testable before I touched anything, because its dependencies were injected:
+
+```ts
+const cache: RealtimeCache = {
+    read: async () => null,
+    write: async () => undefined,
+};
+
+const provider: RealtimeProvider = {
+    fetch: async () => ({ ok: false, status: 429 }),
+};
+
+const result = await loadRealtimeFeed(cache, provider, 'test-key');
+
+expect(result.realtimeReason).toBe('upstream_rate_limited');
+```
+
+That test is about behaviour: what the function decides when upstream rate-limits us. It says nothing about `fetch`, Supabase query syntax, or deployment config.
+
+Moving the interfaces didn't unlock it. Thanks to structural typing, those two fakes satisfy the parameter types either way — whether the parameters are named after the Supabase repository or after a port. The decisions that made the test possible had already been made: keep the contracts small and inject the dependencies. My refactor only changed who owned the contracts.
+
+### Where I went too far
+
+Having extracted the interfaces, I moved every contract into its own `realtimeSource.ts`. The graph came out clean and symmetrical with the rest of the backend, and I felt good about it for roughly a day.
+
+Symmetry isn't a requirement, though. It was one more file to open and keep in sync. And the two ports had exactly one consumer — the policy — plus the adapters that implement them and the test that fakes them. They could have lived next to it:
+
+```ts
+// realtimeFeed.ts
+
+export type RealtimeCache = {
+    read: () => Promise<CachedRealtimeFeed | null>;
+    write: (payload: RealtimePayload) => Promise<void>;
+};
+
+export type RealtimeProvider = {
+    fetch: (apiKey: string) => Promise<RealtimeFetchResult>;
+};
+
+export const loadRealtimeFeed = async (
+    cache: RealtimeCache,
+    provider: RealtimeProvider,
+    apiKey: string | undefined
+) => {
+    // application policy
+};
+```
+
+The adapters would import those types from the high-level module. The dependency still points inward, the tests stay the same, and the project has one file less.
+
+I haven't done it. `realtimeSource.ts` is still there, because it holds more than the two ports: `RealtimeFeedResult` and `RealtimeFeedDiagnostic` live in it too, and the service layer above reads both. That part is a contract with several consumers, and it earns a module of its own — the neighbouring `scheduleSource.ts` and `serviceCalendarSource.ts` are the same shape.
+
+So the thing I'd change is narrower than deleting a file. The two contracts belong beside the policy that uses them. The result types belong in a module the whole feature can import. One file was doing both jobs, and only one of them needed doing.
+
+### How I decide now
+
+<figure className="not-prose" style={{textAlign:'center'}}>
+<svg viewBox="0 0 510 320" width="510" height="320" style={{maxWidth:'100%',height:'auto'}} role="img" aria-label="Decision flow for adding a port: if there is no policy to isolate from I/O, use the dependency directly; if there is no reason today, wait for the requirement; otherwise define the smallest useful contract, then give it its own module only if it is shared or meaningful on its own, and keep it beside the policy if it is not.">
+  <g fill="none" stroke="currentColor" strokeWidth="1.5">
+    <rect x="30" y="8" width="230" height="32" rx="8"/>
+    <rect x="30" y="60" width="230" height="32" rx="8"/>
+    <rect x="30" y="112" width="230" height="32" rx="8"/>
+    <rect x="30" y="164" width="230" height="32" rx="8"/>
+    <rect x="30" y="216" width="230" height="32" rx="8"/>
+    <rect x="30" y="272" width="230" height="32" rx="8"/>
+    <rect x="330" y="60" width="160" height="32" rx="8"/>
+    <rect x="330" y="112" width="160" height="32" rx="8"/>
+    <rect x="330" y="216" width="160" height="32" rx="8"/>
+  </g>
+  <g stroke="currentColor" strokeWidth="1.5">
+    <line x1="145" y1="40" x2="145" y2="60"/>
+    <line x1="145" y1="92" x2="145" y2="112"/>
+    <line x1="145" y1="144" x2="145" y2="164"/>
+    <line x1="145" y1="196" x2="145" y2="216"/>
+    <line x1="145" y1="248" x2="145" y2="272"/>
+    <line x1="260" y1="76" x2="330" y2="76"/>
+    <line x1="260" y1="128" x2="330" y2="128"/>
+    <line x1="260" y1="232" x2="330" y2="232"/>
+  </g>
+  <g fill="currentColor" fontSize="12.5" textAnchor="middle" fontFamily="inherit">
+    <text x="145" y="28">Thinking about a port</text>
+    <text x="145" y="80">Policy to isolate from I/O?</text>
+    <text x="145" y="132">A reason today?</text>
+    <text x="145" y="184">Smallest useful contract</text>
+    <text x="145" y="236">Shared or meaningful alone?</text>
+    <text x="145" y="292">Keep it beside the policy</text>
+    <text x="410" y="80">Use it directly</text>
+    <text x="410" y="132">Wait for the need</text>
+    <text x="410" y="236">Its own module</text>
+  </g>
+  <g fill="currentColor" fontSize="11" fontFamily="inherit" opacity="0.75">
+    <text x="295" y="71" textAnchor="middle">no</text>
+    <text x="295" y="123" textAnchor="middle">no</text>
+    <text x="295" y="227" textAnchor="middle">yes</text>
+    <text x="151" y="106">yes</text>
+    <text x="151" y="158">yes</text>
+    <text x="151" y="266">no</text>
+  </g>
+</svg>
+</figure>
+
+I add a port when at least one of these is true today:
+
+- **There's real policy to isolate** from I/O — branching, fallbacks, decisions worth testing on their own.
+- **A second adapter already exists**, or a test double counts as one.
+- **The dependency is volatile or untrusted** — a third-party API that changes under me.
+- **Several scenarios share the same stable contract.**
+- **Infrastructure types are leaking into business decisions** — a database error shape deciding what the user sees.
+
+I skip it when:
+
+- The code is a one-line wrapper with no decisions in it.
+- There's one stable implementation and no test that needs a substitute.
+- The interface just copies every method of a third-party SDK, which buys nothing.
+- The only argument is a hypothetical future provider.
+
+### What I take from it
+
+Dependency inversion isn't scored by how many interfaces a repo contains. YAGNI isn't permission to pile every responsibility into one module either. The question that settles it for me is narrower: what change or test gets cheaper because this boundary exists?
+
+Here the answer was small and specific. Injecting the cache and the provider is what keeps the fallback policy testable, and small contracts are what keep the injection honest. A dedicated file to own those contracts changed nothing I could name — and a plugin system for cache providers I don't have would have changed even less.
